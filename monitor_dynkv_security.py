@@ -12,6 +12,7 @@ TARGET_ENDPOINTS = [
     'https://dynkv.com/',
     'https://dynkv.com/demos/01_WCSSTP_Cognitive_Turing_Demo.html',
     'https://dynkv.com/demos/02_VeryFix_V8_Biometric_Consensus_Demo.html',
+    'https://dynkv.com/legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026.html',
     'https://dynkv.com/legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026_BG.html'
 ]
 
