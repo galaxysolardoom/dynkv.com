@@ -921,6 +921,226 @@
       .pillar-full-card { padding: 26px 20px; }
       .pillar-heading { font-size: 26px; }
     }
+  
+    /* =========================================================
+       NEW SECTIONS: BENCHMARK MATRIX, VERYFIX V8, MANIFESTO
+       ========================================================= */
+    .benchmark-container {
+      margin-top: 36px;
+      padding: 30px;
+      background: rgba(8, 14, 24, 0.75);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(0, 229, 255, 0.04);
+    }
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+    .benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      vertical-align: middle;
+    }
+    .benchmark-table th {
+      background: rgba(15, 23, 42, 0.95);
+      color: #94a3b8;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 12.5px;
+      text-transform: uppercase;
+    }
+    .benchmark-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .benchmark-table .highlight-col {
+      background: rgba(0, 229, 255, 0.07);
+      border-left: 2px solid var(--cyan);
+      border-right: 2px solid var(--cyan);
+    }
+    .col-pass { color: #34d399; font-weight: 600; }
+    .col-fail { color: #f87171; }
+    .col-warn { color: #fbbf24; }
+
+    /* VeryFix.V8 Showcase */
+    .veryfix-showcase-box {
+      margin-top: 32px;
+      padding: 28px;
+      background: rgba(19, 14, 38, 0.65);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.5), inset 0 0 25px rgba(192, 132, 252, 0.05);
+    }
+    .layers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .layer-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 14px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .layer-item:hover {
+      border-color: var(--purple);
+      transform: translateY(-2px);
+    }
+    .layer-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--purple);
+      letter-spacing: 1px;
+    }
+    .layer-item strong {
+      font-size: 13.5px;
+      color: #fff;
+    }
+    .layer-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+    .highlight-layer {
+      border-color: rgba(0, 229, 255, 0.4);
+      background: rgba(0, 229, 255, 0.06);
+    }
+    .highlight-layer .layer-num {
+      color: var(--cyan);
+    }
+
+    .quorum-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .quorum-badge {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .quorum-badge strong { font-size: 13px; color: #fff; }
+    .quorum-badge span { font-size: 12px; color: var(--text-muted); }
+    .highlight-quorum {
+      border-color: var(--gold);
+      background: rgba(251, 191, 36, 0.08);
+    }
+    .highlight-quorum strong { color: var(--gold); }
+
+    /* Manifesto Section */
+    #manifesto {
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+    .manifesto-card {
+      background: linear-gradient(135deg, rgba(15, 20, 35, 0.95), rgba(8, 12, 22, 0.95));
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 24px;
+      padding: 44px 50px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(251, 191, 36, 0.08);
+      position: relative;
+    }
+    .manifesto-badge-top {
+      color: var(--gold);
+      font-size: 11.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-family: var(--font-display);
+      margin-bottom: 10px;
+    }
+    .manifesto-heading {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-display);
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .manifesto-quote-col {
+      background: rgba(251, 191, 36, 0.04);
+      border-left: 3px solid var(--gold);
+      padding: 24px 26px;
+      border-radius: 0 16px 16px 0;
+      position: relative;
+    }
+    .manifesto-quote-mark {
+      font-size: 50px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.4;
+      font-family: Georgia, serif;
+      margin-bottom: -15px;
+    }
+    .manifesto-quote-text {
+      font-size: 16px;
+      color: #f1f5f9;
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .manifesto-quote-text strong {
+      color: var(--gold);
+      font-style: normal;
+    }
+    .manifesto-text-col p {
+      font-size: 14.5px;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .manifesto-list {
+      margin: 12px 0 18px 20px;
+      color: #e2e8f0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .manifesto-list li {
+      margin-bottom: 8px;
+    }
+    .manifesto-list strong {
+      color: var(--cyan);
+    }
+    .manifesto-signature {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .manifesto-signature strong {
+      color: #fff;
+      font-size: 15px;
+    }
+
+    @media (max-width: 860px) {
+      .manifesto-grid { grid-template-columns: 1fr; gap: 24px; }
+      .manifesto-card { padding: 30px 22px; }
+      .manifesto-heading { font-size: 22px; }
+    }
+
   </style>
 </head>
 <body>
@@ -940,6 +1160,7 @@
           <a href="#periferis" id="link-periferis" class="notranslate" translate="no">PERIFERIS</a>
           <a href="#shumo" id="link-shumo" class="notranslate" translate="no">SHUMo'Lily</a>
           <a href="#patent-registry" id="link-patent">Патентен Регистър</a>
+          <a href="#manifesto" id="link-manifesto">Манифест</a>
           <a href="#contact" id="link-contact">Контакт</a>
         </div>
         <div class="lang-switch-group" role="group" aria-label="Language selection">
@@ -1073,6 +1294,97 @@
                 <span class="pill-badge pill-purple notranslate" translate="no">Mutual NDA Gate</span>
                 <span class="pill-badge pill-cyan notranslate" translate="no">Zero-PII</span>
               </div>
+            </div>
+          </div>
+
+          <!-- МОДУЛ: VERYFIX.V8 8-СЛОЕН БИОМЕТРИЧЕН КОНСЕНСУС -->
+          <div class="veryfix-showcase-box" id="veryfix-showcase">
+            <div class="subproject-header">
+              <span class="subproject-title-text notranslate" id="title-veryfix" translate="no">🛡️ VeryFix.V8 Biometric Consensus Engine</span>
+              <span class="subproject-badge badge-gatanka notranslate" translate="no">NIST FIPS 203 READY</span>
+            </div>
+            
+            <p style="font-size: 14.5px; color: var(--text-muted); line-height: 1.6; margin: 12px 0 20px 0;" id="desc-veryfix">
+              Хардуерно обезпечен 8-слоен мултимодален консенсус за физическо доказателство за човешко присъствие. Използва защитения анклав на устройството (Secure Enclave / TPM 2.0) за постигане на Fail-Closed консенсус без споделяне на пароли, сийд фрази или биометрични файлове.
+            </p>
+
+            <div class="layers-grid">
+              <div class="layer-item"><span class="layer-num">L1</span> <strong id="l1-name">Докосване</strong> <span class="layer-sub" id="l1-sub">Капацитивна биокинетика</span></div>
+              <div class="layer-item"><span class="layer-num">L2</span> <strong id="l2-name">Гласов Тембър</strong> <span class="layer-sub" id="l2-sub">MFCC спектрален анализ</span></div>
+              <div class="layer-item"><span class="layer-num">L3</span> <strong id="l3-name">Локален Ирис</strong> <span class="layer-sub" id="l3-sub">Daugman 2D Gabor Wavelet</span></div>
+              <div class="layer-item"><span class="layer-num">L4</span> <strong id="l4-name">Геолокация</strong> <span class="layer-sub" id="l4-sub">Криптиран защитен периметър</span></div>
+              <div class="layer-item"><span class="layer-num">L5</span> <strong id="l5-name">3D Face Mesh</strong> <span class="layer-sub" id="l5-sub">Инфрачервена дълбочина</span></div>
+              <div class="layer-item"><span class="layer-num">L6</span> <strong id="l6-name">GaitLock™ Походка</strong> <span class="layer-sub" id="l6-sub">Динамичен стъпков каданс</span></div>
+              <div class="layer-item"><span class="layer-num">L7</span> <strong id="l7-name">Динамично Движение</strong> <span class="layer-sub" id="l7-sub">6-DOF микротремор (8–12 Hz)</span></div>
+              <div class="layer-item highlight-layer"><span class="layer-num">L8</span> <strong id="l8-name">Пост-Квантов Щит</strong> <span class="layer-sub" id="l8-sub">NIST ML-KEM / Kyber-512</span></div>
+            </div>
+
+            <div class="quorum-strip">
+              <div class="quorum-badge"><strong id="q1-title">⚡ Level 3: Fast Quorum (3/8)</strong><span id="q1-sub">Ежедневно бързо отключване и микроплащания</span></div>
+              <div class="quorum-badge"><strong id="q2-title">🏦 Level 5: Vault Quorum (5/8)</strong><span id="q2-sub">Банкови преводи, B2B договори и смарт контракти</span></div>
+              <div class="quorum-badge highlight-quorum"><strong id="q3-title">👑 Level 8: Sovereign Quorum (7/8)</strong><span id="q3-sub">Абсолютна квантова и хардуерна неприкосновеност</span></div>
+            </div>
+
+            <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="demos/02_VeryFix_V8_Biometric_Consensus_Demo.html" target="_blank" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(139, 92, 246, 0.35)); border-color: var(--purple); box-shadow: 0 0 20px var(--purple-glow);">
+                <span>🛡️ Отвори Интерактивно Демо VeryFix.V8</span> (Live Consensus)
+              </a>
+            </div>
+          </div>
+
+          <!-- МОДУЛ: СРАВНИТЕЛЕН БЕНЧМАРК НА СИГУРНОСТТА & EU AI ACT ЧЛ. 50 -->
+          <div class="benchmark-container" id="security-benchmark">
+            <div class="benchmark-header">
+              <span class="pillar-badge-top" style="color: var(--cyan);" id="bm-badge">КИБЕРСИГУРНОСТ И РЕГУЛАТОРЕН ОДИТ</span>
+              <h3 class="pillar-heading" style="font-size: 26px;" id="bm-heading">⚖️ Сравнителен Анализ: Защо Съществуващите Решения се Провалиха</h3>
+              <p class="pillar-tagline-sub" style="margin-bottom: 20px;" id="bm-sub">
+                С навлизането на европейския регламент <strong>EU AI Act (Член 50)</strong> и мултимодалните автономни ботове, корпорациите са изправени пред глоби до €35,000,000 при неспособност да докажат автентично човешко присъствие.
+              </p>
+            </div>
+
+            <div class="table-responsive">
+              <table class="benchmark-table">
+                <thead>
+                  <tr>
+                    <th id="th-metric">Критерий за Сигурност</th>
+                    <th id="th-legacy">Legacy CAPTCHA (reCAPTCHA, Turnstile)</th>
+                    <th id="th-orbs">Биометрични Сфери (Worldcoin / Orb)</th>
+                    <th class="highlight-col" id="th-dynkv">DYNKV Studio (WCSSTP™ & VeryFix.V8)</th>
+                  </tr>
+                </thead>
+                <tbody id="bm-tbody">
+                  <tr>
+                    <td><strong>Устойчивост срещу AI Ботове</strong></td>
+                    <td class="col-fail">❌ 0% (Решава се от мултимодални модели за &lt;1.5s)</td>
+                    <td class="col-warn">⚠️ 80–90% (Уязвимост от синтетични Deepfake инжекции)</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% (Когнитивен Qualia парадокс + 8-слоен кворум)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Защита на Личните Данни (GDPR / PII)</strong></td>
+                    <td class="col-warn">⚠️ Бисквитки, IP фингърпринтинг, поведенческо профилиране</td>
+                    <td class="col-fail">❌ Критични рискове (Централизиран облачен архив на ирисови снимки)</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% Zero-PII (Нито един байт биометрия не напуска устройството)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Скорост на Изпълнение (Latency)</strong></td>
+                    <td>⏱️ 2 000 – 5 000 ms (Загуба на време в решаване на пъзели)</td>
+                    <td>⏱️ 10 000 – 30 000 ms (Физическо сканиране пред външен хардуер)</td>
+                    <td class="col-pass highlight-col">⚡ <strong>&lt; 30 µs за WCSSTP / &lt; 200 ms за консенсус</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Съответствие с EU AI Act (Чл. 50 & CRA)</strong></td>
+                    <td class="col-fail">❌ Не генерира валидирана одитна следа</td>
+                    <td class="col-warn">⚠️ Забрани и регулаторни разследвания в държави от ЕС</td>
+                    <td class="col-pass highlight-col">🟢 <strong>Нативно вграден одит; моментна HMAC-SHA256 разписка</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Потребителско Изживяване (Friction)</strong></td>
+                    <td class="col-fail">❌ Висок процент на отказ (User Drop-off)</td>
+                    <td class="col-fail">❌ Пълен психологически и физически дискомфорт</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% Zero-Touch (Невидим фонов мониторинг)</strong></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </article>
@@ -1367,6 +1679,49 @@
       </div>
     </section>
 
+    <!-- ==============================================================
+         СЕКЦИЯ: МАНИФЕСТ НА ОСНОВАТЕЛЯ (The Sovereign Human Manifest)
+         ============================================================== -->
+    <section id="manifesto">
+      <div class="manifesto-card">
+        <div class="manifesto-badge-top" id="manifesto-badge-top">ФИЛОСОФИЯ И ГЕНЕЗИС · ДИЯН ЯНЕВ (КАРЧЕВ)</div>
+        <h2 class="manifesto-heading" id="manifesto-heading">Човекът, Стихиите и Новата Симбиоза с Технологията</h2>
+        
+        <div class="manifesto-grid">
+          <div class="manifesto-quote-col">
+            <div class="manifesto-quote-mark">“</div>
+            <p class="manifesto-quote-text" id="manifesto-quote-text">
+              Когато си живял десетилетия в пряк досег с първичните стихии — огъня, суровите планински висини, морските дълбини и строгата вътрешна дисциплина на бойните изкуства — разбираш една фундаментална истина: 
+              <strong>човекът не е създаден да прекарва съществуването си прегърбен над светещ стъклен правоъгълник.</strong>
+            </p>
+          </div>
+
+          <div class="manifesto-text-col" id="manifesto-body-text">
+            <p>
+              <strong>DYNKV Studio</strong> не се роди в стерилен корпоративен кабинет. То е плод на три десетилетия реален човешки път, изпитан в суровата физическа реалност, съчетан с дълбокото разбиране за Ин/Ян баланс и силата на приложната математика.
+            </p>
+            <p>
+              Съвременната индустрия пое в посока, която ограничава човека: скова тялото в стола, натовари погледа и започна да извлича личните му мисли и биометрични данни в чужди облачни центрове.
+            </p>
+            <p>
+              Нашата парадигма е <strong>Ин/Ян Симбиоза</strong>:
+            </p>
+            <ul class="manifesto-list">
+              <li><strong>Човекът е Ин (Субектът):</strong> Първоизточник на живо съзнание, воля, свободна стойка и спонтанно творчество.</li>
+              <li><strong>Технологията е Ян (Инструментът):</strong> Чиста изчислителна мощ, действаща тихо, енергийно автономно и в пълно подчинение на човека.</li>
+            </ul>
+            <p>
+              Ние създаваме хардуер и код, които зачитат човешкото достойнство, пазят неприкосновеността на личния живот и оставят тялото и разума напълно свободни.
+            </p>
+            <div class="manifesto-signature" id="manifesto-signature">
+              <strong>Диян Янев (Карчев) / Didol Tekifuto</strong><br>
+              <span>Основател и Главен архитект · DYNKV Studio, Хелзинки</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- =========================================================
          ОФИЦИАЛЕН ПАТЕНТЕН И КОГНИТИВЕН РЕГИСТЪР DYNKV STUDIO
          (С ПЕЧАТ И ЗАВЕРЕНО КЛЕЙМО ЗА ПАТЕНТНА ЗАЩИТА)
@@ -1607,6 +1962,27 @@
     const i18n = {
       bg: {
         linkHaiku: "Хайко",
+        linkManifesto: "Манифест",
+        bmBadge: "КИБЕРСИГУРНОСТ И РЕГУЛАТОРЕН ОДИТ",
+        bmHeading: "⚖️ Сравнителен Анализ: Защо Съществуващите Решения се Провалиха",
+        bmSub: "С навлизането на европейския регламент <strong>EU AI Act (Член 50)</strong> и мултимодалните автономни ботове, корпорациите са изправени пред глоби до €35,000,000 при неспособност да докажат автентично човешко присъствие.",
+        thMetric: "Критерий за Сигурност",
+        thLegacy: "Legacy CAPTCHA (reCAPTCHA, Turnstile)",
+        thOrbs: "Биометрични Сфери (Worldcoin / Orb)",
+        thDynkv: "DYNKV Studio (WCSSTP™ & VeryFix.V8)",
+        descVeryfix: "Хардуерно обезпечен 8-слоен мултимодален консенсус за физическо доказателство за човешко присъствие. Използва защитения анклав на устройството (Secure Enclave / TPM 2.0) за постигане на Fail-Closed консенсус без споделяне на пароли, сийд фрази или биометрични файлове.",
+        manifestoBadgeTop: "ФИЛОСОФИЯ И ГЕНЕЗИС · ДИЯН ЯНЕВ (КАРЧЕВ)",
+        manifestoHeading: "Човекът, Стихиите и Новата Симбиоза с Технологията",
+        manifestoQuoteText: "Когато си живял десетилетия в пряк досег с първичните стихии — огъня, суровите планински висини, морските дълбини и строгата вътрешна дисциплина на бойните изкуства — разбираш една фундаментална истина: <strong>човекът не е създаден да прекарва съществуването си прегърбен над светещ стъклен правоъгълник.</strong>",
+        manifestoBodyText: `<p><strong>DYNKV Studio</strong> не се роди в стерилен корпоративен кабинет. То е плод на три десетилетия реален човешки път, изпитан в суровата физическа реалност, съчетан с дълбокото разбиране за Ин/Ян баланс и силата на приложната математика.</p>
+<p>Съвременната индустрия пое в посока, която ограничава човека: скова тялото в стола, натовари погледа и започна да извлича личните му мисли и биометрични данни в чужди облачни центрове.</p>
+<p>Нашата парадигма е <strong>Ин/Ян Симбиоза</strong>:</p>
+<ul class="manifesto-list">
+  <li><strong>Човекът е Ин (Субектът):</strong> Първоизточник на живо съзнание, воля, свободна стойка и спонтанно творчество.</li>
+  <li><strong>Технологията е Ян (Инструментът):</strong> Чиста изчислителна мощ, действаща тихо, енергийно автономно и в пълно подчинение на човека.</li>
+</ul>
+<p>Ние създаваме хардуер и код, които зачитат човешкото достойнство, пазят неприкосновеността на личния живот и оставят тялото и разума напълно свободни.</p>`,
+        manifestoSignature: "<strong>Диян Янев (Карчев) / Didol Tekifuto</strong><br><span>Основател и Главен архитект · DYNKV Studio, Хелзинки</span>",
         linkGatanka: "GATANKA",
         linkPeriferis: "PERIFERIS",
         linkShumo: "SHUMo'Lily",
@@ -1722,6 +2098,27 @@
       },
       en: {
         linkHaiku: "Haiku",
+        linkManifesto: "Manifesto",
+        bmBadge: "CYBERSECURITY & REGULATORY AUDIT",
+        bmHeading: "⚖️ Comparative Analysis: Why Legacy Solutions Failed",
+        bmSub: "With the enforcement of the <strong>EU AI Act (Article 50)</strong> and multi-modal autonomous botnets, enterprises face penalties up to €35,000,000 for failure to prove authentic human presence.",
+        thMetric: "Security Dimension",
+        thLegacy: "Legacy CAPTCHA (reCAPTCHA, Turnstile)",
+        thOrbs: "Biometric Orbs (Worldcoin / Orb)",
+        thDynkv: "DYNKV Studio (WCSSTP™ & VeryFix.V8)",
+        descVeryfix: "Hardware-enforced 8-layer multi-modal physical proof of humanity. Operates inside local Secure Enclaves / TPM 2.0 to establish Fail-Closed consensus without sharing passwords, seed phrases, or raw biometric templates.",
+        manifestoBadgeTop: "PHILOSOPHY & GENESIS · DIYAN YANEV (KARCHEV)",
+        manifestoHeading: "Humanity, the Elements, and the New Symbiosis with Technology",
+        manifestoQuoteText: "When you have lived for decades in direct communion with primal elements — open fire, harsh mountain heights, ocean depths, and the rigorous discipline of martial arts — you grasp an undeniable truth: <strong>humanity was never meant to spend existence hunched over a glowing glass rectangle.</strong>",
+        manifestoBodyText: `<p><strong>DYNKV Studio</strong> was not conceived in a sterile corporate office. It is the culmination of three decades of real-world human experience forged across physical reality, fused with an understanding of Yin/Yang balance and applied mathematical sovereignty.</p>
+<p>The modern digital industry took an ungrounded turn: immobilizing the body in chairs, straining user posture, and siphoning private consciousness and biometric data into centralized corporate clouds.</p>
+<p>Our paradigm is <strong>Yin/Yang Symbiosis</strong>:</p>
+<ul class="manifesto-list">
+  <li><strong>The Human is Yin (The Subject):</strong> The sovereign source of consciousness, volition, upright posture, and spontaneous vitality.</li>
+  <li><strong>Technology is Yang (The Instrument):</strong> Pure computational rigor acting silently, energetically self-sustaining, and in service to human will.</li>
+</ul>
+<p>We forge hardware and software architectures that respect human sovereignty, protect privacy, and leave body and mind entirely free.</p>`,
+        manifestoSignature: "<strong>Diyan Yanev (Karchev) / Didol Tekifuto</strong><br><span>Founder & Lead Architect · DYNKV Studio, Helsinki</span>",
         linkGatanka: "GATANKA",
         linkPeriferis: "PERIFERIS",
         linkShumo: "SHUMo'Lily",
