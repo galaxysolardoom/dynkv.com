@@ -1141,6 +1141,302 @@
       .manifesto-heading { font-size: 22px; }
     }
 
+  
+    /* =========================================================
+       DOCUMENT MODAL & OPEN COLLABORATION STYLES
+       ========================================================= */
+    .foundations-strip {
+      margin-top: 36px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(251, 191, 36, 0.2);
+    }
+    .foundations-heading {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .foundations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .foundation-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .foundation-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(251, 191, 36, 0.12);
+    }
+    .foundation-card h4 {
+      font-size: 15px;
+      color: #fff;
+      margin: 0;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+    .foundation-card p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .btn-read-doc {
+      align-self: flex-start;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-read-doc:hover {
+      background: var(--gold);
+      color: #0b0f19;
+      box-shadow: 0 0 15px var(--gold-glow);
+    }
+
+    /* Section: Open Collaboration */
+    #collaboration {
+      margin-top: 70px;
+      margin-bottom: 30px;
+    }
+    .collab-card-wrapper {
+      background: linear-gradient(135deg, rgba(12, 18, 32, 0.96), rgba(8, 14, 26, 0.96));
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      border-radius: 24px;
+      padding: 44px 50px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 229, 255, 0.08);
+      position: relative;
+    }
+    .collab-badge-top {
+      color: var(--cyan);
+      font-size: 11.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-family: var(--font-display);
+      margin-bottom: 10px;
+    }
+    .collab-heading {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-display);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .collab-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 820px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .collab-roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    .collab-role-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .collab-role-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+    .collab-role-card h4 {
+      font-size: 14px;
+      color: #fff;
+      margin: 0 0 8px 0;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .collab-role-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .collab-cta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 229, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 14px;
+      padding: 20px 26px;
+    }
+    .collab-cta-text {
+      font-size: 13.5px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+    .collab-cta-text strong {
+      color: var(--cyan);
+    }
+    .btn-collab-full {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.3), rgba(16, 185, 129, 0.3));
+      border: 1px solid var(--cyan);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    }
+    .btn-collab-full:hover {
+      background: var(--cyan);
+      color: #0b0f19;
+      box-shadow: 0 0 30px var(--cyan-glow);
+    }
+
+    /* Modal Overlay */
+    .doc-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 15, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .doc-modal-overlay.active {
+      display: flex;
+    }
+    .doc-modal-container {
+      background: #0d1322;
+      border: 1.5px solid var(--gold);
+      border-radius: 20px;
+      max-width: 840px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(251, 191, 36, 0.15);
+      animation: modalFadeIn 0.25s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .doc-modal-header {
+      padding: 24px 28px 16px 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .doc-modal-title-box h3 {
+      font-size: 20px;
+      color: #fff;
+      margin: 0 0 4px 0;
+      font-family: var(--font-display);
+    }
+    .doc-modal-title-box span {
+      font-size: 12.5px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .doc-modal-close-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .doc-modal-close-btn:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+    .doc-modal-body {
+      padding: 24px 30px;
+      overflow-y: auto;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+    .doc-modal-body h3 {
+      color: #fff;
+      font-size: 16.5px;
+      margin: 22px 0 10px 0;
+      font-family: var(--font-display);
+    }
+    .doc-modal-body p {
+      margin: 0 0 14px 0;
+    }
+    .doc-modal-body blockquote {
+      margin: 16px 0;
+      padding: 12px 18px;
+      background: rgba(251, 191, 36, 0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      color: #fef3c7;
+      font-style: italic;
+    }
+    .doc-modal-body ul {
+      margin: 0 0 16px 20px;
+      padding: 0;
+    }
+    .doc-modal-body li {
+      margin-bottom: 8px;
+    }
+    .doc-modal-footer {
+      padding: 14px 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11.5px;
+      color: var(--text-muted);
+      text-align: center;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 0 0 20px 20px;
+    }
+
   </style>
 </head>
 <body>
@@ -1156,11 +1452,12 @@
         <div class="nav-links">
           <a href="#haiku" id="link-haiku">Хайко</a>
           <a href="#gatanka" id="link-gatanka" class="notranslate" translate="no">GATANKA</a>
-          <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" style="color: #00e5ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);">⚡ ДЕМО WCSSTP</a>
+          <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" id="nav-link-demo" style="color: #00e5ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);">⚡ ДЕМО WCSSTP</a>
           <a href="#periferis" id="link-periferis" class="notranslate" translate="no">PERIFERIS</a>
           <a href="#shumo" id="link-shumo" class="notranslate" translate="no">SHUMo'Lily</a>
           <a href="#patent-registry" id="link-patent">Патентен Регистър</a>
           <a href="#manifesto" id="link-manifesto">Манифест</a>
+          <a href="#collaboration" id="link-collab">Сътрудничество</a>
           <a href="#contact" id="link-contact">Контакт</a>
         </div>
         <div class="lang-switch-group" role="group" aria-label="Language selection">
@@ -1218,7 +1515,7 @@
       <span class="haiku-text-line" id="haiku-text">
         „Шумолят листа, Земята чака · Коприна вятъра пренася · Златисто одеяло й поднася.“
       </span>
-      <span class="haiku-author-inline" id="haiku-author">— Хайкото на Tekufuto</span>
+      <span class="haiku-author-inline" id="haiku-author">— Хайкото на Tekifuto</span>
     </div>
 
     <!-- =========================================================
@@ -1269,10 +1566,10 @@
               </div>
 
               <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
-                <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(0, 229, 255, 0.35), rgba(16, 185, 129, 0.35)); border-color: var(--cyan); box-shadow: 0 0 20px var(--cyan-glow);">
+                <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" id="btn-gatanka-demo1" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(0, 229, 255, 0.35), rgba(16, 185, 129, 0.35)); border-color: var(--cyan); box-shadow: 0 0 20px var(--cyan-glow);">
                   <span>⚡ Отвори Демо WCSSTP™</span> (Live Test)
                 </a>
-                <a href="demos/02_VeryFix_V8_Biometric_Consensus_Demo.html" target="_blank" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(139, 92, 246, 0.35)); border-color: var(--purple); box-shadow: 0 0 20px var(--purple-glow);">
+                <a href="demos/02_VeryFix_V8_Biometric_Consensus_Demo.html" target="_blank" id="btn-gatanka-demo2" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(139, 92, 246, 0.35)); border-color: var(--purple); box-shadow: 0 0 20px var(--purple-glow);">
                   <span>🛡️ Отвори Демо VeryFix.V8</span> (Consensus)
                 </a>
               </div>
@@ -1326,7 +1623,7 @@
             </div>
 
             <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="demos/02_VeryFix_V8_Biometric_Consensus_Demo.html" target="_blank" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(139, 92, 246, 0.35)); border-color: var(--purple); box-shadow: 0 0 20px var(--purple-glow);">
+              <a href="demos/02_VeryFix_V8_Biometric_Consensus_Demo.html" target="_blank" id="btn-veryfix-sim" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(139, 92, 246, 0.35)); border-color: var(--purple); box-shadow: 0 0 20px var(--purple-glow);">
                 <span>🛡️ Отвори Интерактивно Демо VeryFix.V8</span> (Live Consensus)
               </a>
             </div>
@@ -1442,7 +1739,7 @@
                   <a href="https://www.linkedin.com/in/diyan-yanev" target="_blank" rel="noopener" class="crowdfund-btn btn-linkedin" id="btn-boots-linkedin">
                     💼 LinkedIn B2B Партньорство & Лицензиране
                   </a>
-                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" class="crowdfund-btn" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
+                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" id="btn-legal-notice-boots" class="crowdfund-btn" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
                     🛡️ PERIFERIS™ Патентна Защита & Indiegogo IP Щит
                   </a>
                 </div>
@@ -1566,7 +1863,7 @@
                   <a href="https://www.linkedin.com/in/diyan-yanev" target="_blank" rel="noopener" class="crowdfund-btn btn-linkedin notranslate" id="btn-spw-linkedin" translate="no">
                     💼 LinkedIn B2B Хардуерно Лицензиране
                   </a>
-                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" class="crowdfund-btn notranslate" translate="no" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
+                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" id="btn-legal-notice-spw" class="crowdfund-btn notranslate" translate="no" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
                     🛡️ PERIFERIS™ Патентна Защита & Indiegogo IP Щит
                   </a>
                 </div>
@@ -1719,8 +2016,101 @@
             </div>
           </div>
         </div>
+
+        <!-- The Three Foundation Papers (Expandable Modals) -->
+        <div class="foundations-strip">
+          <div class="foundations-heading" id="foundations-main-heading">
+            <span>📜</span> Философски Основи & Стратегически Документи
+          </div>
+          <div class="foundations-grid">
+            
+            <!-- Doc 1 Card -->
+            <div class="foundation-card">
+              <div>
+                <h4 id="fcard1-title">Човекът и Технологичният Преход</h4>
+                <p id="fcard1-sub">Свободен избор, мярка на наномащаба и принципът на Мекия път (У-вей) в епохата на интелигентните алгоритми.</p>
+              </div>
+              <button class="btn-read-doc" onclick="openDocModal('doc1')" id="fcard1-btn">
+                <span>📖 Прочети документа</span> &rarr;
+              </button>
+            </div>
+
+            <!-- Doc 2 Card -->
+            <div class="foundation-card">
+              <div>
+                <h4 id="fcard2-title">Етика, Тяло и Взаимодействие (HCI)</h4>
+                <p id="fcard2-sub">Човешко-центриран хардуер, запазване на изправената стойка, биомеханично облекчение и пасивна термодинамика.</p>
+              </div>
+              <button class="btn-read-doc" onclick="openDocModal('doc2')" id="fcard2-btn">
+                <span>📖 Прочети документа</span> &rarr;
+              </button>
+            </div>
+
+            <!-- Doc 3 Card -->
+            <div class="foundation-card">
+              <div>
+                <h4 id="fcard3-title">Европейският Хоризонт и Данните</h4>
+                <p id="fcard3-sub">Суверенитет на данните, отворен софтуерен стек (Zephyr RTOS & Linux) и кръгова индустриална култура.</p>
+              </div>
+              <button class="btn-read-doc" onclick="openDocModal('doc3')" id="fcard3-btn">
+                <span>📖 Прочети документа</span> &rarr;
+              </button>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- =========================================================
+       SECTION: OPEN COLLABORATION & TEAM CALL
+       ========================================================= -->
+    <section class="section" id="collaboration">
+      <div class="collab-card-wrapper">
+        <div class="collab-badge-top" id="collab-badge">ОТВОРЕНО СЪТРУДНИЧЕСТВО · ИНЖЕНЕРЕН И НАУЧЕН ЕКИП 2026</div>
+        <h2 class="collab-heading" id="collab-heading">🌱 Семето на Технологичния Суверенитет</h2>
+        <p class="collab-sub" id="collab-sub">
+          В <strong>DYNKV Studio</strong> вярваме, че устойчивите инженерни решения се коват в открития, добронамерен сблъсък на различни гледни точки. Положихме инженерната база (семето) чрез проекта <strong>PERIFERIS</strong>. Сега отваряме вратите на студиото за специалисти, учени и практици:
+        </p>
+
+        <!-- The 5 Roles Grid -->
+        <div class="collab-roles-grid">
+          <div class="collab-role-card">
+            <h4 id="role1-title">⚙️ Прецизна Механика & CNC</h4>
+            <p id="role1-sub">Оптимизиране на плъзгащи Delrin/PTFE релси, 5-осна CNC обработка на титан Ti-6Al-4V и спирални FPC ленти с над 500 000 цикъла живот.</p>
+          </div>
+          <div class="collab-role-card">
+            <h4 id="role2-title">🔬 Физици & Енергиен Харвестинг</h4>
+            <p id="role2-sub">Пиезоелектрични (PZT) и трибоелектрични (TENG) генератори в подметката, термоелектрика (Зеебек) и биомеханика на походката.</p>
+          </div>
+          <div class="collab-role-card">
+            <h4 id="role3-title">💻 Вградени Системи (RTOS & Linux)</h4>
+            <p id="role3-sub">Свръхниска консумация за микроконтролери (Nordic nRF5340 / ESP32-S3) под Zephyr RTOS, BLE 5.4, UWB и криптирани драйвери.</p>
+          </div>
+          <div class="collab-role-card">
+            <h4 id="role4-title">🎨 UI/UX Архитекти (KDE Plasma)</h4>
+            <p id="role4-sub">Адаптивни потребителски среди за KDE Plasma 6 и Wayland за панорамни ламели, PipeWire пространствено аудио и офлайн картография.</p>
+          </div>
+          <div class="collab-role-card">
+            <h4 id="role5-title">🥾 Полеви Тестери & Практици</h4>
+            <p id="role5-sub">Планинари, спортисти и майстори с богат практически опит, които подлагат прототипите на реални тестове преди серийно производство.</p>
+          </div>
+        </div>
+
+        <!-- CTA Strip -->
+        <div class="collab-cta-strip">
+          <div class="collab-cta-text" id="collab-cta-text">
+            <strong>Споделяте ли нашата страст към истински европейски хардуерен суверенитет?</strong><br>
+            Всяка техническа гледна точка има значение. Пишете директно на инженерния кръг на DYNKV Studio: <strong>contact@dynkv.com</strong>
+          </div>
+          <button class="btn-collab-full" onclick="openDocModal('doc4')" id="btn-collab-modal">
+            <span>📜 Отвори Пълната Харта за Сътрудничество</span> &rarr;
+          </button>
+        </div>
+
+      </div>
+    </section>
+
 
     <!-- =========================================================
          ОФИЦИАЛЕН ПАТЕНТЕН И КОГНИТИВЕН РЕГИСТЪР DYNKV STUDIO
@@ -1990,7 +2380,7 @@
         capRight: "✦ EfiryoN Engine · Live Stage Flagship ✦",
 
         haikuText: "„Шумолят листа, Земята чака · Коприна вятъра пренася · Златисто одеяло й поднася.“",
-        haikuAuthor: "— Хайкото на Tekufuto",
+        haikuAuthor: "— Хайкото на Tekifuto",
 
         sectionBadge: "✦ ТРИТЕ СТЪЛБА НА DYNKV STUDIO ✦",
         sectionTitle: "The Three Sovereign Pillars",
@@ -2081,6 +2471,92 @@
 
         titleContact: "Свържете се с DYNKV Studio",
         subContact: "Официална комуникационна мрежа за технологичен трансфер, инвестиции и партньорства.",
+        navLinkDemo: "⚡ ДЕМО WCSSTP",
+        btnGatankaDemo1: "<span>⚡ Отвори Демо WCSSTP™</span> (Live Test)",
+        btnGatankaDemo2: "<span>🧪 Демо VeryFix.V8</span> (8-Слоен Консенсус)",
+        bmTbody: `<tr>
+                    <td><strong>Устойчивост срещу AI Ботове</strong></td>
+                    <td class="col-fail">❌ 0% (Решава се от мултимодални модели за &lt;1.5s)</td>
+                    <td class="col-warn">⚠️ 80–90% (Уязвимост от синтетични Deepfake инжекции)</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% (Когнитивен Qualia парадокс + 8-слоен кворум)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Защита на Личните Данни (GDPR / PII)</strong></td>
+                    <td class="col-warn">⚠️ Бисквитки, IP фингърпринтинг, поведенческо профилиране</td>
+                    <td class="col-fail">❌ Критични рискове (Централизиран облачен архив на ирисови снимки)</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% Zero-PII (Нито един байт биометрия не напуска устройството)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Скорост на Изпълнение (Latency)</strong></td>
+                    <td>⏱️ 2 000 – 5 000 ms (Загуба на време в решаване на пъзели)</td>
+                    <td>⏱️ 10 000 – 30 000 ms (Физическо сканиране пред външен хардуер)</td>
+                    <td class="col-pass highlight-col">⚡ <strong>&lt; 30 µs за WCSSTP / &lt; 200 ms за консенсус</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Съответствие с EU AI Act (Чл. 50 & CRA)</strong></td>
+                    <td class="col-fail">❌ Не отговаря (Няма криптографско удостоверяване на човешко присъствие)</td>
+                    <td class="col-fail">❌ Под регулаторни разследвания в Германия, Франция и Испания</td>
+                    <td class="col-pass highlight-col">🛡️ <strong>Пълна съвместимост с готовност за одит (Глоба до €35M отпада)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Потребителско Триене (Friction)</strong></td>
+                    <td class="col-warn">⚠️ Високо (Цъкане по светофари, висок bounce rate при плащания)</td>
+                    <td class="col-fail">❌ Изключително високо (Трябва да намерите физическа сфера)</td>
+                    <td class="col-pass highlight-col">✨ <strong>Нулево триене (Естествено взаимодействие, без досадни тестове)</strong></td>
+                  </tr>`,
+        titleVeryfix: "🛡️ VeryFix.V8 Biometric Consensus Engine",
+        l1Name: "Докосване",
+        l1Sub: "Капацитивна биокинетика",
+        l2Name: "Гласов Тембър",
+        l2Sub: "MFCC спектрален анализ",
+        l3Name: "Локален Ирис",
+        l3Sub: "Daugman 2D Gabor Wavelet",
+        l4Name: "Геолокация",
+        l4Sub: "Криптиран защитен периметър",
+        l5Name: "3D Face Mesh",
+        l5Sub: "Инфрачервена дълбочина",
+        l6Name: "GaitLock™ Походка",
+        l6Sub: "Динамичен стъпков каданс",
+        l7Name: "Динамично Движение",
+        l7Sub: "6-DOF микротремор (8–12 Hz)",
+        l8Name: "Пост-Квантов Щит",
+        l8Sub: "NIST ML-KEM / Kyber-512",
+        q1Title: "⚡ Level 3: Fast Quorum (3/8)",
+        q1Sub: "Ежедневно бързо отключване и микроплащания",
+        q2Title: "🏦 Level 5: Vault Quorum (5/8)",
+        q2Sub: "Банкови преводи, B2B договори и смарт контракти",
+        q3Title: "👑 Level 8: Sovereign Quorum (7/8)",
+        q3Sub: "Абсолютна квантова и хардуерна неприкосновеност",
+        btnVeryfixSim: "<span>🧪 Стартирай Интерактивната Симулация на VeryFix.V8</span> &rarr;",
+        btnLegalNoticeBoots: "🛡️ PERIFERIS™ Патентна & Indiegogo Защита (Правно Известие)",
+        btnLegalNoticeSpw: "🛡️ PERIFERIS™ Патентна & Indiegogo Защита (Правно Известие)",
+        linkCollab: "Сътрудничество",
+        foundationsMainHeading: "<span>📜</span> Философски Основи & Стратегически Документи",
+        fcard1Title: "Човекът и Технологичният Преход",
+        fcard1Sub: "Свободен избор, мярка на наномащаба и принципът на Мекия път (У-вей) в епохата на интелигентните алгоритми.",
+        fcard1Btn: "<span>📖 Прочети документа</span> &rarr;",
+        fcard2Title: "Етика, Тяло и Взаимодействие (HCI)",
+        fcard2Sub: "Човешко-центриран хардуер, запазване на изправената стойка, биомеханично облекчение и пасивна термодинамика.",
+        fcard2Btn: "<span>📖 Прочети документа</span> &rarr;",
+        fcard3Title: "Европейският Хоризонт и Данните",
+        fcard3Sub: "Суверенитет на данните, отворен софтуерен стек (Zephyr RTOS & Linux) и кръгова индустриална култура.",
+        fcard3Btn: "<span>📖 Прочети документа</span> &rarr;",
+
+        collabBadge: "ОТВОРЕНО СЪТРУДНИЧЕСТВО · ИНЖЕНЕРЕН И НАУЧЕН ЕКИП 2026",
+        collabHeading: "🌱 Семето на Технологичния Суверенитет",
+        collabSub: "В <strong>DYNKV Studio</strong> вярваме, че устойчивите инженерни решения се коват в открития, добронамерен сблъсък на различни гледни точки. Положихме инженерната база (семето) чрез проекта <strong>PERIFERIS</strong>. Сега отваряме вратите на студиото за специалисти, учени и практици:",
+        role1Title: "⚙️ Прецизна Механика & CNC",
+        role1Sub: "Оптимизиране на плъзгащи Delrin/PTFE релси, 5-осна CNC обработка на титан Ti-6Al-4V и спирални FPC ленти с над 500 000 цикъла живот.",
+        role2Title: "🔬 Физици & Енергиен Харвестинг",
+        role2Sub: "Пиезоелектрични (PZT) и трибоелектрични (TENG) генератори в подметката, термоелектрика (Зеебек) и биомеханика на походката.",
+        role3Title: "💻 Вградени Системи (RTOS & Linux)",
+        role3Sub: "Свръхниска консумация за микроконтролери (Nordic nRF5340 / ESP32-S3) под Zephyr RTOS, BLE 5.4, UWB и криптирани драйвери.",
+        role4Title: "🎨 UI/UX Архитекти (KDE Plasma)",
+        role4Sub: "Адаптивни потребителски среди за KDE Plasma 6 и Wayland за панорамни ламели, PipeWire пространствено аудио и офлайн картография.",
+        role5Title: "🥾 Полеви Тестери & Практици",
+        role5Sub: "Планинари, спортисти и майстори с богат практически опит, които подлагат прототипите на реални тестове преди серийно производство.",
+        collabCtaText: "<strong>Споделяте ли нашата страст към истински европейски хардуерен суверенитет?</strong><br>Всяка техническа гледна точка има значение. Пишете директно на инженерния кръг на DYNKV Studio: <strong>contact@dynkv.com</strong>",
+        btnCollabModal: "<span>📜 Отвори Пълната Харта за Сътрудничество</span> &rarr;",
         roleC1: "Официален контакт",
         locContact: "Хелзинки, Финландия · Официален домейн: <strong>dynkv.com</strong> · Защитена пощенска мрежа Proton",
         footerFormula: "Природа + Технологии + Човечност = Хармония",
@@ -2124,7 +2600,7 @@
         capRight: "✦ EfiryoN Engine · Live Stage Flagship ✦",
 
         haikuText: "“Leaves rustle low, the Earth awaits · Silk carried on the autumn wind · A golden blanket gently lays.”",
-        haikuAuthor: "— Tekufuto’s Haiku",
+        haikuAuthor: "— Tekifuto’s Haiku",
 
         sectionBadge: "✦ THREE PILLARS OF DYNKV STUDIO ✦",
         sectionTitle: "The Three Sovereign Pillars",
@@ -2215,6 +2691,92 @@
 
         titleContact: "Contact DYNKV Studio",
         subContact: "Official communications network for partnerships, tech inquiries, and investments.",
+        navLinkDemo: "⚡ WCSSTP DEMO",
+        btnGatankaDemo1: "<span>⚡ Open WCSSTP™ Demo</span> (Live Test)",
+        btnGatankaDemo2: "<span>🧪 VeryFix.V8 Demo</span> (8-Layer Consensus)",
+        bmTbody: `<tr>
+                    <td><strong>AI Botnet Resistance</strong></td>
+                    <td class="col-fail">❌ 0% (Solved by multi-modal LLMs in &lt;1.5s)</td>
+                    <td class="col-warn">⚠️ 80–90% (Vulnerable to synthetic deepfake injections)</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% (Cognitive Qualia Paradox + 8-layer Quorum)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Privacy & Data Sovereignty (GDPR / PII)</strong></td>
+                    <td class="col-warn">⚠️ Tracking cookies, IP fingerprinting, behavioral profiling</td>
+                    <td class="col-fail">❌ Critical risks (Centralized cloud biometric iris database)</td>
+                    <td class="col-pass highlight-col">🟢 <strong>100% Zero-PII (Zero biometric bytes leave the local device)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Verification Latency</strong></td>
+                    <td>⏱️ 2,000 – 5,000 ms (Wasted user time solving legacy puzzles)</td>
+                    <td>⏱️ 10,000 – 30,000 ms (Requires queuing at external physical scanner)</td>
+                    <td class="col-pass highlight-col">⚡ <strong>&lt; 30 µs for WCSSTP / &lt; 200 ms for consensus</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>EU AI Act (Art. 50) & CRA Compliance</strong></td>
+                    <td class="col-fail">❌ Non-compliant (No cryptographic human-audit trail)</td>
+                    <td class="col-fail">❌ Subject to active regulatory bans across EU data authorities</td>
+                    <td class="col-pass highlight-col">🛡️ <strong>Full Audit Readiness (Eliminates €35M statutory fines)</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>User Friction</strong></td>
+                    <td class="col-warn">⚠️ High (Frustrating image clicking, high checkout bounce rates)</td>
+                    <td class="col-fail">❌ Severe (Must locate and visit physical scanning hardware)</td>
+                    <td class="col-pass highlight-col">✨ <strong>Zero Friction (Transparent ambient interaction, no puzzles)</strong></td>
+                  </tr>`,
+        titleVeryfix: "🛡️ VeryFix.V8 Biometric Consensus Engine",
+        l1Name: "Touch",
+        l1Sub: "Capacitive Biokinetics",
+        l2Name: "Voiceprint",
+        l2Sub: "MFCC Spectral Analysis",
+        l3Name: "Local Iris",
+        l3Sub: "Daugman 2D Gabor Wavelet",
+        l4Name: "Geolocation",
+        l4Sub: "Encrypted Secure Geofence",
+        l5Name: "3D Face Mesh",
+        l5Sub: "Infrared Structural Depth",
+        l6Name: "GaitLock™ Gait",
+        l6Sub: "Dynamic Step Cadence",
+        l7Name: "Dynamic Motion",
+        l7Sub: "6-DOF Micro-Tremor (8–12 Hz)",
+        l8Name: "Post-Quantum Shield",
+        l8Sub: "NIST ML-KEM / Kyber-512",
+        q1Title: "⚡ Level 3: Fast Quorum (3/8)",
+        q1Sub: "Daily fast unlock & micro-transactions",
+        q2Title: "🏦 Level 5: Vault Quorum (5/8)",
+        q2Sub: "Banking wires, B2B contracts & smart contracts",
+        q3Title: "👑 Level 8: Sovereign Quorum (7/8)",
+        q3Sub: "Absolute quantum & hardware sovereignty",
+        btnVeryfixSim: "<span>🧪 Launch VeryFix.V8 Interactive Simulation</span> &rarr;",
+        btnLegalNoticeBoots: "🛡️ PERIFERIS™ Patent & Indiegogo Protection (Legal Notice)",
+        btnLegalNoticeSpw: "🛡️ PERIFERIS™ Patent & Indiegogo Protection (Legal Notice)",
+        linkCollab: "Collaboration",
+        foundationsMainHeading: "<span>📜</span> Philosophical Foundations & Strategic Papers",
+        fcard1Title: "Humanity & Technological Transition",
+        fcard1Sub: "Free choice, moral measure at nanoscale, and the Soft Path (Wu Wei) in the era of intelligent algorithms.",
+        fcard1Btn: "<span>📖 Read Paper</span> &rarr;",
+        fcard2Title: "Ethics, Body & Interaction (HCI)",
+        fcard2Sub: "Human-centered hardware, upright postural integrity, biomechanical relief, and passive dissipation.",
+        fcard2Btn: "<span>📖 Read Paper</span> &rarr;",
+        fcard3Title: "The European Horizon & Data",
+        fcard3Sub: "Data sovereignty, auditable open stack (Zephyr RTOS & Linux), and circular industrial culture.",
+        fcard3Btn: "<span>📖 Read Paper</span> &rarr;",
+
+        collabBadge: "OPEN COLLABORATION · ENGINEERING & SCIENTIFIC TEAM 2026",
+        collabHeading: "🌱 The Seed of Technological Sovereignty",
+        collabSub: "At <strong>DYNKV Studio</strong>, we believe enduring engineering is forged through open, constructive dialogue and shared craftsmanship. We laid the fundamental seed via the <strong>PERIFERIS</strong> initiative. We now open our studio to engineers, applied physicists, and practitioners:",
+        role1Title: "⚙️ Precision Mechanics & CNC",
+        role1Sub: "Refining sliding Delrin/PTFE rails, 5-axis CNC machining of Grade-5 Titanium (Ti-6Al-4V), and clock-spring FPC ribbons exceeding 500,000 cycles.",
+        role2Title: "🔬 Physicists & Energy Harvesting",
+        role2Sub: "Piezoelectric (PZT) and triboelectric (TENG) sole harvesters, Seebeck thermal reclaimers, and real-time gait biomechanics.",
+        role3Title: "💻 Embedded Systems (RTOS & Linux)",
+        role3Sub: "Deterministic ultra-low-power firmware for MCUs (Nordic nRF5340 / ESP32-S3) on Zephyr RTOS, BLE 5.4, UWB, and zero-backdoor drivers.",
+        role4Title: "🎨 UI/UX Architects (KDE Plasma)",
+        role4Sub: "Convergent user interfaces for KDE Plasma 6 and Wayland on panoramic lamellae, PipeWire spatial audio, and offline mapping.",
+        role5Title: "🥾 Field Testers & Practitioners",
+        role5Sub: "Mountaineers, endurance athletes, and craftsmen testing prototypes across real-world harsh environments prior to commercial tooling.",
+        collabCtaText: "<strong>Do you share our drive for true European hardware sovereignty?</strong><br>Every engineering perspective matters. Connect directly with the DYNKV Studio core: <strong>contact@dynkv.com</strong>",
+        btnCollabModal: "<span>📜 Open Full Collaboration Charter</span> &rarr;",
         roleC1: "Official Contact",
         locContact: "Helsinki, Finland · Official domain: <strong>dynkv.com</strong> · Proton Encrypted Network",
         footerFormula: "Nature + Technology + Humanity = Harmony",
@@ -2230,8 +2792,17 @@
         const el = document.getElementById(id);
         if (el) el.innerHTML = data[key];
       }
+      // Update NDA button link dynamically to match selected language
+      const btnNda = document.getElementById('btn-nda');
+      if (btnNda) {
+        btnNda.href = (lang === 'bg') 
+          ? 'legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026_BG.html' 
+          : 'legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026.html';
+      }
+
       localStorage.setItem('dynkv_lang', lang);
       document.documentElement.lang = lang;
+      if (typeof currentOpenDocId !== "undefined" && currentOpenDocId) openDocModal(currentOpenDocId);
 
       // Update switcher buttons state
       const btnBg = document.getElementById('btn-lang-bg');
@@ -2253,6 +2824,83 @@
       const savedLang = localStorage.getItem('dynkv_lang') || 'bg';
       setLanguage(savedLang);
     });
+  
+    // =========================================================
+    // DYNKV STRATEGY & PHILOSOPHY DOCUMENT MODAL ENGINE
+    // =========================================================
+    const DYNKV_DOCS = {"doc1": {"title_bg": "Човекът и Технологичният Преход: Свободен Избор и Мярка", "title_en": "Humanity and Technological Transition: Free Choice and Measure", "subtitle_bg": "Философски основи на DYNKV Studio за Балансирано Развитие · Част II", "subtitle_en": "DYNKV Studio Philosophical Foundations for Balanced Development · Part II", "html_bg": "<h3>Въведение: На прага на новата епоха</h3>\n<p>В историята на цивилизацията съществуват моменти, в които мащабът на научното познание извършва качествен скок. Днес човечеството стои пред прага на дълбока трансформация, белязана от съчетаването на микро- и нанотехнологичните възможности с интелигентните алгоритми.</p>\n<blockquote>„Какво се случва с човешката природа, когато тя се сблъска с възможността да управлява света на фундаментално равнище? Готово ли е човешкото съзнание да съхрани своята доброта, мярка и мъдрост пред лицето на неизмерима технологична мощ?“<br><small>— Николай Теллалов, „10 на минус девета“ (10⁻⁹)</small></blockquote>\n<p>Този въпрос е сърцевината на визията на <strong>DYNKV Studio</strong>. Нашите разработки и носими системи се раждат не като самоцелно преследване на материални възможности, а като отговорен опит да се даде градивен, балансиран и човечен отговор на това историческо предизвикателство.</p>\n\n<h3>1. Моралната Зрялост пред Микро- и Наномащаба</h3>\n<p>Всяко разширяване на инструменталните възможности на човека изисква съответно израстване на неговото вътрешно съзнание. Възможността за проектиране на структури и интерфейси на фино равнище носи риск от прекомерна илюзия за контрол, ако не бъде овладяна от дълбока етична отговорност.</p>\n<ul>\n  <li><strong>Технологията следва човешката мярка:</strong> Ние разглеждаме технологиите не като опит за механично прекрояване на човека, а като скромна опора, която му помага да съхрани своето здраве, физическа издръжливост и духовна свобода.</li>\n  <li><strong>Самоограничение и отговорност:</strong> Силата на едно инженерно решение се доказва чрез способността му да се самоограничава — да прави само онова, което е необходимо за подкрепа на живота, без да нарушава деликатния баланс на тялото и природата.</li>\n</ul>\n\n<h3>2. Културата на Свободния Избор и Мекият Път</h3>\n<p>Обществените промени, които се опитват да наложат нови технологични модели чрез принуда, безалтернативност или внезапен психологически натиск, неизменно пораждат тревога и социално напрежение. Истинският, траен напредък следва <strong>Мекия път (У-вей)</strong> — древния принцип на естественото протичане и съгласие:</p>\n<ul>\n  <li><strong>Предлагане на възможност, а не диктат:</strong> Човекът и обществото трябва да разполагат с реален избор. Новите форми на взаимодействие трябва да бъдат привлекателни със своето удобство, естетика и спокойствие, оставяйки всеки свободен да избере темпото, с което навлиза в новото време.</li>\n  <li><strong>Правото на технологична ненатрапчивост:</strong> Всеки има неотменимото право да изключи, да свали или да остави настрана всяко устройство. Пълната свобода на тялото и съзнанието остава неприкосновена ценност.</li>\n</ul>\n\n<h3>3. Балансът Ин-Ян: Синтез между Природа и Разум</h3>\n<p>В основата на нашата инженерна школа лежи разбирането за динамичното равновесие между две начала:</p>\n<ul>\n  <li><strong>Природното начало (Ин):</strong> Живият организъм, биологичният ритъм, здравето, естественото движение и спокойствието на духа.</li>\n  <li><strong>Технологичното начало (Ян):</strong> Изчислителната мощ, кинематичната прецизност, материалознанието и сигурността.</li>\n</ul>\n<p>Тези две сили не бива да се намират в конфликт или взаимно подчинение. Технологията трябва да действа като невидим, надежден съюзник — да пази гърба, да подкрепя походката, да осигурява чиста енергия и криптирана защита, без да засенчва първичното човешко преживяване на света.</p>", "html_en": "<h3>Introduction: At the Threshold of a New Era</h3>\n<p>Throughout civilizational history, moments arrive where the scale of scientific understanding undergoes a qualitative leap. Today, humanity stands on the verge of profound transformation marked by the fusion of micro- and nano-engineering capabilities with intelligent computation.</p>\n<blockquote>“What happens to human nature when confronted with the capability to command the world at its most fundamental level? Is human consciousness prepared to safeguard its kindness, measure, and wisdom in the presence of immeasurable technical power?”<br><small>— Nikolai Tellalov, “Ten to the Minus Ninth” (10⁻⁹)</small></blockquote>\n<p>This inquiry forms the core philosophy of <strong>DYNKV Studio</strong>. Our wearable architectures and sovereign protocols are forged not as vanity pursuits of power, but as a grounded, ethical answer to this civilizational milestone.</p>\n\n<h3>1. Moral Maturity at the Micro- & Nanoscale</h3>\n<p>Every expansion of human instrumentality demands proportional maturity of inner consciousness. The ability to design structures at microscopic scales risks illusions of omnipotence unless governed by strict ethical self-limitation.</p>\n<ul>\n  <li><strong>Technology Subservient to Human Measure:</strong> We reject mechanical transhumanist reshaping. Technology must serve as a modest, silent support preserving vitality, physical uprightness, and spiritual autonomy.</li>\n  <li><strong>Self-Limitation & Restraint:</strong> The supremacy of engineering is proven by what it deliberately refrains from doing — providing strictly what sustains life without disturbing natural equilibrium.</li>\n</ul>\n\n<h3>2. The Culture of Free Choice & The Soft Path (Wu Wei)</h3>\n<p>Technological paradigms imposed via coercion, artificial dependency, or psychological urgency breed alienation and societal distress. Enduring progress follows <strong>The Soft Path</strong> — natural emergence through genuine consent:</p>\n<ul>\n  <li><strong>Offering Possibility, Never Mandates:</strong> Society must retain sovereign choice. Novel human-device interactions must earn adoption through superior ergonomics, beauty, and tranquility.</li>\n  <li><strong>The Right to Digital Disengagement:</strong> The inviolable human prerogative to disconnect, remove, or switch off any hardware at will remains absolute.</li>\n</ul>\n\n<h3>3. Yin-Yang Equilibrium: Nature & Computation</h3>\n<p>At the center of our engineering lineage lies the harmonious interplay of two primal forces:</p>\n<ul>\n  <li><strong>The Organic Essence (Yin):</strong> Living biology, circadian cadence, physical health, spontaneous vitality, and sovereign will.</li>\n  <li><strong>The Computational Instrument (Yang):</strong> Precise kinematics, post-quantum cryptography, materials science, and clean kinetic harvesting.</li>\n</ul>\n<p>These two must never compete. Technology serves silently in the background — reinforcing posture, harvesting motion into clean power, and guarding data sovereignty without ever obstructing direct human experience.</p>"}, "doc2": {"title_bg": "Етика, Тяло и Взаимодействие: Принципите на Човешко-Центрирания Хардуер", "title_en": "Ethics, Body & Interaction: Principles for Human-Centered Hardware", "subtitle_bg": "Философски основи на DYNKV Studio за Балансирано Развитие · Част I", "subtitle_en": "DYNKV Studio Philosophical Foundations for Balanced Development · Part I", "html_bg": "<h3>Въведение: Защо съвременният интерфейс осакатява човека</h3>\n<p>През последните три десетилетия индустрията на потребителската електроника възприе порочен модел: концентриране на цялото внимание в плоски светещи екрани, сковаване на тялото в неестествени пози и агресивно извличане на биометрични данни.</p>\n<p><strong>DYNKV Studio</strong> изгражда диаметрално противоположна парадигма: хардуер, който връща изправената стойка, уважава кинематиката на мускулите и ставите и разпределя изчислителната тежест далеч от главата и очите.</p>\n\n<h3>1. Физическа Ергономия и Здраве на Стойката</h3>\n<ul>\n  <li><strong>Децентрализация на тежестта (Low-CG):</strong> 70%+ от масата на батериите и NPU изчислителните блокове се разполагат в основата на ходилата и краката. Това сваля центъра на тежестта, подобрява стабилността при бягане и колоездене и оставя главата и врата абсолютно свободни от тежест и прегряване.</li>\n  <li><strong>Ветрилообразна кинематика (SPW-3):</strong> Накитният терминал се разгръща под ъгли от 0°, 60° и 120° само при необходимост, съобразено с естествената ротация на предмишницата (пронация/супинация), без да изисква навеждане на главата.</li>\n  <li><strong>Пасивно охлаждане:</strong> Нулева термична радиация в близост до жизненоважни органи. Използване на естествената конвекция и графенови термомостове.</li>\n</ul>\n\n<h3>2. Етика на Данните: Zero-PII и Fail-Closed Архитектура</h3>\n<ul>\n  <li><strong>Биометрията никога не напуска тялото:</strong> Всички верификации (GaitLock, пулс, гласов тембър, ирис) се обработват локално в защитения хардуерен анклав на устройството. Никакви централизирани бази от данни, никакви облачни профили.</li>\n  <li><strong>Пълен суверенитет над физическия достъп:</strong> Устройствата работят 100% офлайн при аварии, без нужда от интернет връзка за базовите си функции за сигурност и навигация.</li>\n</ul>", "html_en": "<h3>Introduction: Why Modern Interfaces Constrain the Body</h3>\n<p>Over the past three decades, consumer electronics prioritized an ungrounded model: trapping human focus inside flat glowing screens, forcing hunched cervical postures, and extracting private biometric telemetry into centralized clouds.</p>\n<p><strong>DYNKV Studio</strong> pioneers an uncompromising counter-architecture: hardware that restores upright physical posture, honors muscular-skeletal kinematics, and offsets thermal and computational loads away from vital organs.</p>\n\n<h3>1. Physical Ergonomics & Postural Integrity</h3>\n<ul>\n  <li><strong>Low Center-of-Gravity (Low-CG):</strong> Over 70% of battery mass and neural compute modules are positioned in footwear chassis. This stabilizes balance during locomotion, running, and cycling while keeping the skull and cervical spine completely free of thermal dissipation.</li>\n  <li><strong>Fan-Kinematics (SPW-3):</strong> Wrist terminals unfold at 0°, 60°, and 120° angles aligned with forearm pronation/supination — eliminating chronic neck strain.</li>\n  <li><strong>Passive Dissipation:</strong> Zero forced air, zero fan noise, and zero direct thermal load against biological tissue via graphene heatspreaders.</li>\n</ul>\n\n<h3>2. Data Sovereignty: Zero-PII & Fail-Closed Defense</h3>\n<ul>\n  <li><strong>Biometrics Never Leave the Body:</strong> All sensory authentication (GaitLock, HRV pulse, voiceprint MFCC, local iris) executes locally inside secure TPM enclaves. No central databases, no corporate harvesting.</li>\n  <li><strong>100% Offline Resilience:</strong> Core sensory, kinetic, and navigational features operate self-sustainingly without mandatory cloud telemetry.</li>\n</ul>"}, "doc3": {"title_bg": "Европейският Хоризонт: Суверенитет на Данните, Отворен Код и Индустриална Култура", "title_en": "The European Horizon: Data Sovereignty, Open Source & Industrial Resilience", "subtitle_bg": "Философски основи на DYNKV Studio за Балансирано Развитие · Част III", "subtitle_en": "DYNKV Studio Philosophical Foundations for Balanced Development · Part III", "html_bg": "<h3>Въведение: Защо Европа има нужда от собствен хардуерен глас</h3>\n<p>Съвременният свят е разкъсван между две крайности: монополни западни софтуерни гиганти, монетизиращи вниманието на потребителите, и далекоизточни масови фабрики, предлагащи евтини затворени устройства с неясен произход на фърмуера.</p>\n<p>Европа — със своите строги стандарти за защита на личността (GDPR), Европейския пакт за изкуствен интелект (EU AI Act) и традициите на прецизната механика — притежава уникалния шанс да дефинира <strong>Третия Път</strong>: висок клас модулен хардуер с проверим отворен код и абсолютна защита на човешкото достойнство.</p>\n\n<h3>1. Трите Стълба на Европейския Суверенитет в DYNKV Studio</h3>\n<ul>\n  <li><strong>Отворени ядра (Open RTOS & Linux):</strong> Системният софтуер се гради върху доказани независими основи — Zephyr RTOS за свръхниска консумация и микроконтролери, и защитен Linux ядрен стек за мултимедия и пространствена навигация. Без патентовани тайни „черни кутии“.</li>\n  <li><strong>Право на ремонт (Right to Repair & Circularity):</strong> Модулният дизайн M-Frame позволява подмяна на всеки износен механичен компонент за по-малко от минута с обикновени инструменти. 92%+ рециклируеми материали (Титан Grade-5, Delrin, сапфирено стъкло).</li>\n  <li><strong>Съответствие с Регламентите на ЕС:</strong> Пълна готовност за чл. 50 от EU AI Act и Директивата за киберустойчивост (Cyber Resilience Act - CRA) — гарантиране на произхода и криптографска верификация на човешко присъствие без компромис с личното пространство.</li>\n</ul>\n\n<h3>2. Хелзинки като Център на Северната Прецизност</h3>\n<p>Базирано в Хелзинки, Финландия (Y-tunnus: 3222474-6), <strong>DYNKV Studio</strong> съчетава скандинавския стремеж към минимализъм, енергийна ефективност и екологична отговорност с южноевропейската творческа интуиция и дълбоките корени на българската приложна математика.</p>", "html_en": "<h3>Introduction: Why Europe Demands Its Own Hardware Voice</h3>\n<p>The contemporary digital sphere is divided between two monopolistic poles: Western tech conglomerates commercializing personal attention, and Eastern mass-manufacturing hubs distributing closed firmware black boxes.</p>\n<p>Europe — with its statutory protection of privacy (GDPR), the EU AI Act, and centuries of precision horology and mechanical engineering — possesses the unique mandate to pioneer <strong>The Third Way</strong>: modular, open-source hardware anchored in mathematical sovereignty and human dignity.</p>\n\n<h3>1. The Three Pillars of European Sovereignty</h3>\n<ul>\n  <li><strong>Open Verified Foundations (Zephyr RTOS & Linux):</strong> Core firmwares build upon independently auditable foundations — Zephyr RTOS for ultra-low power determinism and embedded Linux for spatial audio and Wayland visuals. Zero proprietary telemetry backdoors.</li>\n  <li><strong>Uncompromising Right to Repair:</strong> Our M-Frame architecture allows field-replacement of worn sub-assemblies in under 60 seconds with standard hand tools. Over 92% circular recyclable components (Grade-5 Titanium, Delrin POM-H, sapphire crystal).</li>\n  <li><strong>Strict Regulatory Compliance:</strong> Full conformance with EU AI Act (Article 50) and Cyber Resilience Act (CRA) — providing cryptographic human-authenticity proof without surveillance.</li>\n</ul>\n\n<h3>2. Helsinki as the Epicenter of Nordic Engineering</h3>\n<p>Incorporated in Helsinki, Finland (Business ID / Y-tunnus: 3222474-6), <strong>DYNKV Studio</strong> merges Nordic clarity, cold-climate thermal resilience, and ecological discipline with Southern European creative fire and applied mathematical rigor.</p>"}, "doc4": {"title_bg": "Отворена Покана за Сътрудничество и Екип: Семето на Технологичния Суверенитет", "title_en": "Open Call for Collaboration & Team: The Seed of Technological Sovereignty", "subtitle_bg": "Официален инженерен и научен манифест · DYNKV Studio (2026)", "subtitle_en": "Official Engineering & Scientific Call · DYNKV Studio (2026)", "html_bg": "<h3>Въведение: Философията на Семето</h3>\n<p>Всяко голямо дело в историята на човешкото познание започва от посяването на едно жизнено семе. В <strong>DYNKV Studio</strong> не вярваме в налагането на догми или корпоративен формализъм. Истински устойчивите, красиви и дълготрайни инженерни решения никога не се раждат в изолация от един-единствен ум — те се коват в открития, добронамерен сблъсък на различни гледни точки, в задълбочените научни спорове и в съвместния труд на работилницата.</p>\n<p>Чрез проекта <strong>PERIFERIS</strong> ние положихме инженерната база (семето): архитектурни CAD модели, фърмуерни концепции върху Zephyr RTOS/Linux, пасивна термодинамика и етична рамка за уважение към човешкото тяло. Сега отваряме вратите на студиото за <strong>инженери, физици, механици, софтуерни архитекти и опитни практици</strong>.</p>\n\n<h3>1. Търсени Направления и Профили</h3>\n<div class=\"collab-roles-grid\">\n  <div class=\"collab-role-card\">\n    <h4>⚙️ Инженери по Прецизна Механика & CNC</h4>\n    <p>Оптимизиране на плъзгащи направляващи релси (Delrin / PTFE), безлуфтови механизми за плавно разгръщане, 5-осна CNC обработка на титаниеви сплави (Ti-6Al-4V) и спирални лентови кабели (FPC) с над 500 000 цикъла живот.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>🔬 Учени, Физици & Енергиен Харвестинг</h4>\n    <p>Усъвършенстване на пиезоелектрични (PZT) и трибоелектрични (TENG) генератори в обувното шаси, термогенератори по ефекта на Зеебек, биомеханичен анализ на походката и HRV сензори в реално време.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>💻 Специалисти по Вградени Системи (RTOS & Linux)</h4>\n    <p>Разработка на нискоенергиен фърмуер за микроконтролери (Nordic nRF5340 / ESP32-S3 / STM32) под Zephyr RTOS, локални защитени шини (BLE 5.4, UWB, I2C, SPI) и криптирани драйвери.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>🎨 Софтуерни Архитекти & Графични Дизайнери</h4>\n    <p>Проектиране на адаптивни потребителски среди за KDE Plasma 6 и Wayland, оптимизирани за панорамни ламели, пространствено аудио през PipeWire/ALSA и дискретна офлайн картография.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>🥾 Опитни Практици & Полеви Тестери</h4>\n    <p>Планинари, колоездачи, спортисти и майстори с богат практически опит в сурови условия, които тестват прототипите на терен и откриват слабите места преди серийното производство.</p>\n  </div>\n</div>\n\n<h3>2. Нашата Култура: Равнопоставеност и Плурализъм</h3>\n<ul>\n  <li><strong>Всяка гледна точка има значение:</strong> Няма йерархични бариери, няма табута. Най-добрите иновации се раждат от смели въпроси и открито обсъждане.</li>\n  <li><strong>Признаване на приноса:</strong> Всеки инженерен, научен или практически принос се документира открито. Вярваме в споделеното авторство и справедливото възнаграждение.</li>\n  <li><strong>Гъвкави форми на участие:</strong> От отворено ревю на чертежи и консултации, до пълноправно включване в екипа за лабораторно прототипиране и пазарна реализация.</li>\n</ul>\n\n<h3>3. Как да се свържете с нас</h3>\n<p>Ако споделяте нашата страст към истински хардуерен суверенитет, свържете се директно с нашия инженерен кръг:</p>\n<div style=\"background: rgba(0, 229, 255, 0.08); border: 1px solid var(--cyan); padding: 18px 24px; border-radius: 12px; margin-top: 16px;\">\n  <p style=\"margin: 0 0 6px 0;\"><strong>Официален контакт:</strong> <a href=\"mailto:contact@dynkv.com\" style=\"color: var(--cyan); font-weight: 700;\">contact@dynkv.com</a></p>\n  <p style=\"margin: 0 0 6px 0;\"><strong>Главен Архитект:</strong> Диян Янев (Карчев) / tekifuto</p>\n  <p style=\"margin: 0;\"><strong>Базови локации:</strong> Хелзинки, Финландия · София, България</p>\n</div>", "html_en": "<h3>Introduction: The Philosophy of the Seed</h3>\n<p>Every milestone in the history of human progress originates from the sowing of a resilient seed. At <strong>DYNKV Studio</strong>, we reject rigid dogmatism and bureaucratic corporate structures. Enduring, noble, and beautiful engineering is never forged in isolation by a single mind — it is cultivated through candid, constructive dialogue, rigorous scientific inquiry, and collaborative craftsmanship in the workshop.</p>\n<p>Through the <strong>PERIFERIS</strong> initiative, we laid the fundamental seed: master kinematic CAD layouts, ultra-low-power firmware foundations on Zephyr RTOS/Linux, passive thermodynamics, and an ethical charter defending human dignity. We now open our studio doors to <strong>mechanical engineers, applied physicists, embedded firmware architects, designers, and experienced field practitioners</strong>.</p>\n\n<h3>1. Key Focus Areas & Professional Profiles</h3>\n<div class=\"collab-roles-grid\">\n  <div class=\"collab-role-card\">\n    <h4>⚙️ Precision Mechanical Engineers & CNC Machinists</h4>\n    <p>Refining zero-backlash multi-panel deployment mechanisms, low-friction Delrin POM-H / PTFE guides, 5-axis precision CNC machining of Grade-5 Titanium (Ti-6Al-4V), and clock-spring FPC flex ribbon design exceeding 500,000 motion cycles.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>🔬 Physicists & Micro-Energy Harvesting Specialists</h4>\n    <p>Advancing piezoelectric (PZT) and triboelectric (TENG) kinetic harvesting in foot chassis, Seebeck thermoelectric generators for passive heat reclamation, and real-time biometric HRV/PPG sensor integration.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>💻 Embedded Systems & Firmware Engineers (RTOS / Linux)</h4>\n    <p>Authoring deterministic ultra-low-power firmware for MCUs (Nordic nRF5340 / ESP32-S3 / STM32) under Zephyr RTOS, architecting robust local wireless interconnects (BLE 5.4, UWB, I2C, SPI), and zero-backdoor hardware security.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>🎨 Software Architects & UI Designers (KDE / Kirigami)</h4>\n    <p>Developing adaptable convergent user environments for KDE Plasma 6 and Wayland, crafting low-latency spatial audio pipelines (PipeWire / ALSA), and intuitive offline ambient mapping.</p>\n  </div>\n  <div class=\"collab-role-card\">\n    <h4>🥾 Field Practitioners & Real-World Testers</h4>\n    <p>Mountaineers, endurance cyclists, outdoor explorers, and craftspeople who push prototypes through harsh elements to expose stress points long before commercial production.</p>\n  </div>\n</div>\n\n<h3>2. Our Culture: Mutual Sovereignty & Pluralism</h3>\n<ul>\n  <li><strong>Every Insight Counts:</strong> No corporate hierarchies or artificial gatekeeping. Break-through engineering emerges from daring questions and open peer review.</li>\n  <li><strong>Full Attribution & Shared Merit:</strong> Every substantive technical, scientific, or design contribution is permanently credited. We uphold transparent collaboration and equitable reward.</li>\n  <li><strong>Flexible Engagement:</strong> From open CAD architectural review and advisory sparrings to full-fledged laboratory prototyping and production deployments.</li>\n</ul>\n\n<h3>3. How to Connect</h3>\n<p>If you share our drive for true European hardware sovereignty and human-first engineering, connect directly with our engineering core:</p>\n<div style=\"background: rgba(0, 229, 255, 0.08); border: 1px solid var(--cyan); padding: 18px 24px; border-radius: 12px; margin-top: 16px;\">\n  <p style=\"margin: 0 0 6px 0;\"><strong>Official Contact:</strong> <a href=\"mailto:contact@dynkv.com\" style=\"color: var(--cyan); font-weight: 700;\">contact@dynkv.com</a></p>\n  <p style=\"margin: 0 0 6px 0;\"><strong>Lead Architect:</strong> Diyan Yanev (Karchev) / tekifuto</p>\n  <p style=\"margin: 0;\"><strong>Hub Locations:</strong> Helsinki, Finland · Sofia, Bulgaria</p>\n</div>"}};
+    let currentOpenDocId = null;
+
+    function openDocModal(docId) {
+      const doc = DYNKV_DOCS[docId];
+      if (!doc) return;
+      currentOpenDocId = docId;
+
+      const currentLang = localStorage.getItem('dynkv_lang') || 'bg';
+      const titleEl = document.getElementById('doc-modal-title');
+      const subEl = document.getElementById('doc-modal-subtitle');
+      const contentEl = document.getElementById('doc-modal-content');
+      const footerEl = document.getElementById('doc-modal-footer');
+
+      if (titleEl) titleEl.innerText = (currentLang === 'en') ? doc.title_en : doc.title_bg;
+      if (subEl) subEl.innerText = (currentLang === 'en') ? doc.subtitle_en : doc.subtitle_bg;
+      if (contentEl) contentEl.innerHTML = (currentLang === 'en') ? doc.html_en : doc.html_bg;
+      if (footerEl) {
+        footerEl.innerText = (currentLang === 'en')
+          ? "Document certified and registered in the DYNKV Studio cognitive registry · Helsinki · 2026"
+          : "Документът е заверен и защитен в когнитивния регистър на DYNKV Studio · Хелзинки · 2026";
+      }
+
+      const modalEl = document.getElementById('document-modal');
+      if (modalEl) {
+        modalEl.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDocModal() {
+      const modalEl = document.getElementById('document-modal');
+      if (modalEl) {
+        modalEl.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      currentOpenDocId = null;
+    }
+
+    function handleModalBackdropClick(event) {
+      if (event.target && event.target.id === 'document-modal') {
+        closeDocModal();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDocModal();
+      }
+    });
+
   </script>
+
+    <!-- =========================================================
+       DOCUMENT MODAL VIEWER (PHILOSOPHY & COLLABORATION)
+       ========================================================= -->
+    <div class="doc-modal-overlay" id="document-modal" onclick="handleModalBackdropClick(event)">
+      <div class="doc-modal-container" role="dialog" aria-modal="true">
+        <div class="doc-modal-header">
+          <div class="doc-modal-title-box">
+            <h3 id="doc-modal-title">Документ на DYNKV Studio</h3>
+            <span id="doc-modal-subtitle">Официален философски манифест · Хелзинки · 2026</span>
+          </div>
+          <button class="doc-modal-close-btn" onclick="closeDocModal()" title="Затвори (ESC)">&times;</button>
+        </div>
+        <div class="doc-modal-body" id="doc-modal-content">
+          <!-- Dynamic article content injected here -->
+        </div>
+        <div class="doc-modal-footer" id="doc-modal-footer">
+          Документът е заверен и защитен в когнитивния регистър на DYNKV Studio · Хелзинки · 2026
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>
