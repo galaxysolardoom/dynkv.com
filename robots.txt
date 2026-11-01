@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /legal/
+Disallow: /demos/
 Allow: /
 
 Sitemap: https://dynkv.com/sitemap.xml

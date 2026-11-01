@@ -502,47 +502,6 @@
     .badge-boots { background: rgba(0, 229, 255, 0.14); color: var(--cyan); border: 1px solid var(--border-cyan); }
     .badge-spw { background: rgba(192, 132, 252, 0.14); color: var(--purple); border: 1px solid var(--border-purple); }
 
-    /* Action Links for Indiegogo & LinkedIn */
-    .crowdfund-actions-box {
-      margin: 18px 0 14px 0;
-      padding: 16px;
-      background: rgba(0, 0, 0, 0.45);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .crowdfund-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 11px 16px; border-radius: 12px;
-      font-size: 13px; font-weight: 700; text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-    .btn-indiegogo {
-      background: linear-gradient(135deg, rgba(235, 20, 114, 0.2), rgba(251, 191, 36, 0.2));
-      border: 1.5px solid #eb1472;
-      color: #ff60a8;
-      box-shadow: 0 0 15px rgba(235, 20, 114, 0.25);
-    }
-    .btn-indiegogo:hover {
-      background: #eb1472; color: #fff;
-      box-shadow: 0 0 25px rgba(235, 20, 114, 0.6);
-      transform: translateY(-2px);
-    }
-    .btn-linkedin {
-      background: linear-gradient(135deg, rgba(10, 102, 194, 0.25), rgba(0, 229, 255, 0.2));
-      border: 1.5px solid #0a66c2;
-      color: #38bdf8;
-      box-shadow: 0 0 15px rgba(10, 102, 194, 0.25);
-    }
-    .btn-linkedin:hover {
-      background: #0a66c2; color: #fff;
-      box-shadow: 0 0 25px rgba(10, 102, 194, 0.6);
-      transform: translateY(-2px);
-    }
-
     /* =========================================================
        SPW-3 COMMUNITY DESIGN POLL (ИНТЕРАКТИВНА АНКЕТА)
        ========================================================= */
@@ -1886,18 +1845,6 @@
                   <li><strong>Теренен LiDAR & Gait Lock:</strong> Сканиране на пукнатини и лед на 3 метра напред; биометрично отключване по индивидуална походка.</li>
                 </ul>
 
-                <!-- Indiegogo & LinkedIn Callouts for Boots -->
-                <div class="crowdfund-actions-box">
-                  <a href="mailto:contact@dynkv.com?subject=Indiegogo%20VIP%20Early%20Bird%20Access%20-%20TeKiFutorist%20Boots" class="crowdfund-btn btn-indiegogo" id="btn-boots-indiegogo">
-                    🚀 Indiegogo VIP Ранна Регистрация (-40% Early Bird)
-                  </a>
-                  <a href="https://www.linkedin.com/in/diyan-yanev" target="_blank" rel="noopener" class="crowdfund-btn btn-linkedin" id="btn-boots-linkedin">
-                    💼 LinkedIn B2B Партньорство & Лицензиране
-                  </a>
-                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" id="btn-legal-notice-boots" class="crowdfund-btn" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
-                    🛡️ PERIFERIS™ Патентна Защита & Indiegogo IP Щит
-                  </a>
-                </div>
               </div>
 
               <div class="card-footer-badges">
@@ -2010,18 +1957,6 @@
                   </div>
                 </div>
 
-                <!-- Indiegogo & LinkedIn Callouts for SPWings -->
-                <div class="crowdfund-actions-box">
-                  <a href="mailto:contact@dynkv.com?subject=Indiegogo%20Launch%20Notification%20-%20SPWings" class="crowdfund-btn btn-indiegogo notranslate" id="btn-spw-indiegogo" translate="no">
-                    🚀 Indiegogo Известие за Старт на Кампанията
-                  </a>
-                  <a href="https://www.linkedin.com/in/diyan-yanev" target="_blank" rel="noopener" class="crowdfund-btn btn-linkedin notranslate" id="btn-spw-linkedin" translate="no">
-                    💼 LinkedIn B2B Хардуерно Лицензиране
-                  </a>
-                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" id="btn-legal-notice-spw" class="crowdfund-btn notranslate" translate="no" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
-                    🛡️ PERIFERIS™ Патентна Защита & Indiegogo IP Щит
-                  </a>
-                </div>
               </div>
 
               <div class="card-footer-badges">
@@ -2543,7 +2478,6 @@
 <li><strong>72% NPU товар в подметката:</strong> Тежките невронни изчисления се извършват в шасито долу — тялото и главата остават хладни.</li>
 <li><strong>M-Frame модулност:</strong> Смяна на протектора за 30 секунди, 92% рециклируемост и пълно съответствие с Правото на ремонт (Right to Repair).</li>
 <li><strong>Теренен LiDAR & Gait Lock:</strong> Сканиране на пукнатини и лед на 3 метра напред; биометрично отключване по индивидуална походка.</li>`,
-        btnBootsIndiegogo: "🚀 Indiegogo VIP Ранна Регистрация (-40% Early Bird)",
         btnBootsLinkedin: "💼 LinkedIn B2B Партньорство & Лицензиране",
 
         titleSpw: "🪭 Smart Papilio Wing (SPW-3)",
@@ -2565,7 +2499,6 @@
         pollDescC: "3-в-1 докинг: носене на китка, в ръка за навигация и стойка за бюро под 65° с вградено ламинарно охлаждане.",
         pollTotalLabel: "Общо гласували в общността:",
         pollFeedback: "✓ Благодарим ви! Вашият глас е записан успешно.",
-        btnSpwIndiegogo: "🚀 Indiegogo Известие за Старт на Кампанията",
         btnSpwLinkedin: "💼 LinkedIn B2B Хардуерно Лицензиране",
 
         badgeShumo: "СТЪЛБ III · ЖИВО АУДИО И ИИ СПЪТНИК",
@@ -2656,8 +2589,6 @@
         q3Title: "👑 Level 8: Sovereign Quorum (7/8)",
         q3Sub: "Абсолютна квантова и хардуерна неприкосновеност",
         btnVeryfixSim: "<span>🧪 Стартирай Интерактивната Симулация на VeryFix.V8</span> &rarr;",
-        btnLegalNoticeBoots: "🛡️ PERIFERIS™ Патентна & Indiegogo Защита (Правно Известие)",
-        btnLegalNoticeSpw: "🛡️ PERIFERIS™ Патентна & Indiegogo Защита (Правно Известие)",
         linkCollab: "Сътрудничество",
         foundationsMainHeading: "<span>📜</span> Философски Основи & Стратегически Документи",
         fcard1Title: "Човекът и Технологичният Преход",
@@ -2765,7 +2696,6 @@
 <li><strong>72% NPU Workload in Sole:</strong> Heavy neural inferencing is performed in the lower chassis — body and head stay cool.</li>
 <li><strong>M-Frame Modularity:</strong> Outsole replacement in under 30 seconds, 92% recyclability, fully adhering to the Right to Repair.</li>
 <li><strong>Terrain LiDAR & Gait Lock:</strong> Scans cracks and ice 3 meters ahead; biometric unlock calibrated to unique individual gait.</li>`,
-        btnBootsIndiegogo: "🚀 Indiegogo VIP Early Bird Access (-40%)",
         btnBootsLinkedin: "💼 LinkedIn B2B Partnership & Licensing",
 
         titleSpw: "🪭 Smart Papilio Wing (SPW-3)",
@@ -2787,7 +2717,6 @@
         pollDescC: "3-in-1 transformation: wrist wearable, handheld interactive navigation, and 65° desk stand with micro-cooling.",
         pollTotalLabel: "Total community votes cast:",
         pollFeedback: "✓ Thank you! Your vote has been recorded successfully.",
-        btnSpwIndiegogo: "🚀 Indiegogo Launch Notification",
         btnSpwLinkedin: "💼 LinkedIn B2B Hardware Licensing",
 
         badgeShumo: "PILLAR III · LIVING AUDIO & AI COMPANION",
@@ -2878,8 +2807,6 @@
         q3Title: "👑 Level 8: Sovereign Quorum (7/8)",
         q3Sub: "Absolute quantum & hardware sovereignty",
         btnVeryfixSim: "<span>🧪 Launch VeryFix.V8 Interactive Simulation</span> &rarr;",
-        btnLegalNoticeBoots: "🛡️ PERIFERIS™ Patent & Indiegogo Protection (Legal Notice)",
-        btnLegalNoticeSpw: "🛡️ PERIFERIS™ Patent & Indiegogo Protection (Legal Notice)",
         linkCollab: "Collaboration",
         foundationsMainHeading: "<span>📜</span> Philosophical Foundations & Strategic Papers",
         fcard1Title: "Humanity & Technological Transition",
