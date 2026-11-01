@@ -1,0 +1,23 @@
+# OS Metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary & Local Preview Files
+*_preview.html
+*test*
+*.tmp
+*.bak
+*.log
+
+# Sensitive credentials & keys
+*.pem
+*.key
+*.env
+*.secret

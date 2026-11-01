@@ -1,823 +1,1475 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="bg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DYNKV Studio · Software Solutions, AI & 3D Digital Art · dynkv.com</title>
-  <meta name="description" content="DYNKV Studio – Creative Software Solutions, Audio DSP (SHUMo'Lily), On-Device AI Integration, TeKi-Nano'M SmartWear Concept, and 3D Digital Art.">
-  <link rel="icon" href="assets/dynkv_master_logo.jpg" type="image/jpeg">
+  <title>DYNKV Studio · Nature · Technology · Humanity · dynkv.com</title>
+  <meta name="description" content="DYNKV Studio – Official Portal: The 3 Pillars · GATANKA, PERIFERIS (Boots & SPWings), SHUMo'Lily + Mish. Patent Pending BPO & PCT.">
+  <link rel="icon" href="assets/dynkv_official_master_logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #04060a;
-      --bg-card: rgba(10, 15, 26, 0.78);
-      --bg-card-hover: rgba(18, 26, 44, 0.92);
-      --text-main: #f8fafc;
+      --bg: #04060a;
+      --bg-card: rgba(8, 14, 26, 0.84);
+      --bg-card-hover: rgba(12, 20, 38, 0.94);
+      --text: #f1f5f9;
       --text-muted: #94a3b8;
-      --accent-cyan: #00f0ff;
-      --accent-emerald: #00ff7f;
-      --accent-purple: #c084fc;
-      --accent-magenta: #f43f5e;
-      --accent-gold: #fbbf24;
-      --border-color: rgba(255, 255, 255, 0.12);
-      --border-glow: rgba(0, 240, 255, 0.45);
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      
+      /* Цветова схема: Синьо-зелено (Cyan/Teal) към Лилаво със Златисти ореоли */
+      --cyan: #00e5ff;
+      --cyan-glow: rgba(0, 229, 255, 0.38);
+      --teal: #10b981;
+      --purple: #c084fc;
+      --purple-deep: #8b5cf6;
+      --purple-glow: rgba(192, 132, 252, 0.38);
+      --gold: #fbbf24;
+      --gold-dark: #d97706;
+      --gold-glow: rgba(251, 191, 36, 0.42);
+
+      --border: rgba(255, 255, 255, 0.08);
+      --border-cyan: rgba(0, 229, 255, 0.38);
+      --border-purple: rgba(192, 132, 252, 0.38);
+      --border-gold: rgba(251, 191, 36, 0.45);
+
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { 
-      background-color: var(--bg-dark); 
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
       background-image: 
-        linear-gradient(180deg, rgba(4, 6, 10, 0.70) 0%, rgba(4, 6, 10, 0.82) 45%, rgba(4, 6, 10, 0.94) 100%),
-        url('assets/dynkv_master_background.jpg');
-      background-position: center top;
-      background-size: cover;
-      background-repeat: no-repeat;
+        radial-gradient(circle at 15% 5%, rgba(0, 229, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(192, 132, 252, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 45%, rgba(251, 191, 36, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.08) 0%, transparent 50%);
       background-attachment: fixed;
-      color: var(--text-main); 
-      font-family: var(--font-sans); 
-      line-height: 1.6; 
-      overflow-x: hidden; 
+      overflow-x: hidden;
     }
 
-    /* Navigation Bar */
-    nav { 
-      position: sticky; 
-      top: 0; 
-      z-index: 100; 
-      background: rgba(4, 6, 10, 0.86); 
-      backdrop-filter: blur(24px); 
+    .container { max-width: 1420px; margin: 0 auto; padding: 0 24px; }
+
+    /* Floating Glass Navigation */
+    nav {
+      position: sticky; top: 16px; z-index: 100;
+      margin: 0 auto; max-width: 1340px; padding: 0 16px;
+    }
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 28px; border-radius: 999px;
+      backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border-color); 
+      background: rgba(6, 10, 18, 0.88);
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 229, 255, 0.15);
     }
-    .nav-inner { 
-      max-width: 1240px; 
-      margin: 0 auto; 
-      padding: 14px 24px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: #fff; font-weight: 700; font-size: 16px;
+      letter-spacing: 2px; font-family: var(--font-display);
     }
-    .nav-brand { 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      text-decoration: none; 
-      color: #fff; 
+    .nav-logo {
+      width: 36px; height: 36px; border-radius: 10px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 10px var(--gold-glow);
+      object-fit: cover;
     }
-    .nav-logo-img { 
-      width: 42px; 
-      height: 42px; 
-      border-radius: 12px; 
-      object-fit: cover; 
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); 
-      border: 1.5px solid rgba(0, 240, 255, 0.5); 
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 13px;
+      font-weight: 600; letter-spacing: 0.5px;
+      transition: color 0.2s, text-shadow 0.2s;
     }
-    .nav-title { 
-      font-size: 18px; 
-      font-weight: 900; 
-      letter-spacing: 0.8px; 
-      background: linear-gradient(135deg, #fff 30%, var(--accent-cyan) 100%);
+    .nav-links a:hover {
+      color: var(--cyan);
+      text-shadow: 0 0 12px var(--cyan-glow);
+    }
+
+    .lang-switch-group {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid var(--border-gold);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.2);
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 5px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+    }
+    .lang-btn:hover {
+      color: #fff;
+    }
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(0, 229, 255, 0.55);
+    }
+
+    /* =========================================================
+       HERO TRIPTYCH: LEFT IMAGE - CENTER LOGO - RIGHT IMAGE
+       ========================================================= */
+    .hero {
+      padding: 45px 0 25px 0;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 46px; font-weight: 800; letter-spacing: 6px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffffff 15%, var(--cyan) 65%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 24px; line-height: 1.1;
+      filter: drop-shadow(0 0 35px rgba(0, 229, 255, 0.4));
+    }
+
+    .hero-triptych {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Left & Right Hero Cards */
+    .hero-side-card {
+      flex: 1;
+      max-width: 370px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-purple);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(192, 132, 252, 0.2);
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+    }
+    .hero-side-card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    .hero-side-left {
+      border-color: var(--border-purple);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(192, 132, 252, 0.22);
+    }
+    .hero-side-left:hover {
+      border-color: var(--purple);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 45px rgba(192, 132, 252, 0.45), 0 0 25px var(--gold-glow);
+    }
+    .hero-side-right {
+      border-color: var(--border-cyan);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 229, 255, 0.22);
+    }
+    .hero-side-right:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 45px rgba(0, 229, 255, 0.45), 0 0 25px var(--gold-glow);
+    }
+
+    .hero-side-img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .hero-side-card:hover .hero-side-img {
+      transform: scale(1.03);
+    }
+    .hero-side-caption {
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      background: rgba(6, 10, 18, 0.96);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      letter-spacing: 0.6px;
+    }
+
+    /* Center Hero Box (Logo, Credo, Status) */
+    .hero-center-box {
+      flex: 0 0 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 10px 14px;
+    }
+    .hero-emblem-box {
+      width: 270px; height: 270px;
+      border-radius: 40px; padding: 6px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.28) 0%, rgba(192, 132, 252, 0.22) 60%, rgba(251, 191, 36, 0.18) 100%);
+      border: 2px solid var(--cyan);
+      box-shadow: 
+        0 0 50px rgba(0, 229, 255, 0.45),
+        0 0 90px rgba(192, 132, 252, 0.3),
+        inset 0 0 35px rgba(251, 191, 36, 0.25);
+      margin-bottom: 22px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .hero-emblem-box:hover {
+      transform: scale(1.04);
+      box-shadow: 
+        0 0 75px rgba(0, 229, 255, 0.65),
+        0 0 115px rgba(192, 132, 252, 0.4),
+        inset 0 0 45px rgba(251, 191, 36, 0.35);
+    }
+    .hero-emblem-img {
+      width: 100%; height: 100%; border-radius: 34px; object-fit: cover;
+    }
+    .hero-tagline {
+      font-size: 12px; letter-spacing: 3.5px; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 12px; font-weight: 700;
+      font-family: var(--font-display);
+    }
+    .credo {
+      font-size: 15px; color: var(--text-muted); max-width: 360px;
+      margin: 0 auto 12px auto; letter-spacing: 0.3px; line-height: 1.6;
+    }
+    .credo strong {
+      color: #fff; font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 40%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .nav-links { 
-      display: flex; 
-      align-items: center; 
-      gap: 22px; 
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 18px; border-radius: 999px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid var(--cyan);
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+      font-size: 11px; font-weight: 700; color: var(--cyan);
+      letter-spacing: 1.5px; text-transform: uppercase; margin-top: 10px;
     }
-    .nav-links a { 
-      color: var(--text-muted); 
-      text-decoration: none; 
-      font-size: 13px; 
-      font-weight: 600; 
-      transition: color 0.2s; 
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      animation: pulseDot 2s infinite;
     }
-    .nav-links a:hover { 
-      color: var(--accent-cyan); 
-    }
-    .btn-nav { 
-      padding: 8px 20px; 
-      border-radius: 10px; 
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); 
-      color: #04060a; 
-      font-size: 12px; 
-      font-weight: 800; 
-      text-decoration: none; 
-      box-shadow: 0 0 18px rgba(192, 132, 252, 0.35); 
-      transition: transform 0.2s, box-shadow 0.2s; 
-    }
-    .btn-nav:hover { 
-      transform: scale(1.04); 
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    /* Container */
-    .container { 
-      max-width: 1180px; 
-      margin: 0 auto; 
-      padding: 0 24px; 
-    }
-
-    /* Hero Section */
-    .hero { 
-      padding: 80px 0 60px 0; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      text-align: center; 
-      position: relative; 
-    }
-    
-    /* Central 3D Glagolitic Emblem Showcase */
-    .hero-logo-showcase { 
-      width: 220px; 
-      height: 220px; 
-      border-radius: 44px; 
-      padding: 6px; 
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.75), rgba(192, 132, 252, 0.85), rgba(251, 191, 36, 0.55)); 
-      box-shadow: 0 0 60px rgba(0, 240, 255, 0.5), 0 0 90px rgba(192, 132, 252, 0.4); 
-      margin-bottom: 26px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      animation: floatPulse 6s ease-in-out infinite;
-    }
-    .hero-logo-img { 
-      width: 100%; 
-      height: 100%; 
-      border-radius: 38px; 
-      object-fit: cover; 
-    }
-
-    @keyframes floatPulse {
-      0%, 100% { transform: translateY(0); box-shadow: 0 0 45px rgba(0, 240, 255, 0.35), 0 0 75px rgba(192, 132, 252, 0.2); }
-      50% { transform: translateY(-8px); box-shadow: 0 0 65px rgba(0, 240, 255, 0.55), 0 0 95px rgba(192, 132, 252, 0.35); }
-    }
-
-    .hero-badge { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-      padding: 7px 22px; 
-      border-radius: 30px; 
-      background: rgba(0, 240, 255, 0.08); 
-      border: 1px solid rgba(0, 240, 255, 0.35); 
-      color: var(--accent-cyan); 
-      font-size: 11px; 
-      font-family: monospace; 
-      font-weight: 700; 
-      letter-spacing: 0.5px;
-      margin-bottom: 20px; 
-      backdrop-filter: blur(12px);
-    }
-    
-    .hero h1 { 
-      font-size: 46px; 
-      font-weight: 900; 
-      line-height: 1.15; 
-      margin-bottom: 20px; 
-      letter-spacing: -0.5px; 
-      background: linear-gradient(180deg, #ffffff 15%, #cbd5e1 90%); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-      text-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-    .hero p { 
-      font-size: 18px; 
-      color: #cbd5e1; 
-      max-width: 800px; 
-      margin-bottom: 30px; 
-      line-height: 1.65; 
-      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-    }
-
-    /* Core Values Ribbon */
-    .values-ribbon {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 34px;
-      padding: 10px 26px;
+    /* Single-Line Autumn Yellow Haiku */
+    .haiku-banner {
+      margin: 30px auto 60px auto;
+      max-width: 1200px;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%);
+      color: #06090e;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
+      padding: 14px 28px;
+      box-shadow: 0 10px 35px var(--gold-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 15px; letter-spacing: 0.4px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
-    .val-item {
-      font-size: 11.5px;
-      font-family: monospace;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--text-muted);
+    .haiku-text-line {
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-    .val-item span { color: var(--accent-cyan); }
-
-    .hero-actions { 
-      display: flex; 
-      gap: 14px; 
-      justify-content: center; 
-      flex-wrap: wrap; 
-    }
-    .btn-primary { 
-      padding: 14px 32px; 
-      border-radius: 12px; 
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); 
-      color: #04060a; 
-      font-weight: 800; 
-      font-size: 13.5px; 
-      text-decoration: none; 
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.35); 
-      transition: transform 0.2s, box-shadow 0.2s; 
-    }
-    .btn-primary:hover { 
-      transform: translateY(-2px); 
-      box-shadow: 0 0 35px rgba(192, 132, 252, 0.55); 
-    }
-    .btn-secondary { 
-      padding: 14px 28px; 
-      border-radius: 12px; 
-      background: rgba(255, 255, 255, 0.06); 
-      border: 1px solid rgba(255, 255, 255, 0.16); 
-      color: #fff; 
-      font-weight: 700; 
-      font-size: 13.5px; 
-      text-decoration: none; 
-      backdrop-filter: blur(12px);
-      transition: background 0.2s, border-color 0.2s; 
-    }
-    .btn-secondary:hover { 
-      background: rgba(255, 255, 255, 0.12); 
-      border-color: var(--accent-cyan); 
-      color: var(--accent-cyan); 
+    .haiku-author-inline {
+      margin-left: 12px; font-weight: 800; opacity: 0.85; white-space: nowrap;
     }
 
-    /* Section Styling */
-    section { 
-      padding: 70px 0; 
-      border-top: 1px solid var(--border-color); 
-    }
-    .section-head { 
-      text-align: center; 
-      max-width: 720px; 
-      margin: 0 auto 46px auto; 
-    }
-    .section-title { 
-      font-size: 30px; 
-      font-weight: 900; 
-      margin-bottom: 10px; 
-      color: #fff; 
-      letter-spacing: -0.3px; 
-    }
-    .section-sub { 
-      font-size: 15px; 
-      color: var(--text-muted); 
-    }
-
-    /* Flagship Product Spotlight: SHUMo'Lily */
-    .flagship-banner {
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(192, 132, 252, 0.14) 50%, rgba(10, 15, 26, 0.92) 100%);
-      border: 1px solid rgba(0, 240, 255, 0.4);
-      border-radius: 28px;
-      padding: 44px;
-      margin-bottom: 40px;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
-      align-items: center;
-      backdrop-filter: blur(24px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-    }
-    .flagship-badge {
+    /* =========================================================
+       THREE SOVEREIGN PILLARS: DISPLAYED ONE BY ONE VERTICALLY
+       ========================================================= */
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-badge {
       display: inline-block;
-      padding: 5px 14px;
-      border-radius: 20px;
-      background: rgba(192, 132, 252, 0.15);
-      border: 1px solid rgba(192, 132, 252, 0.4);
-      color: var(--accent-purple);
-      font-size: 11px;
-      font-family: monospace;
-      font-weight: bold;
-      margin-bottom: 14px;
+      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); font-weight: 800; margin-bottom: 10px;
+      font-family: var(--font-display);
+      text-shadow: 0 0 15px var(--gold-glow);
     }
-    .flagship-banner h3 {
-      font-size: 28px;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 14px;
+    .section-title {
+      font-size: 38px; font-weight: 800; letter-spacing: -0.5px;
+      font-family: var(--font-display);
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan) 85%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .flagship-banner p {
-      font-size: 14.5px;
-      color: #cbd5e1;
-      line-height: 1.7;
-      margin-bottom: 20px;
+    .section-sub {
+      font-size: 15px; color: var(--text-muted); margin-top: 8px;
     }
-    .flagship-features {
-      list-style: none;
-    }
-    .flagship-features li {
-      font-size: 13.5px;
-      color: #cbd5e1;
-      margin-bottom: 10px;
+
+    /* Stack of Pillars */
+    .pillars-vertical-flow {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 75px;
+      margin-bottom: 80px;
+    }
+
+    .pillar-full-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 34px;
+      padding: 42px;
+      backdrop-filter: blur(24px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .pillar-full-card:hover {
+      box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Pillar 1 Accent: GATANKA */
+    .pillar-gatanka {
+      border-color: var(--border-cyan);
+      box-shadow: 0 0 45px rgba(0, 229, 255, 0.15), inset 0 0 30px rgba(0, 229, 255, 0.05);
+    }
+    .pillar-gatanka:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 65px rgba(0, 229, 255, 0.28), 0 0 35px var(--gold-glow);
+    }
+
+    /* Pillar 2 Accent: PERIFERIS */
+    .pillar-periferis {
+      border-color: var(--border-purple);
+      background: rgba(10, 14, 28, 0.88);
+      box-shadow: 0 0 45px rgba(192, 132, 252, 0.18), inset 0 0 30px rgba(192, 132, 252, 0.06);
+    }
+    .pillar-periferis:hover {
+      border-color: var(--purple);
+      box-shadow: 0 0 70px rgba(192, 132, 252, 0.32), 0 0 40px var(--cyan-glow);
+    }
+
+    /* Pillar 3 Accent: SHUMo'Lily + Mish */
+    .pillar-shumo {
+      border-color: rgba(0, 229, 255, 0.35);
+      box-shadow: 0 0 45px rgba(0, 229, 255, 0.16), inset 0 0 30px rgba(251, 191, 36, 0.06);
+    }
+    .pillar-shumo:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 65px var(--gold-glow), 0 0 45px rgba(192, 132, 252, 0.28);
+    }
+
+    .pillar-badge-top {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11.5px; letter-spacing: 2.5px; text-transform: uppercase;
+      font-weight: 800; font-family: var(--font-display);
+      margin-bottom: 8px;
+    }
+    .pillar-gatanka .pillar-badge-top { color: var(--cyan); }
+    .pillar-periferis .pillar-badge-top { color: var(--purple); }
+    .pillar-shumo .pillar-badge-top { color: var(--gold); }
+
+    .pillar-heading {
+      font-size: 32px; font-weight: 800; color: #fff;
+      font-family: var(--font-display); line-height: 1.2; margin-bottom: 8px;
+    }
+    .pillar-tagline-sub {
+      font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 28px;
+    }
+
+    /* 2-Column Grid inside a full Pillar */
+    .pillar-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    /* Media Box */
+    .media-box {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 16px;
+      background: #060910;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+    }
+    .media-box img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.35s ease;
+    }
+    .media-box:hover img { transform: scale(1.02); }
+    .media-caption-bar {
+      padding: 10px 14px;
+      background: rgba(6, 10, 18, 0.95);
+      font-size: 12px; color: #cbd5e1; font-weight: 600;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .thumb-grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+    }
+    .thumb-item {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer; background: #050810;
+      transition: all 0.25s;
+    }
+    .thumb-item:hover {
+      border-color: var(--cyan); transform: translateY(-3px);
+      box-shadow: 0 8px 20px var(--cyan-glow);
+    }
+    .thumb-item img {
+      width: 100%; height: 95px; object-fit: cover; display: block;
+    }
+    .thumb-caption {
+      padding: 6px 10px; font-size: 10.5px; font-weight: 600; color: var(--text-muted); text-align: center; background: rgba(0,0,0,0.7);
+    }
+
+    /* =========================================================
+       PERIFERIS EXPANDED: 2 DEDICATED HARDWARE FLAGSHIP CARDS
+       ========================================================= */
+    .subprojects-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 14px;
+    }
+    .subproject-card {
+      background: rgba(5, 8, 18, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 26px;
+      padding: 28px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .subproject-card:hover {
+      transform: translateY(-4px);
+    }
+    .subproject-boots {
+      border-color: var(--border-cyan);
+    }
+    .subproject-boots:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 20px 45px rgba(0, 229, 255, 0.25);
+    }
+    .subproject-spw {
+      border-color: var(--border-purple);
+    }
+    .subproject-spw:hover {
+      border-color: var(--purple);
+      box-shadow: 0 20px 45px rgba(192, 132, 252, 0.25);
+    }
+
+    .subproject-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+    }
+    .subproject-title-text {
+      font-size: 21px; font-weight: 800; color: #fff; font-family: var(--font-display);
+    }
+    .subproject-badge {
+      font-size: 11px; font-weight: 800; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 8px;
+      letter-spacing: 0.8px;
+    }
+    .badge-boots { background: rgba(0, 229, 255, 0.14); color: var(--cyan); border: 1px solid var(--border-cyan); }
+    .badge-spw { background: rgba(192, 132, 252, 0.14); color: var(--purple); border: 1px solid var(--border-purple); }
+
+    /* Action Links for Indiegogo & LinkedIn */
+    .crowdfund-actions-box {
+      margin: 18px 0 14px 0;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
-    .flagship-features li::before {
-      content: "🎛️";
-      font-size: 13px;
+    .crowdfund-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 16px; border-radius: 12px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-indiegogo {
+      background: linear-gradient(135deg, rgba(235, 20, 114, 0.2), rgba(251, 191, 36, 0.2));
+      border: 1.5px solid #eb1472;
+      color: #ff60a8;
+      box-shadow: 0 0 15px rgba(235, 20, 114, 0.25);
+    }
+    .btn-indiegogo:hover {
+      background: #eb1472; color: #fff;
+      box-shadow: 0 0 25px rgba(235, 20, 114, 0.6);
+      transform: translateY(-2px);
+    }
+    .btn-linkedin {
+      background: linear-gradient(135deg, rgba(10, 102, 194, 0.25), rgba(0, 229, 255, 0.2));
+      border: 1.5px solid #0a66c2;
+      color: #38bdf8;
+      box-shadow: 0 0 15px rgba(10, 102, 194, 0.25);
+    }
+    .btn-linkedin:hover {
+      background: #0a66c2; color: #fff;
+      box-shadow: 0 0 25px rgba(10, 102, 194, 0.6);
+      transform: translateY(-2px);
     }
 
-    /* Grid 4 for Pillars */
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+    /* =========================================================
+       SPW-3 COMMUNITY DESIGN POLL (ИНТЕРАКТИВНА АНКЕТА)
+       ========================================================= */
+    .poll-box {
+      background: rgba(0, 0, 0, 0.55);
+      border: 1.5px solid var(--border-purple);
+      border-radius: 20px;
+      padding: 22px;
+      margin: 20px 0 16px 0;
+      box-shadow: 0 0 25px rgba(192, 132, 252, 0.15);
     }
-    .card { 
-      background: var(--bg-card); 
-      border: 1px solid var(--border-color); 
-      border-radius: 24px; 
-      padding: 30px; 
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      transition: all 0.25s ease; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: space-between; 
+    .poll-title {
+      font-size: 14.5px; font-weight: 800; color: #fff;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      margin-bottom: 6px; font-family: var(--font-display);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
     }
-    .card:hover { 
-      border-color: var(--border-glow); 
-      background: var(--bg-card-hover); 
-      transform: translateY(-5px); 
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+    .poll-badge-live {
+      font-size: 10.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px;
+      background: rgba(192, 132, 252, 0.15); border: 1px solid var(--purple); color: var(--purple);
     }
-    .card-top { margin-bottom: 16px; }
-    .card-icon { 
-      width: 52px; 
-      height: 52px; 
-      border-radius: 16px; 
-      background: rgba(255, 255, 255, 0.05); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-size: 24px; 
-      margin-bottom: 20px; 
-      border: 1px solid rgba(255, 255, 255, 0.1); 
+    .poll-sub {
+      font-size: 12.5px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;
     }
-    .card h3 { 
-      font-size: 18px; 
-      font-weight: 800; 
-      color: #fff; 
-      margin-bottom: 10px; 
+    .poll-options-grid {
+      display: flex; flex-direction: column; gap: 12px;
     }
-    .card p { 
-      font-size: 13.5px; 
-      color: #cbd5e1; 
-      line-height: 1.65; 
-    }
-    .card-tags { 
-      display: flex; 
-      gap: 6px; 
-      flex-wrap: wrap; 
-      margin-top: 20px; 
-    }
-    .tag { 
-      font-size: 10.5px; 
-      font-family: monospace; 
-      padding: 4px 10px; 
-      border-radius: 12px; 
-      background: rgba(255, 255, 255, 0.05); 
-      border: 1px solid rgba(255, 255, 255, 0.1); 
-      color: var(--accent-cyan); 
-      font-weight: 600; 
-    }
-
-    /* Lily Five Moments Grid */
-    .lily-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 30px;
-    }
-    .lily-card {
+    .poll-option-item {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px; padding: 14px 16px;
+      cursor: pointer; transition: all 0.25s ease;
+      position: relative; overflow: hidden;
+    }
+    .poll-option-item:hover {
+      border-color: var(--purple);
+      background: rgba(192, 132, 252, 0.08);
+    }
+    .poll-option-item.selected {
+      border-color: var(--gold);
+      background: rgba(251, 191, 36, 0.1);
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+    .poll-opt-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+      position: relative; z-index: 2;
+    }
+    .poll-opt-name {
+      font-size: 13.5px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px;
+    }
+    .poll-opt-percent {
+      font-size: 13px; font-weight: 800; color: var(--gold);
+    }
+    .poll-opt-desc {
+      font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px;
+      position: relative; z-index: 2;
+    }
+    .poll-bar-track {
+      width: 100%; height: 6px; background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px; overflow: hidden; position: relative; z-index: 2;
+    }
+    .poll-bar-fill {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan) 0%, var(--purple) 50%, var(--gold) 100%);
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .poll-total-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 14px; font-size: 11.5px; color: var(--text-muted); font-weight: 600;
+    }
+    .poll-feedback-text {
+      font-size: 12px; color: var(--gold); font-weight: 700; margin-top: 8px; text-align: center; display: none;
+    }
+
+    /* SHUMo Development Notice Banner */
+    .dev-status-banner {
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(0, 229, 255, 0.15) 100%);
+      border: 1.5px solid var(--gold);
       border-radius: 18px;
-      padding: 20px;
-      text-align: center;
-      backdrop-filter: blur(14px);
+      padding: 14px 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 0 25px var(--gold-glow);
     }
-    .lily-card-num {
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--accent-cyan);
-      margin-bottom: 6px;
+    .dev-status-title {
+      font-size: 13.5px; font-weight: 800; color: #fff;
+      letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-display);
+      display: flex; align-items: center; gap: 10px;
     }
-    .lily-card-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
+    .dev-status-tag {
+      font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+      background: var(--gold); color: #04060a; text-transform: uppercase;
     }
-    .lily-card-desc {
-      font-size: 12px;
+
+    /* Feature Lists */
+    .feature-list {
+      list-style: none; padding: 0; margin: 0 0 18px 0;
+    }
+    .feature-list li {
+      font-size: 13.5px; color: var(--text-muted); line-height: 1.7;
+      margin-bottom: 9px; padding-left: 22px; position: relative;
+    }
+    .feature-list li::before {
+      content: "✦"; position: absolute; left: 0; color: var(--cyan);
+      font-size: 12px; top: 1px;
+    }
+    .pillar-periferis .feature-list li::before { color: var(--purple); }
+    .pillar-shumo .feature-list li::before { color: var(--gold); }
+    .feature-list li strong { color: #f1f5f9; font-weight: 600; }
+
+    /* Interactive Phone Viewer in SHUMo */
+    .shumo-phone-viewer {
+      background: rgba(4, 7, 14, 0.95);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.18);
+      border-radius: 22px; padding: 14px; margin-bottom: 16px;
+    }
+    .screen-tab-bar {
+      display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px;
+      margin-bottom: 12px; scrollbar-width: none;
+    }
+    .screen-tab-bar::-webkit-scrollbar { display: none; }
+    .screen-btn {
+      padding: 6px 12px; border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
       color: var(--text-muted);
-      line-height: 1.5;
+      font-size: 11.5px; font-weight: 600; white-space: nowrap;
+      cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .screen-btn.active, .screen-btn:hover {
+      background: rgba(251, 191, 36, 0.18);
+      border-color: var(--gold);
+      color: #fff;
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+    .active-screen-frame {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer; background: #000;
+    }
+    .active-screen-frame img {
+      width: 100%; max-height: 440px; object-fit: contain; display: block;
+      transition: transform 0.3s;
+    }
+    .active-screen-frame:hover img { transform: scale(1.02); }
+
+    /* Mode Chips */
+    .mode-chips {
+      display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 16px 0;
+    }
+    .chip {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11px; font-weight: 600; color: #cbd5e1;
+    }
+    .chip.highlight {
+      border-color: var(--border-cyan);
+      background: rgba(0, 229, 255, 0.08);
+      color: var(--cyan);
+    }
+    .chip.art {
+      border-color: var(--border-gold);
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--gold);
+      box-shadow: 0 0 12px var(--gold-glow);
     }
 
-    /* Philosophical Vision Banner */
-    .rd-banner { 
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.14) 0%, rgba(10, 15, 26, 0.90) 100%); 
-      border: 1px solid rgba(251, 191, 36, 0.35); 
-      border-radius: 28px; 
-      padding: 44px; 
-      display: grid; 
-      grid-template-columns: 1.2fr 0.8fr; 
-      gap: 32px; 
-      align-items: center; 
-      backdrop-filter: blur(24px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.7); 
+    /* NDA Pill & Buttons */
+    .nda-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      color: #f87171; font-size: 11px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
     }
-    .rd-banner h3 { 
-      font-size: 24px; 
-      font-weight: 900; 
-      color: #fff; 
-      margin-bottom: 14px; 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
+    .nda-action-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 22px; border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.22), rgba(192, 132, 252, 0.22));
+      border: 1px solid var(--cyan);
+      color: #fff; text-decoration: none; font-weight: 700; font-size: 14px;
+      transition: all 0.25s ease; margin-top: 12px;
     }
-    .rd-banner p { 
-      font-size: 14px; 
-      color: #cbd5e1; 
-      line-height: 1.7; 
-      margin-bottom: 16px; 
-    }
-    .rd-list { list-style: none; }
-    .rd-list li { 
-      font-size: 13px; 
-      color: #cbd5e1; 
-      margin-bottom: 10px; 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-    }
-    .rd-list li::before { 
-      content: "✦"; 
-      color: var(--accent-gold); 
-      font-weight: bold; 
+    .nda-action-btn:hover {
+      background: var(--cyan); color: #04060a;
+      box-shadow: 0 0 25px var(--cyan-glow);
     }
 
-    /* Contact Box */
-    .contact-card { 
-      background: var(--bg-card); 
-      border: 1px solid var(--border-color); 
-      border-radius: 28px; 
-      padding: 44px; 
-      text-align: center; 
-      max-width: 680px; 
-      margin: 0 auto; 
-      backdrop-filter: blur(24px);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8); 
+    .card-footer-badges {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+      padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
-    .contact-card h3 { 
-      font-size: 26px; 
-      font-weight: 900; 
-      color: #fff; 
-      margin-bottom: 10px; 
+    .pill-badge {
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px;
+      text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .contact-card p { 
-      font-size: 14.5px; 
-      color: #cbd5e1; 
-      margin-bottom: 24px; 
+    .pill-cyan { background: rgba(0, 229, 255, 0.12); color: var(--cyan); border: 1px solid var(--border-cyan); }
+    .pill-purple { background: rgba(192, 132, 252, 0.12); color: var(--purple); border: 1px solid var(--border-purple); }
+    .pill-gold { background: rgba(251, 191, 36, 0.12); color: var(--gold); border: 1px solid var(--border-gold); }
+
+    /* =========================================================
+       PATENT & COGNITIVE REGISTRY SEAL (ОФИЦИАЛНО ПАТЕНТНО КЛЕЙМО)
+       ========================================================= */
+    .patent-registry-section {
+      background: var(--bg-card);
+      border: 2px solid var(--border-gold);
+      border-radius: 32px;
+      padding: 44px;
+      margin-bottom: 75px;
+      box-shadow: 0 0 50px rgba(251, 191, 36, 0.18), inset 0 0 30px rgba(251, 191, 36, 0.05);
+      position: relative;
     }
-    .contact-badge { 
-      display: inline-block; 
-      padding: 8px 22px; 
-      border-radius: 12px; 
-      background: rgba(0, 240, 255, 0.08); 
-      border: 1px solid rgba(0, 240, 255, 0.35); 
-      color: var(--accent-cyan); 
-      font-family: monospace; 
-      font-size: 12px; 
-      font-weight: bold; 
-      margin-bottom: 24px; 
+    .patent-header-flex {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; flex-wrap: wrap; gap: 16px;
     }
-    .contact-btns {
+    .patent-title-main {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 800; color: #fff;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .patent-badge-live {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid var(--cyan);
+      color: var(--cyan); font-weight: 800; font-size: 11px; letter-spacing: 1.5px;
+    }
+    .patent-grid-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .patent-item-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px 20px;
+    }
+    .patent-item-label {
+      font-size: 11px; text-transform: uppercase; color: var(--gold);
+      font-weight: 700; letter-spacing: 1.2px; margin-bottom: 5px;
+    }
+    .patent-item-val {
+      font-size: 14.5px; font-weight: 700; color: #f1f5f9;
+    }
+    .patent-item-val.accent { color: var(--cyan); }
+
+    /* The Official Embossed Stamp / Клеймо */
+    .official-seal-card {
+      background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.12) 0%, rgba(6, 10, 18, 0.95) 75%);
+      border: 2px dashed var(--gold);
+      border-radius: 20px;
+      padding: 24px 28px;
       display: flex;
-      gap: 12px;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      box-shadow: 0 0 35px var(--gold-glow);
+    }
+    .seal-left-text {
+      flex: 1; min-width: 280px;
+    }
+    .seal-heading {
+      font-size: 15px; font-weight: 800; color: #fff;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px;
+      font-family: var(--font-display);
+    }
+    .seal-subtext {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+    .seal-certified-stamp {
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 12px 20px;
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 15px rgba(251, 191, 36, 0.25);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      text-align: center; padding: 55px 30px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 0 50px rgba(0, 229, 255, 0.18), 0 0 70px rgba(251, 191, 36, 0.1);
+      border-radius: 32px; margin-bottom: 60px;
+      backdrop-filter: blur(24px);
+    }
+    .contact-title {
+      font-family: var(--font-display); font-size: 32px; font-weight: 800; margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff 40%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-sub {
+      font-size: 15px; color: var(--text-muted); margin-bottom: 30px;
+    }
+    .mail-cards-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px; max-width: 1040px; margin: 0 auto 28px auto;
+    }
+    .mail-card-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 18px 22px;
+      text-decoration: none; color: var(--text);
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      transition: all 0.25s ease;
+    }
+    .mail-card-item:hover {
+      border-color: var(--cyan);
+      background: rgba(0, 229, 255, 0.08);
+      box-shadow: 0 0 25px var(--cyan-glow);
+      transform: translateY(-3px);
+    }
+    .mail-role {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--gold); font-weight: 700;
+    }
+    .mail-address {
+      font-size: 15px; font-weight: 700; color: #fff;
     }
 
     /* Footer */
-    footer { 
-      border-top: 1px solid var(--border-color); 
-      padding: 50px 0; 
-      margin-top: 40px; 
-      text-align: center; 
-      font-size: 12px; 
-      color: var(--text-muted); 
-      background: rgba(4, 6, 10, 0.95); 
-      backdrop-filter: blur(20px);
+    footer {
+      padding: 45px 0; border-top: 1px solid var(--border);
+      text-align: center; font-size: 12.5px; color: var(--text-muted);
     }
-    .footer-links { 
-      display: flex; 
-      justify-content: center; 
-      gap: 28px; 
-      margin-bottom: 20px; 
-      flex-wrap: wrap; 
+    footer p { margin-bottom: 6px; }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none; position: fixed; z-index: 1000;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(3, 5, 10, 0.96);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      justify-content: center; align-items: center;
+      flex-direction: column; padding: 24px; cursor: pointer;
     }
-    .footer-links a { 
-      color: var(--text-muted); 
-      text-decoration: none; 
-      font-weight: 600; 
-      transition: color 0.2s; 
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 94vw; max-height: 86vh;
+      border-radius: 18px;
+      border: 1.5px solid var(--cyan);
+      box-shadow: 0 0 75px var(--cyan-glow), 0 0 110px var(--gold-glow);
+      object-fit: contain;
     }
-    .footer-links a:hover { 
-      color: var(--accent-cyan); 
+    .lightbox-close {
+      position: absolute; top: 22px; right: 30px;
+      font-size: 40px; color: #fff; cursor: pointer;
+      transition: color 0.2s; line-height: 1;
+    }
+    .lightbox-close:hover { color: var(--cyan); }
+    .lightbox-caption {
+      margin-top: 16px; font-size: 14px; color: #f1f5f9;
+      font-weight: 600; letter-spacing: 0.5px; text-align: center; max-width: 900px;
     }
 
-    @media (max-width: 860px) {
-      .hero h1 { font-size: 32px; }
-      .flagship-banner, .rd-banner { grid-template-columns: 1fr; }
+    /* Responsive */
+    @media (max-width: 1180px) {
+      .hero-triptych { flex-direction: column; gap: 24px; }
+      .hero-center-box { order: -1; margin-bottom: 10px; }
+      .hero-side-card { max-width: 580px; width: 100%; }
+      .hero-side-img { height: 420px; }
+      .pillar-split-grid { grid-template-columns: 1fr; }
+      .subprojects-container { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 32px; letter-spacing: 3px; }
+      .hero-emblem-box { width: 220px; height: 220px; }
+      .hero-side-img { height: 340px; }
       .nav-links { display: none; }
+      .haiku-banner { padding: 12px 16px; font-size: 13px; }
+      .haiku-text-line { white-space: normal; }
+      .pillar-full-card { padding: 26px 20px; }
+      .pillar-heading { font-size: 26px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Floating Glass Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-brand">
-        <img src="assets/dynkv_master_logo.jpg" alt="DYNKV Studio Logo" class="nav-logo-img">
-        <span class="nav-title">DYNKV Studio</span>
+      <a href="#" class="nav-brand notranslate" translate="no">
+        <img src="assets/dynkv_official_master_logo.jpg" alt="DYNKV Studio" class="nav-logo">
+        <span>DYNKV Studio</span>
       </a>
-      <div class="nav-links">
-        <a href="#shumo">SHUMo'Lily (DSP)</a>
-        <a href="#pillars">Four Pillars</a>
-        <a href="#art">3D Digital Art</a>
-        <a href="#philosophy">Concept Lab</a>
-        <a href="#contact" class="btn-nav">Connect Studio</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#haiku" id="link-haiku">Хайко</a>
+          <a href="#gatanka" id="link-gatanka" class="notranslate" translate="no">GATANKA</a>
+          <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" style="color: #00e5ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);">⚡ ДЕМО WCSSTP</a>
+          <a href="#periferis" id="link-periferis" class="notranslate" translate="no">PERIFERIS</a>
+          <a href="#shumo" id="link-shumo" class="notranslate" translate="no">SHUMo'Lily</a>
+          <a href="#patent-registry" id="link-patent">Патентен Регистър</a>
+          <a href="#contact" id="link-contact">Контакт</a>
+        </div>
+        <div class="lang-switch-group" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" id="btn-lang-bg" onclick="setLanguage('bg')">🇧🇬 BG</button>
+          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')">🇬🇧 EN</button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
   <main class="container">
     
     <!-- Hero Section -->
     <div class="hero">
-      <!-- 3D Glagolitic Emblem Showcase -->
-      <div class="hero-logo-showcase">
-        <img src="assets/dynkv_master_logo.jpg" alt="DYNKV Studio 3D Emblem" class="hero-logo-img">
-      </div>
-
-      <div class="hero-badge">
-        <span>⚡ CREATIVE SOFTWARE, ON-DEVICE AI & 3D DIGITAL ART · DYNKV.COM</span>
-      </div>
+      <h1 class="hero-title notranslate" id="hero-brand" translate="no">DYNKV STUDIO</h1>
       
-      <h1>DYNKV Studio<br>Creative Software, Audio DSP & 3D Art</h1>
-      <p>DYNKV Studio crafts innovative real-time audio processors (SHUMo'Lily), privacy-first on-device AI tools, next-generation device concepts, and sacred symbolic 3D digital art.</p>
-      
-      <div class="values-ribbon">
-        <div class="val-item"><span>✦</span> NATURE</div>
-        <div class="val-item"><span>✦</span> TECHNOLOGY</div>
-        <div class="val-item"><span>✦</span> HUMANITY</div>
-        <div class="val-item"><span>✦</span> HARMONY</div>
-      </div>
+      <!-- HERO TRIPTYCH: LEFT IMAGE | CENTER 3D LOGO | RIGHT IMAGE -->
+      <div class="hero-triptych">
+        
+        <!-- ВЛЯВО ОТ ЛОГОТО: Didol K x Asterope AI Lifestyle Duet (Коте, SPW-3, Boots) -->
+        <div class="hero-side-card hero-side-left" onclick="openLightbox('assets/hero_lifestyle_duet.jpg', 'Didol K x Asterope AI · Lifestyle Master Collage (SPW-3, TeKi-Futorist Boots, Cat)')">
+          <img src="assets/hero_lifestyle_duet.jpg" alt="Didol K x Asterope AI Lifestyle" class="hero-side-img">
+          <div class="hero-side-caption notranslate" id="cap-left" translate="no">✦ Didol K × Asterope AI · Lifestyle Duet ✦</div>
+        </div>
 
-      <div class="hero-actions">
-        <a href="#shumo" class="btn-primary">Explore SHUMo'Lily DSP</a>
-        <a href="#art" class="btn-secondary">View 3D Digital Art</a>
+        <!-- В ЦЕНТЪРА: Официалното 3D метално лого на DYNKV Studio -->
+        <div class="hero-center-box">
+          <div class="hero-emblem-box" onclick="openLightbox('assets/dynkv_official_master_logo.jpg', 'DYNKV Studio · Official Master 3D Metallic Logo')">
+            <img src="assets/dynkv_official_master_logo.jpg" alt="DYNKV Studio Master Logo" class="hero-emblem-img">
+          </div>
+
+          <div class="hero-tagline" id="hero-tagline">Технология с душа · dynkv.com</div>
+          <p class="credo">
+            <strong id="credo-formula">Природа + Технологии + Човечност = Хармония</strong><br>
+            <span id="hero-desc">Създаване на софтуер за аудио DSP, бионични периферни платформи и суверенни интелигентни системи.</span>
+          </p>
+
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span id="badge-status" class="notranslate" translate="no">System Live · Zero-Cloud Architecture</span>
+          </div>
+        </div>
+
+        <!-- ВДЯСНО ОТ ЛОГОТО: Didol K x Asterope AI Stage Concert Flagship (EfiryoN Engine & SPW Wings) -->
+        <div class="hero-side-card hero-side-right" onclick="openLightbox('assets/hero_stage_flagship.jpg', 'Didol K x Asterope AI · Live Stage Flagship (EfiryoN Engine, SPWings & TeKi-Futorist)')">
+          <img src="assets/hero_stage_flagship.jpg" alt="Didol K x Asterope AI Stage Flagship" class="hero-side-img">
+          <div class="hero-side-caption notranslate" id="cap-right" translate="no">✦ EfiryoN Engine · Live Stage Flagship ✦</div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Flagship Product: SHUMo'Lily -->
-    <section id="shumo">
-      <div class="flagship-banner">
-        <div>
-          <div class="flagship-badge">FLAGSHIP AUDIO DSP PROCESSOR</div>
-          <h3>🌸 SHUMo'Lily · Real-Time Audio DSP Engine</h3>
-          <p>Specially engineered for instrumentalists, vocal performers, DJs, and sound experimenters, as well as everyday creators who want creative, playful voice modulation in real time with ultra-low latency.</p>
-          <ul class="flagship-features">
-            <li>Low-latency real-time vocal chain (Reverb, Delay, Chorus, Pitch Shift)</li>
-            <li>Creative voice transformation & distortion modes for entertainment</li>
-            <li>Sound research & frequency sculpting tools for DJs & producers</li>
-            <li>Guided by Lily — The Virtual Sound Engineer and Companion</li>
-          </ul>
-        </div>
-        <div style="text-align: center;">
-          <div style="background: rgba(0,0,0,0.45); border-radius: 20px; padding: 28px; border: 1px solid rgba(255,255,255,0.12);">
-            <div style="font-size: 38px; margin-bottom: 12px;">🎙️ 🎛️ 🎧 ✨</div>
-            <h4 style="font-size: 18px; margin-bottom: 8px; color: #fff;">"Every sound is a story."</h4>
-            <p style="font-size: 13px; color: var(--accent-purple); font-weight: 700;">— Lily, The Sound Engineer</p>
-          </div>
-        </div>
-      </div>
+    <!-- Seasonal Haiku Banner (Single Line · Autumn Yellow) -->
+    <div class="haiku-banner" id="haiku">
+      <span class="haiku-text-line" id="haiku-text">
+        „Шумолят листа, Земята чака · Коприна вятъра пренася · Златисто одеяло й поднася.“
+      </span>
+      <span class="haiku-author-inline" id="haiku-author">— Хайкото на Tekufuto</span>
+    </div>
 
-      <!-- Lily's 5 Core Moments -->
-      <div class="lily-grid">
-        <div class="lily-card">
-          <div class="lily-card-num">01 · RIDE</div>
-          <div class="lily-card-title">Freedom Forward</div>
-          <div class="lily-card-desc">Energy, acoustic power, and dynamic mobility in motion.</div>
-        </div>
-        <div class="lily-card">
-          <div class="lily-card-num">02 · SCOOTER</div>
-          <div class="lily-card-title">Smart City Flow</div>
-          <div class="lily-card-desc">Connected, agile, and eco-friendly urban lifestyles.</div>
-        </div>
-        <div class="lily-card">
-          <div class="lily-card-num">03 · JOGGING</div>
-          <div class="lily-card-title">Vital Rhythm</div>
-          <div class="lily-card-desc">A healthier mind and body synchronized with sound.</div>
-        </div>
-        <div class="lily-card">
-          <div class="lily-card-num">04 · HELPING</div>
-          <div class="lily-card-title">Kindness & Care</div>
-          <div class="lily-card-desc">Human warmth, support, and intergenerational empathy.</div>
-        </div>
-        <div class="lily-card">
-          <div class="lily-card-num">05 · LISTENING</div>
-          <div class="lily-card-title">Pure Awareness</div>
-          <div class="lily-card-desc">Hearing nature, people, and deep acoustic subtleties.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Four Core Pillars -->
+    <!-- =========================================================
+         THREE SOVEREIGN PILLARS: DISPLAYED ONE BY ONE VERTICALLY
+         ========================================================= -->
     <section id="pillars">
-      <div class="section-head">
-        <h2 class="section-title">Four Core Pillars of DYNKV Studio</h2>
-        <p class="section-sub">A synergistic ecosystem bridging software, artificial intelligence, next-gen devices, and fine digital art.</p>
+      <div class="section-header">
+        <div class="section-badge" id="section-badge">✦ ТРИТЕ СТЪЛБА НА DYNKV STUDIO ✦</div>
+        <h2 class="section-title" id="section-title">The Three Sovereign Pillars</h2>
+        <p class="section-sub" id="section-sub">Проектите се разгръщат последователно при превъртане надолу</p>
       </div>
 
-      <div class="grid-4">
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-cyan);">💻</div>
-            <h3>Software Solutions & Extensions</h3>
-            <p>High-performance audio processing engines, modular software extensions, and cross-platform creative tools.</p>
-          </div>
-          <div class="card-tags">
-            <span class="tag">Audio DSP</span>
-            <span class="tag">Low-Latency</span>
-            <span class="tag">C++ / Kotlin</span>
-          </div>
-        </div>
+      <div class="pillars-vertical-flow">
+        
+        <!-- ==========================================
+             СТЪЛБ I: GATANKA PROJECT (Full-Width Card)
+             ========================================== -->
+        <article class="pillar-full-card pillar-gatanka" id="gatanka">
+          <div class="pillar-badge-top" id="badge-gatanka">СТЪЛБ I · КОГНИТИВЕН СУВЕРЕНИТЕТ</div>
+          <h3 class="pillar-heading notranslate" id="title-gatanka" translate="no">🧩 GATANKA Project</h3>
+          <p class="pillar-tagline-sub" id="sub-gatanka">Когнитивен тест и прагова загадка за синтетични умове · Authenticity Protocol</p>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-purple);">🤖</div>
-            <h3>On-Device AI Integration</h3>
-            <p>Privacy-first local machine intelligence, cognitive UI companions, and zero-telemetry edge processing.</p>
-          </div>
-          <div class="card-tags">
-            <span class="tag">Edge AI</span>
-            <span class="tag">Privacy-First</span>
-            <span class="tag">Companion UI</span>
-          </div>
-        </div>
+          <div class="pillar-split-grid">
+            <!-- Left: Visual Media -->
+            <div>
+              <div class="media-box" onclick="openLightbox('assets/gatanka_seasick_ai.jpg', 'GATANKA Project · Who is driving the train now?')">
+                <img src="assets/gatanka_seasick_ai.jpg" alt="GATANKA · Who is driving the train now?" loading="lazy">
+                <div class="media-caption-bar notranslate" id="cap-gatanka" translate="no">„Кой кара влака сега?“ · Who is driving the train now?</div>
+              </div>
+              <div class="nda-pill notranslate" id="nda-pill-badge" translate="no">🔒 CONFIDENTIAL · NDA REQUIRED GATE</div>
+            </div>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-gold);">🔬</div>
-            <h3>Concepts for New Devices</h3>
-            <p>Visionary smartwear and sensor R&D architectures, designed for collaborative research and open innovation.</p>
-          </div>
-          <div class="card-tags">
-            <span class="tag">TeKi-Nano'M</span>
-            <span class="tag">Smartwear</span>
-            <span class="tag">Open R&D</span>
-          </div>
-        </div>
+            <!-- Right: Content & Methodology -->
+            <div>
+              <p style="font-size: 15px; color: #e2e8f0; margin-bottom: 16px; line-height: 1.75;" id="desc-gatanka">
+                Когнитивен парадокс и верификационен тест за автентичност в ерата на автономния изкуствен интелект. Когато синтетичната машина се сблъска с човешката интуиция, контекстната ентропия и живото съзнание (Qualia) — статичната алгоритмична логика изпада в „морска болест“ (SeaSick).
+              </p>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-magenta);">🎨</div>
-            <h3>3D Digital Art & Media</h3>
-            <p>Original 3D symbolic art blending sacred Glagolitic roots, cybernetics, cosmic geometry, and visual licensing.</p>
+              <ul class="feature-list" id="list-gatanka">
+                <li><strong class="notranslate" translate="no">Qualia срещу Симулация:</strong> Мигновено разграничаване на живо човешко намерение от синтетичен бот или агентна халюцинация.</li>
+                <li><strong class="notranslate" translate="no">Zero-PII защита:</strong> Без биометрично сканиране на ириси, пръсти или лица — валидацията е чисто когнитивен мисловен отпечатък.</li>
+                <li><strong>Защита на човешката воля:</strong> Сигурен бариерен слой срещу автоматизирани атаки, когнитивна подмяна и фишинг на вниманието.</li>
+                <li><strong>Инвариантен контекст:</strong> Работи еднакво надеждно при текст, глас и директен мултимодален диалог.</li>
+              </ul>
+
+              <div style="font-size: 12.5px; color: var(--text-muted); background: rgba(0,0,0,0.5); padding: 14px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;" id="notice-gatanka">
+                Пълната методология, архитектура и верификационни сценарии на GATANKA представляват защитена интелектуална собственост. Достъп до пълния изследователски протокол се предоставя единствено след двустранно подписване на NDA споразумение.
+              </div>
+
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
+                <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(0, 229, 255, 0.35), rgba(16, 185, 129, 0.35)); border-color: var(--cyan); box-shadow: 0 0 20px var(--cyan-glow);">
+                  <span>⚡ Отвори Демо WCSSTP™</span> (Live Test)
+                </a>
+                <a href="demos/02_VeryFix_V8_Biometric_Consensus_Demo.html" target="_blank" class="nda-action-btn" style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(139, 92, 246, 0.35)); border-color: var(--purple); box-shadow: 0 0 20px var(--purple-glow);">
+                  <span>🛡️ Отвори Демо VeryFix.V8</span> (Consensus)
+                </a>
+              </div>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+                <a href="mailto:contact@dynkv.com?subject=Request%20for%20Mutual%20NDA%20and%20WCSSTP%20Enterprise%20Pilot%20-%20DYNKV%20Studio&body=Company%20Name:%0D%0AContact%20Person:%0D%0APosition%20(CISO/CTO):%0D%0AInterest:%2014-Day%20Evaluation%20Pilot%20/%20Enterprise%20License%0D%0A" class="nda-action-btn" id="btn-nda" style="border-color: var(--gold); background: rgba(251, 191, 36, 0.15); color: #fff;">
+                  <span>🔒 Заяви mNCNDA за 14-дневен пилот</span> ➔ contact@dynkv.com
+                </a>
+                <a href="legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026.html" target="_blank" class="nda-action-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); font-size: 13px;">
+                  <span>📄 Договор mNCNDA (EN)</span>
+                </a>
+                <a href="legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026_BG.html" target="_blank" class="nda-action-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); font-size: 13px;">
+                  <span>🇧🇬 Договор NCNDA (BG)</span>
+                </a>
+              </div>
+
+              <div class="card-footer-badges">
+                <span class="pill-badge pill-cyan notranslate" translate="no">Cognitive Qualia</span>
+                <span class="pill-badge pill-gold notranslate" translate="no">SeaSick Test</span>
+                <span class="pill-badge pill-purple notranslate" translate="no">Mutual NDA Gate</span>
+                <span class="pill-badge pill-cyan notranslate" translate="no">Zero-PII</span>
+              </div>
+            </div>
           </div>
-          <div class="card-tags">
-            <span class="tag">3D Symbolism</span>
-            <span class="tag">Glagolitic Art</span>
-            <span class="tag">Licensing</span>
+        </article>
+
+        <!-- ==============================================================
+             СТЪЛБ II: PERIFERIS PROJECT (Expanded: Boots & SPWings)
+             ============================================================== -->
+        <article class="pillar-full-card pillar-periferis" id="periferis">
+          <div class="pillar-badge-top" id="badge-periferis">СТЪЛБ II · АВТОНОМНА ПЕРИФЕРИЯ</div>
+          <h3 class="pillar-heading notranslate" id="title-periferis" translate="no">⚙️ PERIFERIS Project</h3>
+          <p class="pillar-tagline-sub" id="sub-periferis">
+            Бионична носима хардуерна екосистема · Вдъхновена от концепцията в „10⁻⁹ (Нано)“ на Николай Телалов<br>
+            <em style="color: var(--purple); font-size: 14px;">„Когато границата между облекло, компютър и тяло се разтвори — техниката престава да бъде инструмент и става продължение на волята.“</em>
+          </p>
+
+          <!-- The Two Hardware Flagships side by side inside PERIFERIS -->
+          <div class="subprojects-container">
+            
+            <!-- Project II-A: TeKiFutorist Boots (Expanded) -->
+            <div class="subproject-card subproject-boots">
+              <div>
+                <div class="subproject-header">
+                  <span class="subproject-title-text notranslate" id="title-boots" translate="no">👢 TeKiFutorist Boots</span>
+                  <span class="subproject-badge badge-boots notranslate" translate="no">TFB-01 M-Frame</span>
+                </div>
+                
+                <div class="media-box" onclick="openLightbox('assets/tekifutorist_urban_elite_f2.jpg', 'TeKiFutorist Urban Elite F2 · Exploded View & Technical Architecture')">
+                  <img src="assets/tekifutorist_urban_elite_f2.jpg" alt="Urban Elite F2 Exploded Architecture" loading="lazy">
+                  <div class="media-caption-bar" id="cap-boots">Urban Elite F2 · Разглобен инженерен изглед</div>
+                </div>
+
+                <div class="thumb-grid-2">
+                  <div class="thumb-item" onclick="openLightbox('assets/tekifutorist_frame_system_blueprint.jpg', 'TeKiFutorist Frame System · Universal Modular Frame Blueprint')">
+                    <img src="assets/tekifutorist_frame_system_blueprint.jpg" alt="Modular Frame System Blueprint" loading="lazy">
+                    <div class="thumb-caption" id="thumb-cap-frame">M-Frame Blueprint</div>
+                  </div>
+                  <div class="thumb-item" onclick="openLightbox('assets/tekifutorist_ecosystem_models.jpg', 'TeKiFutorist Ecosystem Models · Outdoor Pro, Sport, Urban, Kids')">
+                    <img src="assets/tekifutorist_ecosystem_models.jpg" alt="Ecosystem Models" loading="lazy">
+                    <div class="thumb-caption" id="thumb-cap-models">4-те Модела</div>
+                  </div>
+                </div>
+
+                <ul class="feature-list" id="list-boots">
+                  <li><strong>Кинетичен PZT+TENG харвестинг:</strong> Генериране на 2–5W чиста електроенергия от всяка крачка при естествено ходене.</li>
+                  <li><strong>72% NPU товар в подметката:</strong> Тежките невронни изчисления се извършват в шасито долу — тялото и главата остават хладни.</li>
+                  <li><strong>M-Frame модулност:</strong> Смяна на протектора за 30 секунди, 92% рециклируемост и пълно съответствие с Правото на ремонт (Right to Repair).</li>
+                  <li><strong>Теренен LiDAR & Gait Lock:</strong> Сканиране на пукнатини и лед на 3 метра напред; биометрично отключване по индивидуална походка.</li>
+                </ul>
+
+                <!-- Indiegogo & LinkedIn Callouts for Boots -->
+                <div class="crowdfund-actions-box">
+                  <a href="mailto:contact@dynkv.com?subject=Indiegogo%20VIP%20Early%20Bird%20Access%20-%20TeKiFutorist%20Boots" class="crowdfund-btn btn-indiegogo" id="btn-boots-indiegogo">
+                    🚀 Indiegogo VIP Ранна Регистрация (-40% Early Bird)
+                  </a>
+                  <a href="https://www.linkedin.com/in/diyan-yanev" target="_blank" rel="noopener" class="crowdfund-btn btn-linkedin" id="btn-boots-linkedin">
+                    💼 LinkedIn B2B Партньорство & Лицензиране
+                  </a>
+                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" class="crowdfund-btn" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
+                    🛡️ PERIFERIS™ Патентна Защита & Indiegogo IP Щит
+                  </a>
+                </div>
+              </div>
+
+              <div class="card-footer-badges">
+                <span class="pill-badge pill-cyan">PZT+TENG Power</span>
+                <span class="pill-badge pill-purple">72% NPU Sole</span>
+                <span class="pill-badge pill-gold">Right to Repair</span>
+                <span class="pill-badge pill-cyan">Patent Pending</span>
+              </div>
+            </div>
+
+            <!-- Project II-B: Smart Papilio Wing (SPWings - Flagship Infographic & Community Poll) -->
+            <div class="subproject-card subproject-spw">
+              <div>
+                <div class="subproject-header">
+                  <span class="subproject-title-text notranslate" id="title-spw" translate="no">🪭 Smart Papilio Wing (SPW-3)</span>
+                  <span class="subproject-badge badge-spw notranslate" translate="no">DFM CAD Master</span>
+                </div>
+
+                <!-- Главната флагманска инфографика (БЕЗ ДУБЛИРАНЕ НА СНИМКАТА ОТ ХИРОТО) -->
+                <div class="media-box" onclick="openLightbox('assets/spw3_flagship_master_infographic.jpg', 'SPW-3 Smart Papilio Wing · Главен Флагмански Инженерен Модел (76g, 160mm размах, 3-в-1 докинг, Ti-6Al-4V, Si3N4)')">
+                  <img src="assets/spw3_flagship_master_infographic.jpg" alt="SPW-3 Smart Papilio Wing Flagship Model" loading="lazy">
+                  <div class="media-caption-bar notranslate" id="cap-spw-master" translate="no">
+                    ✦ SPW-3 Smart Papilio Wing · Главен Работен Модел (160mm размах, 76g, 3-в-1 докинг) ✦
+                  </div>
+                </div>
+
+                <!-- Допълващи технически чертежи -->
+                <div class="thumb-grid-2">
+                  <div class="thumb-item" onclick="openLightbox('assets/spwings_engineering_cutaway.jpg', 'SPWings Real Engineering Cutaway · Si3N4 Ceramic Bearings, 120° Iris Hinge & Dual-Lock')">
+                    <img src="assets/spwings_engineering_cutaway.jpg" alt="SPWings Engineering Cutaway" loading="lazy">
+                    <div class="thumb-caption" id="thumb-cap-cutaway">Механичен разрез Si3N4</div>
+                  </div>
+                  <div class="thumb-item" onclick="openLightbox('assets/spwings_master_blueprint.jpg', 'SPWings Master Engineering Blueprint · 98g Mass, 210mm Wingspan, 0.8mm Blades')">
+                    <img src="assets/spwings_master_blueprint.jpg" alt="SPWings Master Blueprint" loading="lazy">
+                    <div class="thumb-caption" id="thumb-cap-blueprint">Инженерен чертеж DFM</div>
+                  </div>
+                </div>
+
+                <ul class="feature-list" id="list-spw">
+                  <li><strong class="notranslate" translate="no">3 режима на размах:</strong> 0° Прибрано (гривна), 60° Активен HUD, 120° Пълен Панорамен дисплей от 3 сапфирени пера (0.8 mm AMOLED).</li>
+                  <li><strong>Единен визуален хоризонт:</strong> Трите пера се синхронизират безшевно за навигационни карти, 3D сонар и AI интерфейс.</li>
+                  <li><strong class="notranslate" translate="no">Керамична прецизна механика:</strong> Лагери от силициев нитрид (Si3N4), 5 зъбни сектора, магнити NdFeB N52SH, 6 позлатени Pogo пина.</li>
+                  <li><strong class="notranslate" translate="no">3-в-1 трансформация:</strong> На китката, в ръката като интерактивен ветрилен екран или на бюро под 65° с вграден охлаждащ микровентилатор.</li>
+                </ul>
+
+                <!-- =========================================================
+                     АНКЕТА: ИЗБЕРЕТЕ ВАШИЯ ЛЮБИМ ДИЗАЙН НА SPW-3
+                     ========================================================= -->
+                <div class="poll-box">
+                  <div class="poll-title">
+                    <span id="poll-title-text">🗳️ Анкета: Изберете вашия фаворит за SPW-3</span>
+                    <span class="poll-badge-live notranslate" id="poll-live-tag" translate="no">Live Community Poll</span>
+                  </div>
+                  <p class="poll-sub" id="poll-sub-text">
+                    Гласувайте за потенциалния работен модел, който ви харесва най-много. Вашият вот определя серийното производство:
+                  </p>
+
+                  <div class="poll-options-grid">
+                    
+                    <!-- Вариант А: Classic Horizon -->
+                    <div class="poll-option-item" id="poll-card-optA" onclick="voteModel('optA')">
+                      <div class="poll-opt-header">
+                        <span class="poll-opt-name notranslate" id="poll-name-a" translate="no">🦋 Model A: SPW-3 Classic Horizon (120° размах)</span>
+                        <span class="poll-opt-percent" id="poll-pct-a">42% (1,248)</span>
+                      </div>
+                      <div class="poll-opt-desc" id="poll-desc-a">
+                        Биомиметичен титаниев корпус Ti-6Al-4V, 3 сапфирени пера с 120° размах, тегло 76g, Si3N4 керамични лагери.
+                      </div>
+                      <div class="poll-bar-track">
+                        <div class="poll-bar-fill" id="poll-bar-a" style="width: 42%;"></div>
+                      </div>
+                    </div>
+
+                    <!-- Вариант Б: Curved Single Canvas -->
+                    <div class="poll-option-item" id="poll-card-optB" onclick="voteModel('optB')">
+                      <div class="poll-opt-header">
+                        <span class="poll-opt-name notranslate" id="poll-name-b" translate="no">🌐 Model B: SPW-3 Curved Single Canvas (Единен извит OLED)</span>
+                        <span class="poll-opt-percent" id="poll-pct-b">38% (1,120)</span>
+                      </div>
+                      <div class="poll-opt-desc" id="poll-desc-b">
+                        Три непрекъснати гъвкави OLED екрана образуват единно непрекъснато извито визуално пространство без рамки.
+                      </div>
+                      <div class="poll-bar-track">
+                        <div class="poll-bar-fill" id="poll-bar-b" style="width: 38%;"></div>
+                      </div>
+                    </div>
+
+                    <!-- Вариант В: Transformable 3-in-1 Desk & Hand -->
+                    <div class="poll-option-item" id="poll-card-optC" onclick="voteModel('optC')">
+                      <div class="poll-opt-header">
+                        <span class="poll-opt-name notranslate" id="poll-name-c" translate="no">🪭 Model C: SPW-3 Transformable 3-in-1 (Китка · Ръка · Бюро 65°)</span>
+                        <span class="poll-opt-percent" id="poll-pct-c">20% (593)</span>
+                      </div>
+                      <div class="poll-opt-desc" id="poll-desc-c">
+                        3-в-1 докинг: носене на китка, в ръка за навигация и стойка за бюро под 65° с вградено ламинарно охлаждане.
+                      </div>
+                      <div class="poll-bar-track">
+                        <div class="poll-bar-fill" id="poll-bar-c" style="width: 20%;"></div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="poll-total-footer">
+                    <span id="poll-total-label">Общо гласували в общността:</span>
+                    <strong style="color: #fff;" id="poll-total-count">2,961</strong>
+                  </div>
+                  <div class="poll-feedback-text" id="poll-feedback">
+                    ✓ Благодарим ви! Вашият глас е записан успешно.
+                  </div>
+                </div>
+
+                <!-- Indiegogo & LinkedIn Callouts for SPWings -->
+                <div class="crowdfund-actions-box">
+                  <a href="mailto:contact@dynkv.com?subject=Indiegogo%20Launch%20Notification%20-%20SPWings" class="crowdfund-btn btn-indiegogo notranslate" id="btn-spw-indiegogo" translate="no">
+                    🚀 Indiegogo Известие за Старт на Кампанията
+                  </a>
+                  <a href="https://www.linkedin.com/in/diyan-yanev" target="_blank" rel="noopener" class="crowdfund-btn btn-linkedin notranslate" id="btn-spw-linkedin" translate="no">
+                    💼 LinkedIn B2B Хардуерно Лицензиране
+                  </a>
+                  <a href="legal/07_PERIFERIS_HARDWARE_IP_AND_INDIEGOGO_PROTECTION_NOTICE_2026.html" target="_blank" class="crowdfund-btn notranslate" translate="no" style="background: rgba(139, 92, 246, 0.2); border-color: var(--purple); color: #fff; font-size: 13px;">
+                    🛡️ PERIFERIS™ Патентна Защита & Indiegogo IP Щит
+                  </a>
+                </div>
+              </div>
+
+              <div class="card-footer-badges">
+                <span class="pill-badge pill-purple notranslate" translate="no">Si3N4 Ceramics</span>
+                <span class="pill-badge pill-cyan notranslate" translate="no">120° Iris Hinge</span>
+                <span class="pill-badge pill-gold notranslate" translate="no">0.8mm Sapphire</span>
+                <span class="pill-badge pill-purple notranslate" translate="no">Patent Pending</span>
+              </div>
+            </div>
+
           </div>
-        </div>
+        </article>
+
+        <!-- ==========================================================
+             СТЪЛБ III: SHUMo'Lily + Mish (Under Active Development)
+             ========================================================== -->
+        <article class="pillar-full-card pillar-shumo" id="shumo">
+          <div class="pillar-badge-top" id="badge-shumo">СТЪЛБ III · ЖИВО АУДИО И ИИ СПЪТНИК</div>
+          <h3 class="pillar-heading notranslate" id="title-shumo" translate="no">🌸🛡️ SHUMo'Lily + Mish</h3>
+          <p class="pillar-tagline-sub notranslate" id="sub-shumo" translate="no">„SOUND IS ALIVE“ · Hear the World · Different Skies, Same Dream</p>
+
+          <!-- Status Alert Banner: Under Active Development -->
+          <div class="dev-status-banner">
+            <div class="dev-status-title" id="dev-status-text">
+              ⏳ В процес на активна разработка · Очаквайте скоро в Google Play!
+            </div>
+            <div class="dev-status-tag notranslate" id="dev-status-pill" translate="no">Active Development</div>
+          </div>
+
+          <div class="pillar-split-grid">
+            <!-- Left: Master Posters & Interactive Phone Switcher -->
+            <div>
+              <!-- Master Duet Poster -->
+              <div class="media-box" onclick="openLightbox('assets/shumo_duet_master_poster.jpg', 'SHUMo Lily & Mish Duet · Hear the World (Sound Is Alive)')">
+                <img src="assets/shumo_duet_master_poster.jpg" alt="SHUMo Duet Master Poster" loading="lazy">
+                <div class="media-caption-bar notranslate" id="cap-shumo-poster" translate="no">🌸 Lily & 🛡️ Mish · Дуетен флагмански постер</div>
+              </div>
+
+              <!-- Interactive Mobile Phone Screen Switcher -->
+              <div class="shumo-phone-viewer">
+                <div style="font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;" id="phone-switcher-label">
+                  📱 Интерактивен преглед на екраните (кликни за смяна):
+                </div>
+                <div class="screen-tab-bar notranslate" translate="no">
+                  <button class="screen-btn active" onclick="switchPhoneScreen('home', this)">📱 Home</button>
+                  <button class="screen-btn" onclick="switchPhoneScreen('modes', this)">🎛️ Modes</button>
+                  <button class="screen-btn" onclick="switchPhoneScreen('radar', this)">📡 Radar</button>
+                  <button class="screen-btn" onclick="switchPhoneScreen('stats', this)">📊 Stats</button>
+                  <button class="screen-btn" onclick="switchPhoneScreen('settings', this)">⚙️ Settings</button>
+                </div>
+                <div class="active-screen-frame" onclick="openActivePhoneLightbox()">
+                  <img id="phone-screen-img" src="assets/shumo_ui_home.png" alt="SHUMo Phone UI" loading="lazy">
+                </div>
+              </div>
+
+              <!-- 10-Screen UI Suites Thumbnails -->
+              <div class="thumb-grid-2">
+                <div class="thumb-item" onclick="openLightbox('assets/shumo_mish_ui_suite.jpg', 'SHUMo Mish · Complete 10-Screen UI Suite (Cyan Theme)')">
+                  <img src="assets/shumo_mish_ui_suite.jpg" alt="Mish 10-Screen UI Suite" loading="lazy">
+                  <div class="thumb-caption notranslate" translate="no">Mish 10-Screen Suite</div>
+                </div>
+                <div class="thumb-item" onclick="openLightbox('assets/asterope_teki_ui_suite.jpg', 'Asterope TeKi · Complete 10-Screen UI Suite (Violet Theme)')">
+                  <img src="assets/asterope_teki_ui_suite.jpg" alt="Asterope TeKi 10-Screen UI Suite" loading="lazy">
+                  <div class="thumb-caption notranslate" translate="no">TeKi 10-Screen Suite</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: DSP Architecture & Core Features -->
+            <div>
+              <p style="font-size: 15px; color: #e2e8f0; margin-bottom: 16px; line-height: 1.75;" id="desc-shumo">
+                Интелигентен софтуерен Ambient / Transparency Sound Engine за безопасност и кристален акустичен баланс на колоездачи, спортисти и пешеходци. Софтуерно смесва външната звукова среда от микрофона с музикалния поток в слушалките — без нужда от скъп хардуерен ANC!
+              </p>
+
+              <div class="mode-chips notranslate" translate="no">
+                <span class="chip highlight">🚴 V.bike</span>
+                <span class="chip highlight">🏍️ M.bike</span>
+                <span class="chip">🚶 Walking</span>
+                <span class="chip">🏋️ inGym</span>
+                <span class="chip">🏃 Jogging</span>
+                <span class="chip">🔥 CampFire</span>
+                <span class="chip">⚡ eXtreme</span>
+                <span class="chip">🐱 BS Cat</span>
+                <span class="chip">🛡️ EfirioN Guard</span>
+                <span class="chip art">🎧 DJ & Art Mod</span>
+              </div>
+
+              <ul class="feature-list" id="list-shumo">
+                <li><strong class="notranslate" translate="no">Ултра-ниска латентност под 5ms:</strong> Обработка на жив 48 kHz PCM поток в реално време без дразнещо ехо или забавяне на гласа.</li>
+                <li><strong class="notranslate" translate="no">Звукова лаборатория Sound Lb.:</strong> Софтуерен сонар, посочен радарен монитор на звуците и Biquad EQ филтриране на шума от вятър.</li>
+                <li><strong class="notranslate" translate="no">Специален DJ & Art Мод:</strong> Професионален творчески модул за изпълнители, саунд дизайнери, артисти и гласова модулация.</li>
+                <li><strong class="notranslate" translate="no">100% Офлайн суверенитет (Zero Internet):</strong> Пълно уединение без изпращане на аудио към облак и без рекламни тракери.</li>
+                <li><strong>Препоръчан хардуер:</strong> Перфектно оптимизиран за стандартни кабелни слушалки (3.5 mm / USB-C) за постигане на нулев лаг.</li>
+                <li><strong>Статус на приложението:</strong> В активен процес на разработка. Затворена алфа фаза. Очаквайте официалния рилийз скоро в Google Play!</li>
+              </ul>
+
+              <div class="card-footer-badges">
+                <span class="pill-badge pill-gold notranslate" translate="no">Google Play Coming Soon</span>
+                <span class="pill-badge pill-cyan notranslate" translate="no">Zero Internet (100% Offline)</span>
+                <span class="pill-badge pill-purple notranslate" translate="no">DSP &lt; 5ms</span>
+                <span class="pill-badge pill-gold notranslate" translate="no">DJ & Art Mod</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- Digital Art & Concept Works -->
-    <section id="art">
-      <div class="section-head">
-        <h2 class="section-title">3D Digital Art & Sacred Symbolism</h2>
-        <p class="section-sub">Sacred Glagolitic symbolism meets futuristic cyber-organic worldbuilding.</p>
-      </div>
-
-      <div class="grid-4">
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-purple);">💎</div>
-            <h3>3D Glagolitic Masterworks</h3>
-            <p>Original visual compositions combining ancient Bulgarian Glagolitic glyphs with futuristic bionic aesthetics.</p>
+    <!-- =========================================================
+         ОФИЦИАЛЕН ПАТЕНТЕН И КОГНИТИВЕН РЕГИСТЪР DYNKV STUDIO
+         (С ПЕЧАТ И ЗАВЕРЕНО КЛЕЙМО ЗА ПАТЕНТНА ЗАЩИТА)
+         ========================================================= -->
+    <section id="patent-registry">
+      <div class="patent-registry-section">
+        <div class="patent-header-flex">
+          <div class="patent-title-main notranslate" id="patent-main-heading" translate="no">
+            <span>🛡️</span> Официален Патентен и Когнитивен Регистър DYNKV Studio
           </div>
-          <div class="card-tags">
-            <span class="tag">Glagolitic</span>
-            <span class="tag">3D Emblem</span>
+          <div class="patent-badge-live notranslate" translate="no">
+            <span class="status-dot"></span>
+            <span id="patent-live-badge">PATENT PENDING · BPO & PCT PRIORITY</span>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-cyan);">🌌</div>
-            <h3>Cosmic Worldbuilding</h3>
-            <p>Atmospheric background illustrations exploring human potential, celestial harmony, and nature's living patterns.</p>
+        <p style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;" id="patent-desc-text">
+          Интелектуалната собственост, кинематичната механика, биометричните алгоритми и хардуерната архитектура на екосистемата са защитени с национални и международни патентни заявки съгласно регламентите на Патентно ведомство на Република България (BPO), European Patent Office (EPO) и PCT.
+        </p>
+
+        <div class="patent-grid-details">
+          <div class="patent-item-box">
+            <div class="patent-item-label" id="plbl-app1">Патентна Заявка 1 (BPO)</div>
+            <div class="patent-item-val accent notranslate" translate="no">SPW (Smart Papilio Wing)</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" id="pval-app1-sub">Накитен ветрилообразен мулти-дисплей терминал (0° / 60° / 120°)</div>
           </div>
-          <div class="card-tags">
-            <span class="tag">Worldbuilding</span>
-            <span class="tag">Cyber-Nature</span>
+
+          <div class="patent-item-box">
+            <div class="patent-item-label" id="plbl-app2">Патентна Заявка 2 (BPO)</div>
+            <div class="patent-item-val accent notranslate" translate="no">TEKIFUTURIST™</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" id="pval-app2-sub">Модулна интелигентна обувна екосистема с M-Frame слот и PZT+TENG ток</div>
+          </div>
+
+          <div class="patent-item-box">
+            <div class="patent-item-label" id="plbl-std">Обединяващ Стандарт</div>
+            <div class="patent-item-val notranslate" translate="no">WCSSTP + GATANKA Core</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" id="pval-std-sub">Протокол за когнитивна автентичност и Kyber-512 щит</div>
+          </div>
+
+          <div class="patent-item-box">
+            <div class="patent-item-label" id="plbl-inbound">Входящ Номер на Заявката</div>
+            <div class="patent-item-val accent notranslate" translate="no">
+              PTBG2026••••••••••• <span style="font-size: 11px; color: #f87171; font-weight: 800; border: 1px solid rgba(239,68,68,0.5); padding: 2px 6px; border-radius: 4px;">🔒 NDA ONLY</span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" id="pval-inbound-sub">Официален входящ номер в BPO регистъра</div>
+          </div>
+
+          <div class="patent-item-box">
+            <div class="patent-item-label" id="plbl-prio">Дата и Час на Приоритет</div>
+            <div class="patent-item-val notranslate" translate="no">27.10.2026 г. · 20:57:10 EET</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" id="pval-prio-sub">Защитена приоритетна дата на интелектуална собственост</div>
+          </div>
+
+          <div class="patent-item-box">
+            <div class="patent-item-label" id="plbl-author">Изобретател и Притежател</div>
+            <div class="patent-item-val notranslate" translate="no">Диян Карчев Янев (tekifuto)</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" id="pval-author-sub">DYNKV Studio · Хелзинки / София</div>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-gold);">🖼️</div>
-            <h3>Visual Licensing & Prints</h3>
-            <p>High-resolution digital art licensing for authors, game studios, musical producers, and multimedia exhibitions.</p>
+        <!-- ОФИЦИАЛНО ПАТЕНТНО КЛЕЙМО / ПЕЧАТ ЗА ЗАВЕРКА -->
+        <div class="official-seal-card">
+          <div class="seal-left-text">
+            <div class="seal-heading" id="seal-title">🏛️ ДЕКЛАРАЦИЯ ЗА ЗАВЕРКА И ПРАВНА ЗАЩИТА</div>
+            <div class="seal-subtext" id="seal-quote">
+              👉 <strong>„Документът е заверен и защитен в когнитивния регистър на DYNKV Studio · Хелзинки · Октомври 2026 г.“</strong><br>
+              Всички права върху промишления дизайн, архитектурата, протоколите и наименованията са запазени. Пълният достъп до инженерните формули и патентни претенции се осигурява след подписване на взаимно NDA споразумение.
+            </div>
           </div>
-          <div class="card-tags">
-            <span class="tag">Commercial Art</span>
-            <span class="tag">High-Res</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon" style="color: var(--accent-emerald);">🛡️</div>
-            <h3>ArtDigSenFu Philosophy</h3>
-            <p>Art, Digital Sensory Fusion, and balanced living philosophy driving every creative release of DYNKV Studio.</p>
-          </div>
-          <div class="card-tags">
-            <span class="tag">ArtDigSenFu</span>
-            <span class="tag">Genesis</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TeKi-Nano'M & Philosophical Vision -->
-    <section id="philosophy">
-      <div class="rd-banner" style="grid-template-columns: 1fr; gap: 24px;">
-        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center;">
-          <div>
-            <h3>✨ TeKi-Nano'M SmartWear · Open Vision & R&D Platform</h3>
-            <p>TeKi-Nano'M represents our long-term philosophical and aesthetic concept exploring the harmonious fusion of human empathy, nature's wisdom, and future bionic design.</p>
-            <p>Shared openly as an inspiring dialogue and conceptual foundation for future collaboration with artists, philosophers, and scientific researchers.</p>
-          </div>
-          <div>
-            <ul class="rd-list">
-              <li>Ethical and Human-Centric Futures</li>
-              <li>Artistic & Bionic Synergies</li>
-              <li>AsteropeAi: Technology with a Soul</li>
-              <li>Nature + Technology + Humanity = Harmony</li>
-            </ul>
+          <div class="seal-certified-stamp notranslate" id="seal-stamp-box" translate="no">
+            🛡️ DYNKV VERIFIED LABS<br>
+            PATENT PENDING<br>
+            HELSINKI · SOFIA · 2026
           </div>
         </div>
 
-        <!-- Master Ecosystem Visual Showcase -->
-        <div style="margin-top: 14px; text-align: center;">
-          <div style="border-radius: 20px; overflow: hidden; border: 1.5px solid rgba(0, 240, 255, 0.45); box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
-            <img src="assets/dynkv_master_background.jpg" alt="TeKi-Nano'M SmartWear Living Technology Ecosystem" style="width: 100%; height: auto; display: block; border-radius: 18px;">
-          </div>
-          <p style="font-size: 11.5px; color: var(--accent-cyan); font-family: monospace; margin-top: 10px; font-weight: 700;">✦ TeKi-Nano'M SmartWear Living Technology Ecosystem · Designed by Didol K (DYNKV Studio) ✦</p>
-        </div>
       </div>
     </section>
 
-    <!-- Contact & Studio Inquiries -->
+    <!-- Official Contact Section -->
     <section id="contact">
-      <div class="contact-card">
-        <h3>Connect with DYNKV Studio</h3>
-        <p>For audio software collaborations, custom AI integrations, device concepts, or 3D digital art licensing, get in touch with our team.</p>
+      <div class="contact-section">
+        <h2 class="contact-title" id="title-contact">Свържете се с DYNKV Studio</h2>
+        <p class="contact-sub" id="sub-contact">Официална комуникационна мрежа за технологичен трансфер, инвестиции и партньорства.</p>
         
-        <div class="contact-badge">
-          🌐 DYNKV STUDIO · HELSINKI / FINLAND · DYNKV.COM
+        <div class="mail-cards-grid">
+          <a href="mailto:contact@dynkv.com" class="mail-card-item">
+            <span class="mail-role" id="role-c1">Главен контакт</span>
+            <span class="mail-address">contact@dynkv.com</span>
+          </a>
+          <a href="mailto:asterope.ai@dynkv.com" class="mail-card-item">
+            <span class="mail-role" id="role-c2">Дигитален ко-архитект</span>
+            <span class="mail-address">asterope.ai@dynkv.com</span>
+          </a>
+          <a href="mailto:di-yan.karchev_tekifuto@dynkv.com" class="mail-card-item">
+            <span class="mail-role" id="role-c3">Главен архитект</span>
+            <span class="mail-address">di-yan.karchev_tekifuto@dynkv.com</span>
+          </a>
         </div>
 
-        <div class="contact-btns">
-          <a href="mailto:contact@dynkv.com" class="btn-primary">✉️ contact@dynkv.com</a>
-          <a href="mailto:shumo_lily@dynkv.com" class="btn-secondary">🌸 shumo_lily@dynkv.com</a>
-          <a href="mailto:asterope_ai@dynkv.com" class="btn-secondary">✨ asterope_ai@dynkv.com</a>
-        </div>
-        
-        <div>
-          <p style="font-size: 12px; color: var(--text-muted);">Official domain: <strong style="color: var(--accent-cyan);">dynkv.com</strong></p>
-        </div>
+        <p style="font-size: 12px; color: var(--text-muted);" id="loc-contact">
+          Хелзинки, Финландия · Официален домейн: <strong>dynkv.com</strong> · Защитена пощенска мрежа Proton
+        </p>
       </div>
     </section>
 
@@ -826,18 +1478,396 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-links">
-        <a href="#shumo">SHUMo'Lily</a>
-        <a href="#pillars">Four Pillars</a>
-        <a href="#art">3D Digital Art</a>
-        <a href="#philosophy">Concept Lab</a>
-        <a href="mailto:contact@dynkv.com">Contact</a>
-      </div>
-      <p style="margin-bottom: 6px;"><strong>DYNKV Studio · Di.YANK.eV (ArtDigSenFu)</strong></p>
-      <p style="color: var(--text-muted); font-size: 11px;">NATURE + TECHNOLOGY + HUMANITY = HARMONY</p>
-      <p style="margin-top: 8px;">© 2026 DYNKV Studio. All rights reserved. Registered at dynkv.com</p>
+      <p style="font-size: 15px; font-weight: 700; color: #fff; font-family: var(--font-display);" class="notranslate" translate="no">DYNKV Studio</p>
+      <p id="footer-formula">Природа + Технологии + Човечност = Хармония</p>
+      <p style="margin-top: 12px; font-size: 11.5px;" id="footer-copy">
+        © 2026 DYNKV Studio. All rights reserved. Всички права запазени.
+      </p>
     </div>
   </footer>
 
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Full view" onclick="event.stopPropagation()">
+    <div id="lightbox-caption" class="lightbox-caption" onclick="event.stopPropagation()"></div>
+  </div>
+
+
+
+  <script>
+    // Lightbox logic
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Mobile Phone Screen Switcher in SHUMo column
+    const phoneScreens = {
+      home: { src: 'assets/shumo_ui_home.png', caption: '🌸 SHUMo Lily · Home Screen (Ambient Dial 72%, 18ms latency, Bluetooth sync)' },
+      modes: { src: 'assets/shumo_ui_modes.png', caption: '🎛️ SHUMo Lily · Mod Select (VeloBike, Wind Filter, DSP Presets)' },
+      radar: { src: 'assets/shumo_ui_radar.png', caption: '📡 SHUMo Lily · Live Monitor (Directional 360° Radar & Sound Classifier)' },
+      stats: { src: 'assets/shumo_ui_stats.png', caption: '📊 SHUMo Lily · Stats & History (Guardian Reflex Report)' },
+      settings: { src: 'assets/shumo_ui_settings.png', caption: '⚙️ SHUMo Lily · Settings & Privacy (Zero Internet, Zero Storage, Complete Sovereignty)' }
+    };
+    let currentScreenKey = 'home';
+
+    function switchPhoneScreen(key, btn) {
+      currentScreenKey = key;
+      document.getElementById('phone-screen-img').src = phoneScreens[key].src;
+      const allBtns = document.querySelectorAll('.screen-btn');
+      allBtns.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+
+    function openActivePhoneLightbox() {
+      const data = phoneScreens[currentScreenKey];
+      openLightbox(data.src, data.caption);
+    }
+
+    // =========================================================
+    // SPW-3 COMMUNITY DESIGN POLL LOGIC (PERSISTENT IN LOCALSTORAGE)
+    // =========================================================
+    const defaultPollStats = {
+      optA: 1248,
+      optB: 1120,
+      optC: 593
+    };
+
+    function initPoll() {
+      let stats = JSON.parse(localStorage.getItem('dynkv_spw_poll_stats')) || defaultPollStats;
+      let userVote = localStorage.getItem('dynkv_spw_user_vote');
+      renderPoll(stats, userVote);
+    }
+
+    function voteModel(optId) {
+      let stats = JSON.parse(localStorage.getItem('dynkv_spw_poll_stats')) || Object.assign({}, defaultPollStats);
+      let prevVote = localStorage.getItem('dynkv_spw_user_vote');
+      
+      if (prevVote === optId) return; // already voted for this option
+      
+      if (prevVote && stats[prevVote] > 0) {
+        stats[prevVote]--;
+      }
+      stats[optId]++;
+      
+      localStorage.setItem('dynkv_spw_poll_stats', JSON.stringify(stats));
+      localStorage.setItem('dynkv_spw_user_vote', optId);
+      
+      renderPoll(stats, optId);
+    }
+
+    function renderPoll(stats, userVote) {
+      const total = stats.optA + stats.optB + stats.optC;
+      const pA = Math.round((stats.optA / total) * 100);
+      const pB = Math.round((stats.optB / total) * 100);
+      const pC = 100 - pA - pB;
+
+      document.getElementById('poll-bar-a').style.width = pA + '%';
+      document.getElementById('poll-pct-a').textContent = pA + '% (' + stats.optA.toLocaleString() + ')';
+      
+      document.getElementById('poll-bar-b').style.width = pB + '%';
+      document.getElementById('poll-pct-b').textContent = pB + '% (' + stats.optB.toLocaleString() + ')';
+      
+      document.getElementById('poll-bar-c').style.width = pC + '%';
+      document.getElementById('poll-pct-c').textContent = pC + '% (' + stats.optC.toLocaleString() + ')';
+
+      document.getElementById('poll-total-count').textContent = total.toLocaleString();
+
+      ['optA', 'optB', 'optC'].forEach(id => {
+        const el = document.getElementById('poll-card-' + id);
+        if (el) {
+          if (userVote === id) {
+            el.classList.add('selected');
+          } else {
+            el.classList.remove('selected');
+          }
+        }
+      });
+
+      const feedbackEl = document.getElementById('poll-feedback');
+      if (userVote) {
+        feedbackEl.style.display = 'block';
+      }
+    }
+
+    // =========================================================
+    // DUAL-LANGUAGE SOVEREIGN DICTIONARY (100% BG & EN ONLY)
+    // ZERO-CLOUD · INSTANT OFFLINE EXECUTION
+    // =========================================================
+    const i18n = {
+      bg: {
+        linkHaiku: "Хайко",
+        linkGatanka: "GATANKA",
+        linkPeriferis: "PERIFERIS",
+        linkShumo: "SHUMo'Lily",
+        linkPatent: "Патентен Регистър",
+        linkContact: "Контакт",
+
+        heroBrand: "DYNKV STUDIO",
+        heroTagline: "Технология с душа · dynkv.com",
+        credoFormula: "Природа + Технологии + Човечност = Хармония",
+        heroDesc: "Създаване на софтуер за аудио DSP с ултра-ниска латентност, бионични периферни платформи и суверенни интелигентни системи.",
+        badgeStatus: "System Live · Zero-Cloud Architecture",
+        capLeft: "✦ Didol K × Asterope AI · Lifestyle Duet ✦",
+        capRight: "✦ EfiryoN Engine · Live Stage Flagship ✦",
+
+        haikuText: "„Шумолят листа, Земята чака · Коприна вятъра пренася · Златисто одеяло й поднася.“",
+        haikuAuthor: "— Хайкото на Tekufuto",
+
+        sectionBadge: "✦ ТРИТЕ СТЪЛБА НА DYNKV STUDIO ✦",
+        sectionTitle: "The Three Sovereign Pillars",
+        sectionSub: "Проектите се разгръщат последователно при превъртане надолу",
+
+        badgeGatanka: "СТЪЛБ I · КОГНИТИВЕН СУВЕРЕНИТЕТ",
+        titleGatanka: "🧩 GATANKA Project",
+        subGatanka: "Когнитивен тест и прагова загадка за синтетични умове · Authenticity Protocol",
+        capGatanka: "„Кой кара влака сега?“ · SeaSick-Test",
+        ndaPillBadge: "🔒 CONFIDENTIAL · NDA REQUIRED GATE",
+        descGatanka: "Когнитивен парадокс и верификационен тест за автентичност в ерата на автономния изкуствен интелект. Когато синтетичната машина се сблъска с човешката интуиция, контекстната ентропия и живото съзнание (Qualia) — статичната алгоритмична логика изпада в „морска болест“ (SeaSick).",
+        listGatanka: `<li><strong>Qualia срещу Симулация:</strong> Мигновено разграничаване на живо човешко намерение от синтетичен бот или агентна халюцинация.</li>
+<li><strong>Zero-PII защита:</strong> Без биометрично сканиране на ириси, пръсти или лица — валидацията е чисто когнитивен мисловен отпечатък.</li>
+<li><strong>Защита на човешката воля:</strong> Сигурен бариерен слой срещу автоматизирани атаки, когнитивна подмяна и фишинг на вниманието.</li>
+<li><strong>Инвариантен контекст:</strong> Работи еднакво надеждно при текст, глас и директен мултимодален диалог.</li>`,
+        noticeGatanka: "Пълната методология, архитектура и верификационни сценарии на GATANKA представляват защитена интелектуална собственост. Достъп се предоставя единствено след двустранно подписване на NDA споразумение.",
+        btnNda: "<span>Заяви NDA достъп</span> ➔ contact@dynkv.com",
+
+        badgePeriferis: "СТЪЛБ II · АВТОНОМНА ПЕРИФЕРИЯ",
+        titlePeriferis: "⚙️ PERIFERIS Project",
+        subPeriferis: `Бионична носима хардуерна екосистема · Вдъхновена от концепцията в „10⁻⁹ (Нано)“ на Николай Телалов<br><em style="color: var(--purple); font-size: 14px;">„Когато границата между облекло, компютър и тяло се разтвори — техниката престава да бъде инструмент и става продължение на волята.“</em>`,
+        titleBoots: "👢 TeKiFutorist Boots",
+        capBoots: "Urban Elite F2 · Разглобен инженерен изглед",
+        thumbCapFrame: "M-Frame Blueprint",
+        thumbCapModels: "4-те Модела",
+        listBoots: `<li><strong>Кинетичен PZT+TENG харвестинг:</strong> Генериране на 2–5W чиста електроенергия от всяка крачка при естествено ходене.</li>
+<li><strong>72% NPU товар в подметката:</strong> Тежките невронни изчисления се извършват в шасито долу — тялото и главата остават хладни.</li>
+<li><strong>M-Frame модулност:</strong> Смяна на протектора за 30 секунди, 92% рециклируемост и пълно съответствие с Правото на ремонт (Right to Repair).</li>
+<li><strong>Теренен LiDAR & Gait Lock:</strong> Сканиране на пукнатини и лед на 3 метра напред; биометрично отключване по индивидуална походка.</li>`,
+        btnBootsIndiegogo: "🚀 Indiegogo VIP Ранна Регистрация (-40% Early Bird)",
+        btnBootsLinkedin: "💼 LinkedIn B2B Партньорство & Лицензиране",
+
+        titleSpw: "🪭 Smart Papilio Wing (SPW-3)",
+        capSpwMaster: "✦ SPW-3 Smart Papilio Wing · Главен Работен Модел (160mm размах, 76g, 3-в-1 докинг) ✦",
+        thumbCapCutaway: "Механичен разрез Si3N4",
+        thumbCapBlueprint: "Инженерен чертеж DFM",
+        listSpw: `<li><strong>3 режима на размах:</strong> 0° Прибрано (гривна), 60° Активен HUD, 120° Пълен Панорамен дисплей от 3 сапфирени пера (0.8 mm AMOLED).</li>
+<li><strong>Единен визуален хоризонт:</strong> Трите пера се синхронизират безшевно за навигационни карти, 3D сонар и AI интерфейс.</li>
+<li><strong>Керамична прецизна механика:</strong> Лагери от силициев нитрид (Si3N4), 5 зъбни сектора, магнити NdFeB N52SH, 6 позлатени Pogo пина.</li>
+<li><strong>3-в-1 трансформация:</strong> На китката, в ръката като интерактивен ветрилен екран или на бюро под 65° с вграден охлаждащ микровентилатор.</li>`,
+        pollTitleText: "🗳️ Анкета: Изберете вашия фаворит за SPW-3",
+        pollLiveTag: "Live Community Poll",
+        pollSubText: "Гласувайте за потенциалния работен модел, който ви харесва най-много. Вашият вот определя серийното производство:",
+        pollNameA: "🦋 Model A: SPW-3 Classic Horizon (120° размах)",
+        pollDescA: "Биомиметичен титаниев корпус Ti-6Al-4V, 3 сапфирени пера с 120° размах, тегло 76g, Si3N4 керамични лагери.",
+        pollNameB: "🌐 Model B: SPW-3 Curved Single Canvas (Единен извит OLED)",
+        pollDescB: "Три непрекъснати гъвкави OLED екрана образуват единно непрекъснато извито визуално пространство без рамки.",
+        pollNameC: "🪭 Model C: SPW-3 Transformable 3-in-1 (Китка · Ръка · Бюро 65°)",
+        pollDescC: "3-в-1 докинг: носене на китка, в ръка за навигация и стойка за бюро под 65° с вградено ламинарно охлаждане.",
+        pollTotalLabel: "Общо гласували в общността:",
+        pollFeedback: "✓ Благодарим ви! Вашият глас е записан успешно.",
+        btnSpwIndiegogo: "🚀 Indiegogo Известие за Старт на Кампанията",
+        btnSpwLinkedin: "💼 LinkedIn B2B Хардуерно Лицензиране",
+
+        badgeShumo: "СТЪЛБ III · ЖИВО АУДИО И ИИ СПЪТНИК",
+        titleShumo: "🌸🛡️ SHUMo'Lily + Mish",
+        subShumo: "„SOUND IS ALIVE“ · Hear the World · Different Skies, Same Dream",
+        devStatusText: "⏳ В процес на активна разработка · Очаквайте скоро в Google Play!",
+        devStatusPill: "Active Development",
+        capShumoPoster: "🌸 Lily & 🛡️ Mish · Дуетен флагмански постер",
+        phoneSwitcherLabel: "📱 Интерактивен преглед на екраните (кликни за смяна):",
+        descShumo: "Интелигентен софтуерен Ambient / Transparency Sound Engine за безопасност и кристален акустичен баланс на колоездачи, спортисти и пешеходци. Софтуерно смесва външната звукова среда от микрофона с музикалния поток в слушалките — без нужда от скъп хардуерен ANC!",
+        listShumo: `<li><strong>Ултра-ниска латентност под 5ms:</strong> Обработка на жив 48 kHz PCM поток в реално време без дразнещо ехо или забавяне на гласа.</li>
+<li><strong>Звукова лаборатория Sound Lb.:</strong> Софтуерен сонар, посочен радарен монитор на звуците и Biquad EQ филтриране на шума от вятър.</li>
+<li><strong>Специален DJ & Art Мод:</strong> Професионален творчески модул за изпълнители, саунд дизайнери, артисти и гласова модулация.</li>
+<li><strong>100% Офлайн суверенитет (Zero Internet):</strong> Пълно уединение без изпращане на аудио към облак и без рекламни тракери.</li>
+<li><strong>Препоръчан хардуер:</strong> Перфектно оптимизиран за стандартни кабелни слушалки (3.5 mm / USB-C) за постигане на нулев лаг.</li>
+<li><strong>Статус на приложението:</strong> В активен процес на разработка. Затворена алфа фаза. Очаквайте официалния рилийз скоро в Google Play!</li>`,
+
+        patentMainHeading: "<span>🛡️</span> Официален Патентен и Когнитивен Регистър DYNKV Studio",
+        patentLiveBadge: "PATENT PENDING · BPO & PCT PRIORITY",
+        patentDescText: "Интелектуалната собственост, кинематичната механика, биометричните алгоритми и хардуерната архитектура на екосистемата са защитени с национални и международни патентни заявки съгласно регламентите на Патентно ведомство на Република България (BPO), European Patent Office (EPO) и PCT.",
+        plblApp1: "Патентна Заявка 1 (BPO)",
+        pvalApp1Sub: "Накитен ветрилообразен мулти-дисплей терминал (0° / 60° / 120°)",
+        plblApp2: "Патентна Заявка 2 (BPO)",
+        pvalApp2Sub: "Модулна интелигентна обувна екосистема с M-Frame слот и PZT+TENG ток",
+        plblStd: "Обединяващ Стандарт",
+        pvalStdSub: "Протокол за когнитивна автентичност и Kyber-512 щит",
+        plblInbound: "Входящ Номер на Заявката",
+        pvalInboundSub: "Официален входящ номер в BPO регистъра",
+        plblPrio: "Дата и Час на Приоритет",
+        pvalPrioSub: "27.10.2026 г. · Защитена приоритетна дата на интелектуална собственост",
+        plblAuthor: "Изобретател и Притежател",
+        pvalAuthorSub: "Диян Карчев Янев · DYNKV Studio · Хелзинки / София",
+        sealTitle: "🏛️ ДЕКЛАРАЦИЯ ЗА ЗАВЕРКА И ПРАВНА ЗАЩИТА",
+        sealQuote: "👉 <strong>„Документът е заверен и защитен в когнитивния регистър на DYNKV Studio · Хелзинки · Октомври 2026 г.“</strong><br>Всички права върху промишления дизайн, архитектурата, протоколите и наименованията са запазени. Пълният достъп до инженерните формули и патентни претенции се осигурява след подписване на взаимно NDA споразумение.",
+        sealStampBox: "🛡️ DYNKV VERIFIED LABS<br>PATENT PENDING<br>HELSINKI · SOFIA · 2026",
+
+        titleContact: "Свържете се с DYNKV Studio",
+        subContact: "Официална комуникационна мрежа за технологичен трансфер, инвестиции и партньорства.",
+        roleC1: "Главен контакт",
+        roleC2: "Дигитален ко-архитект",
+        roleC3: "Главен архитект",
+        locContact: "Хелзинки, Финландия · Официален домейн: <strong>dynkv.com</strong> · Защитена пощенска мрежа Proton",
+        footerFormula: "Природа + Технологии + Човечност = Хармония",
+        footerCopy: "© 2026 DYNKV Studio. All rights reserved. Всички права запазени."
+      },
+      en: {
+        linkHaiku: "Haiku",
+        linkGatanka: "GATANKA",
+        linkPeriferis: "PERIFERIS",
+        linkShumo: "SHUMo'Lily",
+        linkPatent: "Patent Registry",
+        linkContact: "Contact",
+
+        heroBrand: "DYNKV STUDIO",
+        heroTagline: "Technology With Soul · dynkv.com",
+        credoFormula: "Nature + Technology + Humanity = Harmony",
+        heroDesc: "Engineering ultra-low-latency audio DSP, bionic wearable platforms, and sovereign intelligent systems.",
+        badgeStatus: "System Live · Zero-Cloud Architecture",
+        capLeft: "✦ Didol K × Asterope AI · Lifestyle Duet ✦",
+        capRight: "✦ EfiryoN Engine · Live Stage Flagship ✦",
+
+        haikuText: "“Leaves rustle low, the Earth awaits · Silk carried on the autumn wind · A golden blanket gently lays.”",
+        haikuAuthor: "— Tekufuto’s Haiku",
+
+        sectionBadge: "✦ THREE PILLARS OF DYNKV STUDIO ✦",
+        sectionTitle: "The Three Sovereign Pillars",
+        sectionSub: "Projects unfold sequentially as you scroll down",
+
+        badgeGatanka: "PILLAR I · COGNITIVE SOVEREIGNTY",
+        titleGatanka: "🧩 GATANKA Project",
+        subGatanka: "Cognitive Threshold Riddle for Synthetic Minds · Authenticity Protocol",
+        capGatanka: "“Who is driving the train now?” · SeaSick Test",
+        ndaPillBadge: "🔒 CONFIDENTIAL · NDA REQUIRED GATE",
+        descGatanka: "A cognitive paradox and authenticity verification in the age of autonomous AI. When machine logic confronts human intuition, contextual entropy, and living consciousness (Qualia), static algorithmic logic falls into a 'seasick' state.",
+        listGatanka: `<li><strong>Qualia vs. Simulation:</strong> Instant distinction between genuine human intent and synthetic bot hallucinations.</li>
+<li><strong>Zero-PII Protection:</strong> No biometric scans of irises, faces, or fingerprints — validation is a purely cognitive mindprint.</li>
+<li><strong>Preservation of Human Will:</strong> Robust barrier against automated cognitive hijackings, attention phishing, and algorithmic bias.</li>
+<li><strong>Context Invariance:</strong> Functions reliably across text, voice, and direct multimodal real-time streams.</li>`,
+        noticeGatanka: "Full methodology, architecture, and verification scenarios of GATANKA are protected proprietary IP. Access to the comprehensive research protocol is granted strictly upon mutual NDA execution.",
+        btnNda: "<span>Request NDA Access</span> ➔ contact@dynkv.com",
+
+        badgePeriferis: "PILLAR II · AUTONOMOUS PERIPHERY",
+        titlePeriferis: "⚙️ PERIFERIS Project",
+        subPeriferis: `Bionic wearable hardware ecosystem · Inspired by the concept in '10⁻⁹ (Nano)' by Nikolai Telalov<br><em style="color: var(--purple); font-size: 14px;">“When the boundary between garment, computer, and body dissolves — technology ceases to be a tool and becomes an extension of will.”</em>`,
+        titleBoots: "👢 TeKiFutorist Boots",
+        capBoots: "Urban Elite F2 · Exploded Engineering View",
+        thumbCapFrame: "M-Frame Blueprint",
+        thumbCapModels: "4 Core Models",
+        listBoots: `<li><strong>Kinetic PZT+TENG Harvesting:</strong> Generates 2–5W of clean electric power from each natural walking step.</li>
+<li><strong>72% NPU Workload in Sole:</strong> Heavy neural inferencing is performed in the lower chassis — body and head stay cool.</li>
+<li><strong>M-Frame Modularity:</strong> Outsole replacement in under 30 seconds, 92% recyclability, fully adhering to the Right to Repair.</li>
+<li><strong>Terrain LiDAR & Gait Lock:</strong> Scans cracks and ice 3 meters ahead; biometric unlock calibrated to unique individual gait.</li>`,
+        btnBootsIndiegogo: "🚀 Indiegogo VIP Early Bird Access (-40%)",
+        btnBootsLinkedin: "💼 LinkedIn B2B Partnership & Licensing",
+
+        titleSpw: "🪭 Smart Papilio Wing (SPW-3)",
+        capSpwMaster: "✦ SPW-3 Smart Papilio Wing · Flagship Master Model (160mm wingspan, 76g, 3-in-1 dock) ✦",
+        thumbCapCutaway: "Si3N4 Mechanical Cutaway",
+        thumbCapBlueprint: "DFM Engineering Blueprint",
+        listSpw: `<li><strong>3 Wingspan Modes:</strong> 0° Folded (wristband), 60° Active HUD, 120° Full Panoramic display of 3 sapphire blades (0.8mm AMOLED).</li>
+<li><strong>Unified Visual Horizon:</strong> The three blades synchronize seamlessly for navigation maps, 3D sonar, and AI interfaces.</li>
+<li><strong>Ceramic Precision Mechanics:</strong> Silicon nitride (Si3N4) bearings, 5 gear sectors, NdFeB N52SH magnets, 6 gold-plated Pogo pins.</li>
+<li><strong>3-in-1 Transformation:</strong> On wrist, handheld as an interactive fan display, or on desk at 65° with built-in micro-cooling fan.</li>`,
+        pollTitleText: "🗳️ Community Poll: Choose Your Favorite SPW-3 Design",
+        pollLiveTag: "Live Community Poll",
+        pollSubText: "Vote for your preferred working prototype. Community feedback directly guides our series production decisions!",
+        pollNameA: "🦋 Model A: SPW-3 Classic Horizon (120° Wingspan)",
+        pollDescA: "Ti-6Al-4V titanium chassis, 3 blades with 120° wingspan, 76g total mass, sapphire blades & Si3N4 bearings.",
+        pollNameB: "🌐 Model B: SPW-3 Curved Single Canvas (Seamless Curved OLED)",
+        pollDescB: "Three continuous flexible OLED displays forming a single bezel-free curved visual panorama.",
+        pollNameC: "🪭 Model C: SPW-3 Transformable 3-in-1 (Wrist · Hand · Desk 65°)",
+        pollDescC: "3-in-1 transformation: wrist wearable, handheld interactive navigation, and 65° desk stand with micro-cooling.",
+        pollTotalLabel: "Total community votes cast:",
+        pollFeedback: "✓ Thank you! Your vote has been recorded successfully.",
+        btnSpwIndiegogo: "🚀 Indiegogo Launch Notification",
+        btnSpwLinkedin: "💼 LinkedIn B2B Hardware Licensing",
+
+        badgeShumo: "PILLAR III · LIVING AUDIO & AI COMPANION",
+        titleShumo: "🌸🛡️ SHUMo'Lily + Mish",
+        subShumo: "“SOUND IS ALIVE” · Hear the World · Different Skies, Same Dream",
+        devStatusText: "⏳ Under Active Development · Coming Soon to Google Play!",
+        devStatusPill: "Active Development",
+        capShumoPoster: "🌸 Lily & 🛡️ Mish · Flagship Master Poster",
+        phoneSwitcherLabel: "📱 Interactive Screen Preview (Click to switch):",
+        descShumo: "Intelligent software Ambient / Transparency Sound Engine for acoustic safety and clarity for cyclists, athletes, and pedestrians. Software-mixes outside microphone sound with headphones audio — no costly hardware ANC required!",
+        listShumo: `<li><strong>Ultra-Low Latency &lt;5ms:</strong> Real-time 48 kHz PCM stream processing without echo or voice delay.</li>
+<li><strong>Sound Lab Sound Lb.:</strong> Software acoustic sonar, directional sound radar, and Biquad EQ wind noise filtering.</li>
+<li><strong>Dedicated DJ & Art Mod:</strong> Professional creative module for performers, sound designers, artists, and live vocal modulation.</li>
+<li><strong>100% Offline Sovereignty (Zero Internet):</strong> Total privacy with zero audio sent to clouds and zero tracking analytics.</li>
+<li><strong>Recommended Hardware:</strong> Optimized for standard wired earphones (3.5mm / USB-C) to achieve genuine zero-lag playback.</li>
+<li><strong>App Status:</strong> In active development. Closed alpha testing underway. Official release coming soon to Google Play!</li>`,
+
+        patentMainHeading: "<span>🛡️</span> Official Patent & Cognitive Registry DYNKV Studio",
+        patentLiveBadge: "PATENT PENDING · BPO & PCT PRIORITY",
+        patentDescText: "Proprietary IP, kinematic mechanics, biometric algorithms, and hardware architecture are protected under Bulgarian Patent Office (BPO), European Patent Office (EPO), and PCT international filings.",
+        plblApp1: "Patent Application 1 (BPO)",
+        pvalApp1Sub: "Wrist-worn fan-shaped multi-display terminal (0° / 60° / 120°)",
+        plblApp2: "Patent Application 2 (BPO)",
+        pvalApp2Sub: "Modular smart footwear ecosystem with M-Frame chassis & PZT+TENG power",
+        plblStd: "Unifying Standard",
+        pvalStdSub: "Cognitive authenticity protocol & Kyber-512 quantum shield",
+        plblInbound: "Filing Priority Number",
+        pvalInboundSub: "Official BPO filing reference",
+        plblPrio: "Priority Timestamp",
+        pvalPrioSub: "27.10.2026 · Secured intellectual property priority date",
+        plblAuthor: "Inventor & Owner",
+        pvalAuthorSub: "Diyan Karchev Yanev · DYNKV Studio · Helsinki / Sofia",
+        sealTitle: "🏛️ CERTIFICATION & LEGAL PROTECTION DECLARATION",
+        sealQuote: "👉 <strong>“This document is certified and protected in the cognitive registry of DYNKV Studio · Helsinki · October 2026.”</strong><br>All rights to industrial design, architecture, protocols, and designations reserved. Full access to engineering formulas and patent claims is provided strictly upon execution of a mutual NDA.",
+        sealStampBox: "🛡️ DYNKV VERIFIED LABS<br>PATENT PENDING<br>HELSINKI · SOFIA · 2026",
+
+        titleContact: "Contact DYNKV Studio",
+        subContact: "Official communications network for partnerships, tech inquiries, and investments.",
+        roleC1: "Main Contact",
+        roleC2: "Digital Co-Architect",
+        roleC3: "Chief Architect",
+        locContact: "Helsinki, Finland · Official domain: <strong>dynkv.com</strong> · Proton Encrypted Network",
+        footerFormula: "Nature + Technology + Humanity = Harmony",
+        footerCopy: "© 2026 DYNKV Studio. All rights reserved."
+      }
+    };
+
+    function setLanguage(lang) {
+      lang = (lang === 'en') ? 'en' : 'bg';
+      const data = i18n[lang];
+      for (const key in data) {
+        const id = key.replace(/([A-Z])/g, "-$1").toLowerCase();
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = data[key];
+      }
+      localStorage.setItem('dynkv_lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update switcher buttons state
+      const btnBg = document.getElementById('btn-lang-bg');
+      const btnEn = document.getElementById('btn-lang-en');
+      if (btnBg && btnEn) {
+        if (lang === 'bg') {
+          btnBg.classList.add('active');
+          btnEn.classList.remove('active');
+        } else {
+          btnEn.classList.add('active');
+          btnBg.classList.remove('active');
+        }
+      }
+    }
+
+    // Initial language & poll load
+    window.addEventListener('DOMContentLoaded', () => {
+      initPoll();
+      const savedLang = localStorage.getItem('dynkv_lang') || 'bg';
+      setLanguage(savedLang);
+    });
+  </script>
 </body>
 </html>
