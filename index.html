@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1564,19 +1564,19 @@
       </a>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="#haiku" id="link-haiku">Хайко</a>
+          <a href="#haiku" id="link-haiku">Haiku</a>
           <a href="#gatanka" id="link-gatanka" class="notranslate" translate="no">GATANKA</a>
-          <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" id="nav-link-demo" style="color: #00e5ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);">⚡ ДЕМО WCSSTP</a>
+          <a href="demos/01_WCSSTP_Cognitive_Turing_Demo.html" target="_blank" id="nav-link-demo" style="color: #00e5ff; font-weight: 700; text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);">⚡ WCSSTP DEMO</a>
           <a href="#periferis" id="link-periferis" class="notranslate" translate="no">PERIFERIS</a>
           <a href="#shumo" id="link-shumo" class="notranslate" translate="no">SHUMo'Lily</a>
-          <a href="#patent-registry" id="link-patent">Патентен Регистър</a>
-          <a href="#manifesto" id="link-manifesto">Манифест</a>
-          <a href="#collaboration" id="link-collab">Сътрудничество</a>
-          <a href="#contact" id="link-contact">Контакт</a>
+          <a href="#patent-registry" id="link-patent">Patent Registry</a>
+          <a href="#manifesto" id="link-manifesto">Manifesto</a>
+          <a href="#collaboration" id="link-collab">Collaboration</a>
+          <a href="#contact" id="link-contact">Contact</a>
         </div>
         <div class="lang-switch-group" role="group" aria-label="Language selection">
-          <button type="button" class="lang-btn active" id="btn-lang-bg" onclick="setLanguage('bg')">🇧🇬 BG</button>
-          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')">🇬🇧 EN</button>
+          <button type="button" class="lang-btn" id="btn-lang-bg" onclick="setLanguage('bg')">🇧🇬 BG</button>
+          <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">🇬🇧 EN</button>
         </div>
       </div>
     </div>
@@ -2864,7 +2864,7 @@
           : 'legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026.html';
       }
 
-      localStorage.setItem('dynkv_lang', lang);
+      localStorage.setItem('dynkv_lang_v2', lang);
       document.documentElement.lang = lang;
       if (typeof currentOpenDocId !== "undefined" && currentOpenDocId) openDocModal(currentOpenDocId);
 
@@ -2885,7 +2885,7 @@
     // Initial language & poll load
     window.addEventListener('DOMContentLoaded', () => {
       initPoll();
-      const savedLang = localStorage.getItem('dynkv_lang') || 'bg';
+      const savedLang = localStorage.getItem('dynkv_lang_v2') || 'en';
       setLanguage(savedLang);
     });
   
@@ -2900,7 +2900,7 @@
       if (!doc) return;
       currentOpenDocId = docId;
 
-      const currentLang = localStorage.getItem('dynkv_lang') || 'bg';
+      const currentLang = localStorage.getItem('dynkv_lang_v2') || 'en';
       const titleEl = document.getElementById('doc-modal-title');
       const subEl = document.getElementById('doc-modal-subtitle');
       const contentEl = document.getElementById('doc-modal-content');
