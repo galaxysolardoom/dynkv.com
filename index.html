@@ -1688,14 +1688,8 @@
                 </a>
               </div>
               <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-                <a href="mailto:contact@dynkv.com?subject=Request%20for%20Mutual%20NDA%20and%20WCSSTP%20Enterprise%20Pilot%20-%20DYNKV%20Studio&body=Company%20Name:%0D%0AContact%20Person:%0D%0APosition%20(CISO/CTO):%0D%0AInterest:%2014-Day%20Evaluation%20Pilot%20/%20Enterprise%20License%0D%0A" class="nda-action-btn" id="btn-nda" style="border-color: var(--gold); background: rgba(251, 191, 36, 0.15); color: #fff;">
-                  <span>🔒 Заяви mNCNDA за 14-дневен пилот</span> ➔ contact@dynkv.com
-                </a>
-                <a href="legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026.html" target="_blank" class="nda-action-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); font-size: 13px;">
-                  <span>📄 Договор mNCNDA (EN)</span>
-                </a>
-                <a href="legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026_BG.html" target="_blank" class="nda-action-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); font-size: 13px;">
-                  <span>🇧🇬 Договор NCNDA (BG)</span>
+                <a href="mailto:contact@dynkv.com?subject=Request%20for%20mNCNDA%20and%2014-Day%20Pilot%20Test%20-%20DYNKV%20Studio&body=Company%20Name:%0D%0AContact%20Person:%0D%0APosition%20(CISO/CTO):%0D%0AInterest:%2014-Day%20Evaluation%20Pilot%20Test%20/%20mNCNDA%0D%0A" class="nda-action-btn" id="btn-nda" style="border-color: var(--gold); background: rgba(251, 191, 36, 0.15); color: #fff;">
+                  <span>🔒 Заяви mNCNDA за 14-дневен пилот тест</span> ➔ contact@dynkv.com
                 </a>
               </div>
 
@@ -2465,7 +2459,7 @@
 <li><strong>Защита на човешката воля:</strong> Сигурен бариерен слой срещу автоматизирани атаки, когнитивна подмяна и фишинг на вниманието.</li>
 <li><strong>Инвариантен контекст:</strong> Работи еднакво надеждно при текст, глас и директен мултимодален диалог.</li>`,
         noticeGatanka: "Пълната методология, архитектура и верификационни сценарии на GATANKA представляват защитена интелектуална собственост. Достъп се предоставя единствено след двустранно подписване на NDA споразумение.",
-        btnNda: "<span>Заяви NDA достъп</span> ➔ contact@dynkv.com",
+        btnNda: "<span>Заяви mNCNDA за 14-дневен пилот тест</span> ➔ contact@dynkv.com",
 
         badgePeriferis: "СТЪЛБ II · АВТОНОМНА ПЕРИФЕРИЯ",
         titlePeriferis: "⚙️ PERIFERIS Project",
@@ -2683,7 +2677,7 @@
 <li><strong>Preservation of Human Will:</strong> Robust barrier against automated cognitive hijackings, attention phishing, and algorithmic bias.</li>
 <li><strong>Context Invariance:</strong> Functions reliably across text, voice, and direct multimodal real-time streams.</li>`,
         noticeGatanka: "Full methodology, architecture, and verification scenarios of GATANKA are protected proprietary IP. Access to the comprehensive research protocol is granted strictly upon mutual NDA execution.",
-        btnNda: "<span>Request NDA Access</span> ➔ contact@dynkv.com",
+        btnNda: "<span>Request mNCNDA for 14-Day Pilot Test</span> ➔ contact@dynkv.com",
 
         badgePeriferis: "PILLAR II · AUTONOMOUS PERIPHERY",
         titlePeriferis: "⚙️ PERIFERIS Project",
@@ -2856,12 +2850,16 @@
         const el = document.getElementById(id);
         if (el) el.innerHTML = data[key];
       }
-      // Update NDA button link dynamically to match selected language
+      // Update NDA button mailto subject to match selected language
       const btnNda = document.getElementById('btn-nda');
       if (btnNda) {
-        btnNda.href = (lang === 'bg') 
-          ? 'legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026_BG.html' 
-          : 'legal/05_DYNKV_STUDIO_STANDARD_MUTUAL_NDA_2026.html';
+        const subject = (lang === 'bg')
+          ? encodeURIComponent('Заявка за mNCNDA и 14-дневен пилотен тест - DYNKV Studio')
+          : encodeURIComponent('Request for mNCNDA and 14-Day Pilot Test - DYNKV Studio');
+        const body = (lang === 'bg')
+          ? encodeURIComponent('Организация / Компания:\nЛице за контакт:\nДлъжност (CISO / CTO / Ръководител):\nИнтерес: 14-дневен пилотен тест / Лиценз / mNCNDA\n')
+          : encodeURIComponent('Company Name:\nContact Person:\nPosition (CISO / CTO / Lead):\nInterest: 14-Day Evaluation Pilot Test / Enterprise License / mNCNDA\n');
+        btnNda.href = `mailto:contact@dynkv.com?subject=${subject}&body=${body}`;
       }
 
       localStorage.setItem('dynkv_lang_v2', lang);
