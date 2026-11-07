@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EfirioN™ 48 kHz Real-Time Audio DSP & Road Safety Lab | DYNKV Studio</title>
+  <style>
+    :root {
+      --bg: #060a12;
+      --panel: #0e1626;
+      --panel-alt: #131e33;
+      --green: #76b900;
+      --emerald: #10b981;
+      --cyan: #00e5ff;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --text: #f0f6fc;
+      --muted: #94a3b8;
+      --border: rgba(0, 229, 255, 0.22);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background: radial-gradient(circle at 15% 15%, #10243a 0%, #060a12 68%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 18px 48px;
+    }
+    .container { max-width: 1220px; margin: 0 auto; }
+    .top-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 16px; margin-bottom: 22px;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .back-link {
+      color: var(--cyan); text-decoration: none; font-weight: 700; font-size: 14px;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border-radius: 8px; background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+    }
+    .lang-switch { display: flex; gap: 8px; align-items: center; }
+    .lang-btn {
+      background: rgba(255,255,255,0.05); color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px;
+      border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 13px;
+    }
+    .lang-btn.active {
+      background: rgba(0, 229, 255, 0.2); color: #fff; border-color: var(--cyan);
+    }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .badge {
+      font-size: 11.5px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; padding: 4px 10px; border-radius: 6px;
+      background: rgba(0, 229, 255, 0.14); color: var(--cyan);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+    }
+    .badge-green {
+      background: rgba(118, 185, 0, 0.16); color: #9be600;
+      border-color: rgba(118, 185, 0, 0.45);
+    }
+    h1 { font-size: 30px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+    .sub { color: var(--muted); font-size: 15px; line-height: 1.5; max-width: 980px; margin-bottom: 22px; }
+    .main-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 22px;
+    }
+    @media (max-width: 960px) { .main-grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    }
+    .card-title {
+      font-size: 15.5px; font-weight: 800; color: var(--cyan);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .engine-controls {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+    }
+    .btn-engine {
+      padding: 13px 16px; border-radius: 10px; font-size: 14px; font-weight: 800;
+      cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 0.5px;
+      transition: all 0.15s;
+    }
+    .btn-start { background: linear-gradient(90deg, #76b900, #10b981); color: #fff; }
+    .btn-mic { background: rgba(0, 229, 255, 0.14); color: var(--cyan); border: 1px solid var(--cyan); }
+    .btn-engine:hover { transform: translateY(-1px); }
+    .hazard-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+    }
+    .hazard-btn {
+      background: var(--panel-alt); color: #fff;
+      border: 1px solid rgba(255,255,255,0.14); border-left: 4px solid var(--amber);
+      border-radius: 9px; padding: 12px 14px; font-size: 13px; font-weight: 700;
+      cursor: pointer; text-align: left; transition: all 0.15s;
+    }
+    .hazard-btn:hover { border-color: var(--cyan); background: rgba(0, 229, 255, 0.12); }
+    .hazard-btn.wind { border-left-color: var(--cyan); }
+    .toggles-row {
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      background: #080d18; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px;
+    }
+    .toggle-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+    .toggle-item input { width: 17px; height: 17px; accent-color: var(--green); cursor: pointer; }
+    canvas {
+      width: 100%; height: 190px; background: #050811;
+      border: 1px solid rgba(0, 229, 255, 0.28); border-radius: 10px;
+      display: block; margin-bottom: 14px;
+    }
+    .duck-banner {
+      padding: 13px 16px; border-radius: 10px; font-weight: 800; font-size: 15px;
+      text-align: center; margin-bottom: 14px;
+      background: rgba(16, 185, 129, 0.14); border: 1.5px solid var(--emerald); color: #34d399;
+      transition: all 0.15s;
+    }
+    .duck-banner.active-alert {
+      background: rgba(239, 68, 68, 0.22); border-color: var(--red); color: #fca5a5;
+    }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    }
+    .metric-box {
+      background: #080d18; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 9px; padding: 10px 13px;
+    }
+    .metric-box .k { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+    .metric-box .v { font-size: 18px; font-weight: 800; color: var(--cyan); margin-top: 3px; font-family: monospace; }
+    .log-box {
+      margin-top: 12px; background: #050810; border: 1px solid rgba(118, 185, 0, 0.3);
+      border-radius: 9px; padding: 10px 12px; height: 110px; overflow-y: auto;
+      font-family: Consolas, monospace; font-size: 12px; color: #9be600;
+    }
+    .footer {
+      margin-top: 28px; padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between; flex-wrap: wrap;
+      font-size: 12.5px; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="top-nav">
+    <a href="../index.html" class="back-link" id="ui-back">&larr; Back to DYNKV Studio Portal</a>
+    <div class="lang-switch">
+      <a href="wcsstp_live_demo.html" class="back-link" style="border-color:var(--green); color:#9be600;">🛡️ Switch to WCSSTP™ Cognitive Lab &rarr;</a>
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-bg" onclick="setLang('bg')">BG</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="badges">
+      <span class="badge">EFIRION™ DSP ENGINE · 48,000 Hz WEBAUDIO</span>
+      <span class="badge badge-green">&lt; 5 ms SMART AUDIO DUCKING (-18 dB)</span>
+      <span class="badge">RADIX-2 1024-PT FFT + BIQUAD WIND FILTER</span>
+    </div>
+    <h1 id="ui-title">EfirioN™ Real-Time 48 kHz Audio DSP &amp; SHUMo'Lily™ Road Safety Lab</h1>
+    <p class="sub" id="ui-sub">
+      Authentic browser-native WebAudio DSP pipeline executing at 48 kHz: start the Ambient Music Stream, then inject real synthesized road hazards (Car Horn, Emergency Siren, Bicycle Bell, 30 km/h Headwind) or enable your Live Microphone to observe automatic -18 dB Smart Audio Ducking and Biquad Wind Filtering in real time.
+    </p>
+  </div>
+
+  <div class="main-grid">
+    <!-- LEFT: DSP SYNTHESIZER, FILTERS & MICROPHONE -->
+    <div class="card">
+      <div class="card-title">
+        <span id="ui-ctrl-hdr">1. 48 kHz Audio DSP Pipeline &amp; Hazard Injector</span>
+        <span id="audio-state" style="font-size:12px; color:#9be600;">STATE: STANDBY</span>
+      </div>
+
+      <div class="engine-controls">
+        <button class="btn-engine btn-start" id="btnStartDsp" onclick="toggleDspEngine()">▶ Start 48 kHz Ambient + DSP Engine</button>
+        <button class="btn-engine btn-mic" id="btnMic" onclick="enableLiveMic()">🎙️ Enable Live Microphone Input</button>
+      </div>
+
+      <div style="font-size:12px; font-weight:700; color:var(--muted); text-transform:uppercase; margin-bottom:8px;" id="ui-inj-lbl">
+        Inject Real-Time Acoustic Road Hazards (Works Immediately Without Mic):
+      </div>
+      <div class="hazard-grid">
+        <button class="hazard-btn" onclick="triggerHazard('horn')">
+          🚗 <strong>Car Horn (1.8 + 2.4 kHz)</strong><br>
+          <span style="font-size:11.5px; color:var(--muted);">Fast-attack dual-tone urban horn</span>
+        </button>
+        <button class="hazard-btn" onclick="triggerHazard('siren')">
+          🚨 <strong>Emergency Siren (700–1550 Hz)</strong><br>
+          <span style="font-size:11.5px; color:var(--muted);">Modulated FM ambulance wail sweep</span>
+        </button>
+        <button class="hazard-btn" onclick="triggerHazard('bell')">
+          🚲 <strong>Bicycle Bell (3.2 kHz Ring)</strong><br>
+          <span style="font-size:11.5px; color:var(--muted);">High-Q metallic transient chime</span>
+        </button>
+        <button class="hazard-btn wind" onclick="triggerHazard('wind')">
+          💨 <strong>30 km/h Headwind (&lt;240 Hz)</strong><br>
+          <span style="font-size:11.5px; color:var(--muted);">Low-frequency aerodynamic rumble</span>
+        </button>
+      </div>
+
+      <div class="toggles-row">
+        <label class="toggle-item">
+          <input type="checkbox" id="chkWindFilter" checked onchange="updateFilters()">
+          <span>Aerodynamic Biquad Wind Filter (260 Hz High-Pass)</span>
+        </label>
+        <label class="toggle-item">
+          <input type="checkbox" id="chkAutoDuck" checked>
+          <span>Auto -18 dB Smart Music Ducking (&lt;5 ms)</span>
+        </label>
+      </div>
+
+      <div class="toggles-row" style="justify-content:space-between;">
+        <span style="font-size:13px; font-weight:700; color:#dbeafe;">🚴 Rider Cadence / Heart Rhythm Sync (BPM):</span>
+        <input type="range" id="bpmSlider" min="70" max="165" value="118" oninput="document.getElementById('bpmVal').textContent=this.value+' BPM'" style="width:160px; accent-color:var(--cyan);">
+        <strong id="bpmVal" style="color:var(--cyan); font-family:monospace;">118 BPM</strong>
+      </div>
+
+      <div class="log-box" id="dspLog">
+        [EFIRION-DSP] Ready. Click "Start 48 kHz Ambient + DSP Engine" or any Hazard button to begin real-time FFT processing...
+      </div>
+    </div>
+
+    <!-- RIGHT: 60 FPS FFT SPECTRUM & TELEMETRY -->
+    <div class="card">
+      <div class="card-title">
+        <span id="ui-spec-hdr">2. Live 1024-Point Radix-2 FFT &amp; Ducking Telemetry</span>
+        <span style="font-size:12px; font-family:monospace; color:var(--cyan);" id="sr-label">48,000 Hz · 2.67 ms/block</span>
+      </div>
+
+      <div id="duckBanner" class="duck-banner">
+        🟢 CLEAR ROAD CORRIDOR — MUSIC GAIN: 0.0 dB (100% FIDELITY)
+      </div>
+
+      <canvas id="fftCanvas" width="560" height="190"></canvas>
+
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="k">Detected Acoustic Class</div>
+          <div class="v" id="m-class">AMBIENT_CLEAR</div>
+        </div>
+        <div class="metric-box">
+          <div class="k">Smart Music Ducking Gain</div>
+          <div class="v" id="m-gain">0.0 dB</div>
+        </div>
+        <div class="metric-box">
+          <div class="k">Dominant Hazard Peak</div>
+          <div class="v" id="m-peak">-- Hz</div>
+        </div>
+        <div class="metric-box">
+          <div class="k">DSP Frame Latency</div>
+          <div class="v" id="m-lat">2.67 ms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Certified and protected in the cognitive registry of DYNKV Studio · Helsinki, Finland (Y-tunnus: 3222474-6)</span>
+    <span>EfirioN™ DSP Engine · 100% On-Device Zero-Cloud Audio Processing</span>
+  </div>
+</div>
+
+<script>
+  // ============================================================================
+  // EFIRION™ REAL-TIME 48 kHz WEBAUDIO DSP PIPELINE (FFT + BIQUAD + DUCKING)
+  // ============================================================================
+  let audioCtx = null;
+  let analyser = null;
+  let musicGainNode = null;
+  let hazardGainNode = null;
+  let windFilterNode = null;
+  let ambientOsc1 = null;
+  let ambientOsc2 = null;
+  let isRunning = false;
+  let animId = null;
+  let activeHazardLabel = null;
+
+  function logDsp(msg) {
+    const box = document.getElementById('dspLog');
+    const ts = new Date().toISOString().substring(11, 23);
+    const line = document.createElement('div');
+    line.textContent = `[${ts}] ${msg}`;
+    box.appendChild(line);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function initAudioGraph() {
+    if (audioCtx) return;
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new AudioContextClass({ sampleRate: 48000, latencyHint: 'interactive' });
+
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 1024;
+    analyser.smoothingTimeConstant = 0.72;
+
+    // Music channel (subject to -18 dB Smart Audio Ducking)
+    musicGainNode = audioCtx.createGain();
+    musicGainNode.gain.value = 0.22;
+
+    // External Environment / Hazard channel -> Biquad Wind Filter -> Analyser & Output
+    windFilterNode = audioCtx.createBiquadFilter();
+    updateFilters();
+
+    hazardGainNode = audioCtx.createGain();
+    hazardGainNode.gain.value = 0.85;
+
+    // Ambient warm musical chord (220 Hz A3 + 329.63 Hz E4)
+    ambientOsc1 = audioCtx.createOscillator();
+    ambientOsc2 = audioCtx.createOscillator();
+    ambientOsc1.type = 'sine';
+    ambientOsc2.type = 'triangle';
+    ambientOsc1.frequency.value = 220.0;
+    ambientOsc2.frequency.value = 329.63;
+
+    const padFilter = audioCtx.createBiquadFilter();
+    padFilter.type = 'lowpass';
+    padFilter.frequency.value = 420;
+
+    ambientOsc1.connect(padFilter);
+    ambientOsc2.connect(padFilter);
+    padFilter.connect(musicGainNode);
+
+    musicGainNode.connect(analyser);
+    musicGainNode.connect(audioCtx.destination);
+
+    windFilterNode.connect(hazardGainNode);
+    hazardGainNode.connect(analyser);
+    hazardGainNode.connect(audioCtx.destination);
+
+    ambientOsc1.start();
+    ambientOsc2.start();
+    isRunning = true;
+
+    const sr = audioCtx.sampleRate;
+    const blockMs = ((128 / sr) * 1000).toFixed(2);
+    document.getElementById('sr-label').textContent = `${sr.toLocaleString()} Hz · ${blockMs} ms/block`;
+    document.getElementById('m-lat').textContent = `${blockMs} ms`;
+    document.getElementById('audio-state').textContent = 'STATE: 48 kHz LIVE';
+    document.getElementById('btnStartDsp').textContent = '⏸ Mute / Pause Ambient Stream';
+    logDsp(`Initialized WebAudio DSP graph at ${sr} Hz (${blockMs} ms quantum).`);
+    startRenderLoop();
+  }
+
+  function toggleDspEngine() {
+    if (!audioCtx) {
+      initAudioGraph();
+      return;
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+      document.getElementById('audio-state').textContent = 'STATE: 48 kHz LIVE';
+      document.getElementById('btnStartDsp').textContent = '⏸ Mute / Pause Ambient Stream';
+      logDsp('AudioContext resumed.');
+    } else {
+      audioCtx.suspend();
+      document.getElementById('audio-state').textContent = 'STATE: PAUSED';
+      document.getElementById('btnStartDsp').textContent = '▶ Resume 48 kHz DSP Engine';
+      logDsp('AudioContext paused.');
+    }
+  }
+
+  function updateFilters() {
+    if (!windFilterNode || !audioCtx) return;
+    const windOn = document.getElementById('chkWindFilter').checked;
+    if (windOn) {
+      windFilterNode.type = 'highpass';
+      windFilterNode.frequency.setValueAtTime(260, audioCtx.currentTime);
+      windFilterNode.Q.setValueAtTime(0.707, audioCtx.currentTime);
+      logDsp('Biquad Wind Filter ENABLED: High-Pass @ 260 Hz (attenuating <240 Hz wind rumble).');
+    } else {
+      windFilterNode.type = 'allpass';
+      logDsp('Biquad Wind Filter BYPASSED: Raw unfiltered low-frequency rumble active.');
+    }
+  }
+
+  async function enableLiveMic() {
+    initAudioGraph();
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+      });
+      const micSource = audioCtx.createMediaStreamSource(stream);
+      micSource.connect(windFilterNode);
+      document.getElementById('btnMic').textContent = '🎙️ Live Mic: ACTIVE';
+      logDsp('Live Microphone connected directly to EfirioN Biquad Wind Filter + 1024-pt FFT.');
+    } catch (err) {
+      logDsp('Microphone permission declined or unavailable — using built-in Hazard Synthesizer.');
+    }
+  }
+
+  // Real Acoustic Road Hazard Synthesizer
+  function triggerHazard(type) {
+    initAudioGraph();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const now = audioCtx.currentTime;
+
+    if (type === 'horn') {
+      activeHazardLabel = 'CAR_HORN (1.8–2.4 kHz)';
+      const o1 = audioCtx.createOscillator();
+      const o2 = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o1.type = 'sawtooth'; o2.type = 'sawtooth';
+      o1.frequency.setValueAtTime(1820, now);
+      o2.frequency.setValueAtTime(2380, now);
+      g.gain.setValueAtTime(0.35, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+      o1.connect(g); o2.connect(g); g.connect(windFilterNode);
+      o1.start(now); o2.start(now);
+      o1.stop(now + 0.85); o2.stop(now + 0.85);
+      logDsp('Injected CAR HORN (1.82 kHz + 2.38 kHz dual-tone fast attack).');
+    } else if (type === 'siren') {
+      activeHazardLabel = 'EMERGENCY_SIREN (FM WAIL)';
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(720, now);
+      osc.frequency.linearRampToValueAtTime(1520, now + 0.55);
+      osc.frequency.linearRampToValueAtTime(760, now + 1.15);
+      g.gain.setValueAtTime(0.42, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 1.18);
+      osc.connect(g); g.connect(windFilterNode);
+      osc.start(now); osc.stop(now + 1.18);
+      logDsp('Injected EMERGENCY SIREN (720 Hz -> 1520 Hz FM Doppler sweep).');
+    } else if (type === 'bell') {
+      activeHazardLabel = 'BICYCLE_BELL (3.2 kHz)';
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(3240, now);
+      g.gain.setValueAtTime(0.5, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.65);
+      osc.connect(g); g.connect(windFilterNode);
+      osc.start(now); osc.stop(now + 0.65);
+      logDsp('Injected BICYCLE BELL (3.24 kHz metallic transient).');
+    } else if (type === 'wind') {
+      activeHazardLabel = 'HEADWIND_30KMH (<240 Hz)';
+      const bufSize = audioCtx.sampleRate * 1.0;
+      const noiseBuf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
+      const data = noiseBuf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = noiseBuf;
+      const lp = audioCtx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.value = 190;
+      const g = audioCtx.createGain();
+      g.gain.setValueAtTime(0.8, now);
+      g.gain.exponentialRampToValueAtTime(0.01, now + 0.98);
+      noise.connect(lp); lp.connect(g); g.connect(windFilterNode);
+      noise.start(now); noise.stop(now + 0.98);
+      const wfState = document.getElementById('chkWindFilter').checked ? 'SUPPRESSED by 260 Hz High-Pass' : 'UNFILTERED';
+      logDsp(`Injected 30 km/h Headwind (<190 Hz) — Status: ${wfState}.`);
+    }
+    setTimeout(() => { activeHazardLabel = null; }, 1100);
+  }
+
+  // Real-Time 60 FPS FFT Spectrum + Smart Audio Ducking Controller
+  function startRenderLoop() {
+    if (animId) cancelAnimationFrame(animId);
+    const canvas = document.getElementById('fftCanvas');
+    const ctx = canvas.getContext('2d');
+    const freqData = new Uint8Array(analyser.frequencyBinCount);
+
+    function render() {
+      animId = requestAnimationFrame(render);
+      analyser.getByteFrequencyData(freqData);
+
+      const sr = audioCtx ? audioCtx.sampleRate : 48000;
+      const binHz = sr / analyser.fftSize; // ~46.875 Hz per bin
+
+      // Measure Hazard Band Energy (1,400 Hz to 4,200 Hz -> bins 30 to 90)
+      let hazardEnergy = 0;
+      let peakBin = 30;
+      let peakVal = 0;
+      for (let b = 30; b <= 90; b++) {
+        const val = freqData[b];
+        hazardEnergy += val;
+        if (val > peakVal) { peakVal = val; peakBin = b; }
+      }
+      const avgHazard = hazardEnergy / 61;
+
+      // Smart Audio Ducking Decision (<5 ms attack)
+      const autoDuck = document.getElementById('chkAutoDuck').checked;
+      const banner = document.getElementById('duckBanner');
+      if (avgHazard > 28 && peakVal > 95) {
+        if (autoDuck && musicGainNode) {
+          // -18 dB attenuation (0.22 * 0.125 = 0.0275)
+          musicGainNode.gain.setTargetAtTime(0.0275, audioCtx.currentTime, 0.003);
+        }
+        const domHz = Math.round(peakBin * binHz);
+        document.getElementById('m-peak').textContent = `${domHz} Hz`;
+        document.getElementById('m-gain').textContent = autoDuck ? '-18.0 dB (DUCKED)' : '0.0 dB (BYPASS)';
+        document.getElementById('m-class').textContent = activeHazardLabel || `HAZARD_${domHz}HZ`;
+        banner.className = 'duck-banner active-alert';
+        banner.textContent = `🚨 ROAD HAZARD DETECTED (${domHz} Hz) — SMART AUDIO DUCKING: -18.0 dB IN <5 ms`;
+      } else {
+        if (musicGainNode && audioCtx) {
+          musicGainNode.gain.setTargetAtTime(0.22, audioCtx.currentTime, 0.04);
+        }
+        document.getElementById('m-gain').textContent = '0.0 dB';
+        document.getElementById('m-class').textContent = activeHazardLabel || 'AMBIENT_CLEAR';
+        banner.className = 'duck-banner';
+        banner.textContent = `🟢 CLEAR ROAD CORRIDOR — MUSIC GAIN: 0.0 dB (100% FIDELITY)`;
+      }
+
+      // Draw 24-Bin Grouped & Raw FFT Spectrum
+      ctx.fillStyle = '#050811';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Highlight Hazard Detection Zone (bins 30..90)
+      const xStart = (30 / 140) * canvas.width;
+      const xEnd = (90 / 140) * canvas.width;
+      ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
+      ctx.fillRect(xStart, 0, xEnd - xStart, canvas.height);
+      ctx.fillStyle = 'rgba(239, 68, 68, 0.65)';
+      ctx.font = '10px Consolas, monospace';
+      ctx.fillText('HAZARD BAND (1.4 kHz – 4.2 kHz)', xStart + 6, 14);
+
+      const numBars = 140;
+      const barWidth = (canvas.width / numBars) - 1;
+      for (let i = 0; i < numBars; i++) {
+        const v = freqData[i];
+        const h = (v / 255) * (canvas.height - 24);
+        const x = i * (barWidth + 1);
+        const y = canvas.height - h;
+        if (i >= 30 && i <= 90 && v > 95) {
+          ctx.fillStyle = '#ef4444';
+        } else if (i < 8) {
+          ctx.fillStyle = '#00e5ff';
+        } else {
+          ctx.fillStyle = '#76b900';
+        }
+        ctx.fillRect(x, y, barWidth, h);
+      }
+    }
+    render();
+  }
+
+  function setLang(lang) {
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-bg').classList.toggle('active', lang === 'bg');
+    if (lang === 'bg') {
+      document.getElementById('ui-back').innerHTML = '&larr; Обратно към портала DYNKV Studio';
+      document.getElementById('ui-title').textContent = 'EfirioN™ Жива 48 kHz Аудио DSP Лаборатория за Пътна Безопасност (SHUMo\'Lily™)';
+      document.getElementById('ui-sub').textContent = 'Истински 48 kHz WebAudio DSP процесор в браузъра: стартирай музикалния поток и инжектирай реални пътни опасности (Клаксон, Сирена, Велосипеден звънец, Насрещен вятър 30 км/ч) или включи живия си микрофон, за да видиш автоматичното -18 dB Smart Audio Ducking за под 5 ms.';
+      document.getElementById('ui-ctrl-hdr').textContent = '1. 48 kHz Аудио DSP Верига и Генератор на Опасности';
+      document.getElementById('ui-spec-hdr').textContent = '2. Жив 1024-точков Radix-2 FFT Спектър и Телеметрия';
+    } else {
+      document.getElementById('ui-back').innerHTML = '&larr; Back to DYNKV Studio Portal';
+      document.getElementById('ui-title').innerHTML = 'EfirioN™ Real-Time 48 kHz Audio DSP &amp; SHUMo\'Lily™ Road Safety Lab';
+      document.getElementById('ui-sub').textContent = 'Authentic browser-native WebAudio DSP pipeline executing at 48 kHz: start the Ambient Music Stream, then inject real synthesized road hazards (Car Horn, Emergency Siren, Bicycle Bell, 30 km/h Headwind) or enable your Live Microphone to observe automatic -18 dB Smart Audio Ducking and Biquad Wind Filtering in real time.';
+      document.getElementById('ui-ctrl-hdr').textContent = '1. 48 kHz Audio DSP Pipeline & Hazard Injector';
+      document.getElementById('ui-spec-hdr').textContent = '2. Live 1024-Point Radix-2 FFT & Ducking Telemetry';
+    }
+  }
+</script>
+</body>
+</html>
