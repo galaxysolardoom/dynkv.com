@@ -2872,18 +2872,6 @@
         const el = document.getElementById(id);
         if (el) el.innerHTML = data[key];
       }
-      // Update NDA button mailto subject to match selected language
-      const btnNda = document.getElementById('btn-nda');
-      if (btnNda) {
-        const subject = (lang === 'bg')
-          ? encodeURIComponent('Заявка за NDA и 14-дневен пилотен тест - DYNKV Studio')
-          : encodeURIComponent('Request for NDA and 14-Day Pilot Test - DYNKV Studio');
-        const body = (lang === 'bg')
-          ? encodeURIComponent('Организация / Компания:\nЛице за контакт:\nДлъжност (CISO / CTO / Ръководител):\nИнтерес: 14-дневен пилотен тест / Лиценз / NDA\n')
-          : encodeURIComponent('Company Name:\nContact Person:\nPosition (CISO / CTO / Lead):\nInterest: 14-Day Evaluation Pilot Test / Enterprise License / NDA\n');
-        btnNda.href = `mailto:contact@dynkv.com?subject=${subject}&body=${body}`;
-      }
-
       localStorage.setItem('dynkv_lang_v2', lang);
       document.documentElement.lang = lang;
       if (typeof currentOpenDocId !== "undefined" && currentOpenDocId) openDocModal(currentOpenDocId);
