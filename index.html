@@ -1627,6 +1627,107 @@
       text-align: center;
     }
 
+      /* === PRODUCT LOGOS SHOWCASE & PILLAR EMBLEMS === */
+    .product-trilogy-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin: 0 auto 38px auto;
+      max-width: 1240px;
+    }
+    @media (max-width: 960px) {
+      .product-trilogy-showcase { grid-template-columns: 1fr; }
+    }
+    .trilogy-logo-card {
+      background: rgba(8, 13, 24, 0.92);
+      border-radius: 20px;
+      padding: 18px 20px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      cursor: pointer;
+    }
+    .trilogy-logo-card:hover { transform: translateY(-5px); }
+    .trilogy-logo-card.tc-cyan {
+      border: 1px solid rgba(0, 229, 255, 0.45);
+      box-shadow: 0 12px 34px rgba(0, 229, 255, 0.12);
+    }
+    .trilogy-logo-card.tc-gold {
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      box-shadow: 0 12px 34px rgba(245, 158, 11, 0.12);
+    }
+    .trilogy-logo-card.tc-emerald {
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      box-shadow: 0 12px 34px rgba(16, 185, 129, 0.12);
+    }
+    .trilogy-img-box {
+      width: 100%;
+      height: 210px;
+      background: #050811;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin: 8px 0 14px 0;
+      padding: 6px;
+    }
+    .trilogy-img-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .pillar-header-with-crest {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .pillar-crest-box {
+      width: 240px;
+      height: 138px;
+      background: #050811;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .pillar-crest-box:hover { transform: scale(1.04); }
+    .pillar-crest-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .periferis-center-emblem-banner {
+      background: #050811;
+      border: 1px solid rgba(245, 158, 11, 0.42);
+      border-radius: 18px;
+      padding: 12px 18px;
+      margin: 6px 0 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      box-shadow: 0 12px 36px rgba(245, 158, 11, 0.14);
+      cursor: pointer;
+    }
+    .periferis-center-emblem-banner img {
+      max-height: 250px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body>
@@ -1740,6 +1841,36 @@
         <p class="section-sub" id="section-sub">Проектите се разгръщат последователно при превъртане надолу</p>
       </div>
 
+            <!-- ОФИЦИАЛНА 3-КОЛОННА ВИТРИНА НА ПРОДУКТОВИТЕ ЛОГА -->
+      <div class="product-trilogy-showcase" id="live-trilogy-bar">
+        <div class="trilogy-logo-card tc-cyan" onclick="document.getElementById('gatanka').scrollIntoView({behavior:'smooth'})">
+          <span style="font-size: 10.5px; font-weight: 800; color: var(--cyan); letter-spacing: 1.5px;">PILLAR I · BRAND COLOR #00E5FF</span>
+          <div class="trilogy-img-box">
+            <img src="assets/wcsstp_product_logo_master.png" alt="WCSSTP Zero-PII AI Defense Logo">
+          </div>
+          <h4 style="font-size: 18px; color: #fff; margin-bottom: 6px;">WCSSTP™ · Zero-PII AI Defense</h4>
+          <p id="trilogy-desc-1" style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">Когнитивен протокол за автентичност (&lt;0.05 ms, 97.45% Bot Rejection, EU AI Act Art. 50).</p>
+        </div>
+
+        <div class="trilogy-logo-card tc-gold" onclick="document.getElementById('periferis').scrollIntoView({behavior:'smooth'})">
+          <span style="font-size: 10.5px; font-weight: 800; color: var(--gold); letter-spacing: 1.5px;">PILLAR II · BRAND COLOR #F59E0B</span>
+          <div class="trilogy-img-box">
+            <img src="assets/periferis_product_logo_master.jpg" alt="PERIFERIS Device Logo">
+          </div>
+          <h4 style="font-size: 18px; color: #fff; margin-bottom: 6px;">PERIFERIS® Device Ecosystem</h4>
+          <p id="trilogy-desc-2" style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">Автономна биомеханична периферия: TeKiFutorist Boots (2–5W PZT+TENG) &amp; SPW-3 Накитник.</p>
+        </div>
+
+        <div class="trilogy-logo-card tc-emerald" onclick="document.getElementById('shumo').scrollIntoView({behavior:'smooth'})">
+          <span style="font-size: 10.5px; font-weight: 800; color: #10b981; letter-spacing: 1.5px;">PILLAR III · BRAND COLOR #10B981</span>
+          <div class="trilogy-img-box">
+            <img src="assets/efiryon_dsp_engine_master_emblem.jpg" alt="EfiryoN DSP Engine Logo">
+          </div>
+          <h4 style="font-size: 18px; color: #fff; margin-bottom: 6px;">EfiryoN™ DSP &amp; SHUMo'Lily</h4>
+          <p id="trilogy-desc-3" style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">48 kHz аудио двигател с &lt;5 ms латентност, радар за пътни опасности и -18 dB Smart Ducking.</p>
+        </div>
+      </div>
+
       <div class="pillars-vertical-flow">
         
         <!-- ==========================================
@@ -1753,6 +1884,10 @@
           <div class="pillar-split-grid">
             <!-- Left: Visual Media -->
             <div>
+              <div class="media-box" style="margin-bottom: 16px; border: 1px solid rgba(0, 229, 255, 0.45); box-shadow: 0 0 28px rgba(0, 229, 255, 0.16); background: #050811;" onclick="openLightbox('assets/wcsstp_product_logo_master.png', 'WCSSTP™ · Zero-PII AI Defense Official Product Emblem')">
+                <img src="assets/wcsstp_product_logo_master.png" alt="WCSSTP Official Product Logo" style="max-height: 250px; object-fit: contain; background: #050811; padding: 6px;">
+                <div class="media-caption-bar notranslate" translate="no" style="color: var(--cyan);">✦ WCSSTP™ · ZERO-PII AI DEFENSE OFFICIAL EMBLEM ✦</div>
+              </div>
               <div class="media-box" onclick="openLightbox('assets/gatanka_seasick_ai.jpg', 'GATANKA Project · Who is driving the train now?')">
                 <img src="assets/gatanka_seasick_ai.jpg" alt="GATANKA · Who is driving the train now?" loading="lazy">
                 <div class="media-caption-bar notranslate" id="cap-gatanka" translate="no">„Кой кара влака сега?“ · Who is driving the train now?</div>
@@ -1889,6 +2024,10 @@
             <em style="color: var(--purple); font-size: 14px;">„Когато границата между облекло, компютър и тяло се разтвори — техниката престава да бъде инструмент и става продължение на волята.“</em>
           </p>
 
+                    <div class="periferis-center-emblem-banner" id="periferis-live-banner" onclick="openLightbox('assets/periferis_product_logo_master.jpg', 'PERIFERIS® Device · TeKiFutorist Boots & SPWings')">
+            <img src="assets/periferis_product_logo_master.jpg" alt="PERIFERIS Device Master Logo">
+            <div id="cap-periferis-master" style="font-size: 12px; font-weight: 800; color: var(--gold); margin-top: 8px; letter-spacing: 1px;">✦ PERIFERIS® DEVICE · TEKIFUTORIST BOOTS (ВЛЯВО) &amp; SPW-3 WINGS (ВДЯСНО) ✦</div>
+          </div>
           <!-- The Two Hardware Flagships side by side inside PERIFERIS -->
           <div class="subprojects-container">
             
@@ -2581,6 +2720,10 @@
         sectionBadge: "✦ ТРИТЕ СТЪЛБА НА DYNKV STUDIO ✦",
         sectionTitle: "The Three Sovereign Pillars",
         sectionSub: "Проектите се разгръщат последователно при превъртане надолу",
+        trilogyDesc1: "Когнитивен протокол за автентичност (&lt;0.05 ms, 97.45% Bot Rejection, EU AI Act Art. 50).",
+        trilogyDesc2: "Автономна биомеханична периферия: TeKiFutorist Boots (2–5W PZT+TENG) &amp; SPW-3 Накитник.",
+        trilogyDesc3: "48 kHz аудио двигател с &lt;5 ms латентност, радар за пътни опасности и -18 dB Smart Ducking.",
+        capPeriferisMaster: "✦ PERIFERIS® DEVICE · TEKIFUTORIST BOOTS (ВЛЯВО) &amp; SPW-3 WINGS (ВДЯСНО) ✦",
 
         badgeGatanka: "СТЪЛБ I · КОГНИТИВЕН СУВЕРЕНИТЕТ",
         titleGatanka: "🧩 GATANKA Project",
@@ -2814,6 +2957,10 @@
         sectionBadge: "✦ THREE PILLARS OF DYNKV STUDIO ✦",
         sectionTitle: "The Three Sovereign Pillars",
         sectionSub: "Projects unfold sequentially as you scroll down",
+        trilogyDesc1: "Zero-PII cognitive authenticity protocol (&lt;0.05 ms, 97.45% Bot Rejection, EU AI Act Art. 50).",
+        trilogyDesc2: "Autonomous wearable edge hardware: TeKiFutorist Boots (2–5W PZT+TENG) &amp; SPW-3 Wrist-Bracer.",
+        trilogyDesc3: "Sub-5ms 48 kHz real-time audio DSP engine, road-hazard acoustic radar &amp; -18 dB Smart Ducking.",
+        capPeriferisMaster: "✦ PERIFERIS® DEVICE · TEKIFUTORIST BOOTS (LEFT) &amp; SPW-3 WINGS (RIGHT) ✦",
 
         badgeGatanka: "PILLAR I · COGNITIVE SOVEREIGNTY",
         titleGatanka: "🧩 GATANKA Project",
