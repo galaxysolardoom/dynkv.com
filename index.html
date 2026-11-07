@@ -1728,6 +1728,82 @@
       object-fit: contain;
       border-radius: 12px;
     }
+      /* =========================================================
+       NEUE GLAGOLITIC SOVEREIGN DISPLAY TYPOGRAPHY (DRAFT PREVIEW)
+       ========================================================= */
+    @font-face {
+      font-family: 'NeueGlagolitic';
+      src: url('assets/fonts/Neue_Glagolitic_Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0041-005A, U+0061-007A, U+0410-044F, U+0401, U+0451;
+    }
+    @font-face {
+      font-family: 'NeueGlagoliticCaps';
+      src: url('assets/fonts/Neue_Glagolitic_Bold.ttf') format('truetype');
+      font-weight: 700 900;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0041-005A, U+0410-042F, U+0401;
+    }
+
+    /* 1. Brand Name: DYNKV Studio (Hero & Navbar) */
+    #hero-brand {
+      font-family: 'NeueGlagoliticCaps', var(--font-display) !important;
+      text-transform: uppercase;
+      letter-spacing: 4px !important;
+    }
+    .nav-brand span {
+      font-family: 'NeueGlagolitic', var(--font-display) !important;
+      letter-spacing: 1.5px;
+      font-size: 19px;
+      -webkit-text-stroke: 0.3px currentColor;
+    }
+
+    /* 2. Navigation Links & Primary Action Buttons */
+    .nav-links a, #nav-link-demo {
+      font-family: 'NeueGlagolitic', var(--font-main) !important;
+      font-weight: normal !important;
+      letter-spacing: 1px !important;
+      font-size: 14.5px !important;
+      -webkit-text-stroke: 0.3px currentColor;
+    }
+    #btn-gatanka-demo1, #btn-efirion-demo, #fcard1-btn, #fcard2-btn, #fcard3-btn, #btn-collab-modal {
+      font-family: 'NeueGlagolitic', var(--font-main) !important;
+      font-weight: normal !important;
+      letter-spacing: 1px !important;
+      -webkit-text-stroke: 0.3px currentColor;
+    }
+
+    /* 3. Monumental Quote in Hero */
+    #quote-text {
+      font-family: 'NeueGlagolitic', var(--font-display) !important;
+      letter-spacing: 1.2px !important;
+      line-height: 1.45 !important;
+      font-weight: 400 !important;
+      -webkit-text-stroke: 0.35px currentColor;
+    }
+
+    /* 4. Pillar Headings & Section Titles Requested by Didol */
+    #section-title,
+    #title-gatanka,
+    #title-periferis,
+    #title-shumo,
+    #title-boots,
+    #title-spw,
+    #manifesto-heading,
+    #foundations-main-heading,
+    #collab-heading,
+    #title-leadership,
+    #title-contact,
+    .trilogy-logo-card h4 {
+      font-family: 'NeueGlagolitic', var(--font-display) !important;
+      letter-spacing: 1.4px !important;
+      font-weight: 400 !important;
+      -webkit-text-stroke: 0.4px currentColor;
+      text-shadow: 0 0 18px rgba(0, 229, 255, 0.22);
+    }
   </style>
 </head>
 <body>
