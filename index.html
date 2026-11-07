@@ -1748,26 +1748,32 @@
       unicode-range: U+0041-005A, U+0410-042F, U+0401;
     }
 
-    /* 1. Brand Name: DYNKV Studio (Hero & Navbar) */
+    /* 1. Brand Name: D.Y.N.K.V. Studio (Hero & Navbar) */
     #hero-brand {
-      font-family: 'NeueGlagoliticCaps', var(--font-display) !important;
-      text-transform: uppercase;
-      letter-spacing: 4px !important;
+      font-family: 'NeueGlagolitic', var(--font-display) !important;
+      font-weight: normal !important;
+      text-transform: none !important;
+      letter-spacing: 2px !important;
+      -webkit-text-stroke: 0.55px rgba(255, 255, 255, 0.85);
     }
+    .nav-brand { margin-right: 14px !important; }
     .nav-brand span {
       font-family: 'NeueGlagolitic', var(--font-display) !important;
-      letter-spacing: 1.5px;
-      font-size: 19px;
+      letter-spacing: 0.6px;
+      font-size: 16.5px;
+      white-space: nowrap;
       -webkit-text-stroke: 0.3px currentColor;
     }
 
     /* 2. Navigation Links & Primary Action Buttons */
+    .nav-links { gap: 14px !important; flex-wrap: nowrap !important; }
     .nav-links a, #nav-link-demo {
       font-family: 'NeueGlagolitic', var(--font-main) !important;
       font-weight: normal !important;
-      letter-spacing: 1px !important;
-      font-size: 14.5px !important;
-      -webkit-text-stroke: 0.3px currentColor;
+      letter-spacing: 0.6px !important;
+      font-size: 13.5px !important;
+      white-space: nowrap !important;
+      -webkit-text-stroke: 0.25px currentColor;
     }
     #btn-gatanka-demo1, #btn-efirion-demo, #fcard1-btn, #fcard2-btn, #fcard3-btn, #btn-collab-modal {
       font-family: 'NeueGlagolitic', var(--font-main) !important;
@@ -1813,7 +1819,7 @@
     <div class="nav-inner">
       <a href="#" class="nav-brand notranslate" translate="no">
         <img src="assets/dynkv_official_master_logo.jpg" alt="DYNKV Studio" class="nav-logo">
-        <span>DYNKV Studio</span>
+        <span>D.Y.N.K.V. Studio</span>
       </a>
       <div class="nav-right">
         <div class="nav-links">
@@ -2752,13 +2758,13 @@
         linkLeadership: "Ръководство",
         linkPatent: "Патентен Регистър",
         linkLeadership: "Ръководство",
-        titleLeadership: "<span>🏛️</span> Основател и Главно Ръководство · DYNKV Studio",
+        titleLeadership: "<span>🏛️</span> Основател и Главно Ръководство · D.Y.N.K.V. Studio",
         badgeGovStatus: "VERIFIED FINNISH ENTERPRISE",
         descLeadership: "DYNKV Studio е независимо европейско студио за дълбоки технологии, основано в Хелзинки, Финландия, със специализирано развойно инженерно звено в София, България. Студиото оперира при пълна институционална прозрачност съгласно търговското право на Република Финландия и Европейския съюз.",
         lblFounderTitle: "Основател, Изобретател & Главен Архитект",
         bioFounder: "Визионер и системен архитект на суверенни интелигентни системи, биомеханични носими платформи (TeKiFutorist Boot, SPW) и протоколи за когнитивна автентичност (WCSSTP™ Protocol). Автор и титуляр на националните и международни патентни заявки на студиото.",
         lblGovRegistry: "Държавен Търговски Регистър (Финландия)",
-        descGovRegistry: "Официално регистрирано търговско дружество: <strong>DYNKV Studio</strong><br>Седалище: Хелзинки, Република Финландия",
+        descGovRegistry: "Официално регистрирано търговско дружество: <strong>D.Y.N.K.V. Studio (DYNKV Studio)</strong><br>Седалище: Хелзинки, Република Финландия",
         lblIpRegistry: "Интелектуална Собственост & Локации",
         descIpRegistry: "<strong>Седалище & Правно управление:</strong> Хелзинки, Финландия<br><strong>Инженерно-развойно звено:</strong> София, България<br><strong>Патентно ведомство:</strong> Патентно ведомство на Р. България (BPO)",
         lblWpTag: "ОФИЦИАЛНО ТЕХНИЧЕСКО РЕЗЮМЕ · WHITE PAPER ABSTRACT",
@@ -2779,7 +2785,7 @@
 
         linkContact: "Контакт",
 
-        heroBrand: "DYNKV STUDIO",
+        heroBrand: "D.Y.N.K.V. Studio",
         heroTagline: "Технология с душа · dynkv.com",
         credoFormula: "Природа + Технологии + Човечност = Хармония",
         heroDesc: "Създаване на софтуер за аудио DSP с ултра-ниска латентност, бионични периферни платформи и суверенни интелигентни системи.",
@@ -2793,7 +2799,7 @@
         haikuText: "„Шумолят листа, Земята чака · Коприна вятъра пренася · Златисто одеяло й поднася.“",
         haikuAuthor: "— Хайко за сезона · DYNKV Studio",
 
-        sectionBadge: "✦ ТРИТЕ СТЪЛБА НА DYNKV STUDIO ✦",
+        sectionBadge: "✦ ТРИТЕ СТЪЛБА НА D.Y.N.K.V. STUDIO ✦",
         sectionTitle: "The Three Sovereign Pillars",
         sectionSub: "Проектите се разгръщат последователно при превъртане надолу",
         trilogyDesc1: "Когнитивен протокол за автентичност (&lt;0.05 ms, 97.45% Bot Rejection, EU AI Act Art. 50).",
@@ -2863,7 +2869,7 @@
 <li><strong>Статус на приложението:</strong> В активен процес на разработка. Затворена алфа фаза. Очаквайте официалния рилийз скоро в Google Play!</li>`,
         patentDescText: "Интелектуалната собственост, кинематичната механика, биометричните алгоритми и хардуерната архитектура на екосистемата са защитени с национални и международни патентни заявки съгласно регламентите на Патентно ведомство на Република България (BPO), European Patent Office (EPO) и PCT.",
 
-        titleContact: "Свържете се с DYNKV Studio",
+        titleContact: "Свържете се с D.Y.N.K.V. Studio",
         subContact: "Официална комуникационна мрежа за технологичен трансфер, инвестиции и партньорства.",
         navLinkDemo: "⚡ ДЕМО WCSSTP",
         btnGatankaDemo1: "⚡ Стартирай Живо Демо: WCSSTP™ Cognitive Lab (Real-Time Telemetry &amp; SHA-256) &rarr;",
@@ -3016,7 +3022,7 @@
 
         linkContact: "Contact",
 
-        heroBrand: "DYNKV STUDIO",
+        heroBrand: "D.Y.N.K.V. Studio",
         heroTagline: "Technology With Soul · dynkv.com",
         credoFormula: "Nature + Technology + Humanity = Harmony",
         heroDesc: "Engineering ultra-low-latency audio DSP, bionic wearable platforms, and sovereign intelligent systems.",
@@ -3030,7 +3036,7 @@
         haikuText: "“Leaves rustle low, the Earth awaits · Silk carried on the autumn wind · A golden blanket gently lays.”",
         haikuAuthor: "— Seasonal Haiku · DYNKV Studio",
 
-        sectionBadge: "✦ THREE PILLARS OF DYNKV STUDIO ✦",
+        sectionBadge: "✦ THREE PILLARS OF D.Y.N.K.V. STUDIO ✦",
         sectionTitle: "The Three Sovereign Pillars",
         sectionSub: "Projects unfold sequentially as you scroll down",
         trilogyDesc1: "Zero-PII cognitive authenticity protocol (&lt;0.05 ms, 97.45% Bot Rejection, EU AI Act Art. 50).",
@@ -3100,7 +3106,7 @@
 <li><strong>App Status:</strong> In active development. Closed alpha testing underway. Official release coming soon to Google Play!</li>`,
         patentDescText: "Proprietary IP, kinematic mechanics, biometric algorithms, and hardware architecture are protected under Bulgarian Patent Office (BPO), European Patent Office (EPO), and PCT international filings.",
 
-        titleContact: "Contact DYNKV Studio",
+        titleContact: "Contact D.Y.N.K.V. Studio",
         subContact: "Official communications network for partnerships, tech inquiries, and investments.",
         navLinkDemo: "⚡ WCSSTP DEMO",
         btnGatankaDemo1: "⚡ Launch Live Demo: WCSSTP™ Cognitive Lab (Real-Time Telemetry &amp; SHA-256) &rarr;",
