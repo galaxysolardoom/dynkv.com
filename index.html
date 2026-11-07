@@ -871,6 +871,83 @@
       font-weight: 600; letter-spacing: 0.5px; text-align: center; max-width: 900px;
     }
 
+
+    /* =========================================================
+       NEW TYPE MINIMALISM MANIFESTO BOX (BEEA & DIDOL CONVERGENCE)
+       ========================================================= */
+    .manifesto-hero-box {
+      background: linear-gradient(180deg, rgba(15, 20, 32, 0.85) 0%, rgba(8, 11, 18, 0.95) 100%);
+      border: 1.5px solid rgba(0, 229, 255, 0.25);
+      border-radius: 24px;
+      padding: 40px 48px;
+      margin: 30px auto 35px auto;
+      text-align: center;
+      position: relative;
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(0, 229, 255, 0.08);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    .manifesto-hero-box::before {
+      content: "";
+      position: absolute;
+      top: -1px; left: 15%; right: 15%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), transparent);
+    }
+
+    .manifesto-credo-formula {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 18px;
+      border-radius: 30px;
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    .manifesto-monumental-quote {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, #e2e8f0 70%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 22px;
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .manifesto-monumental-quote .quote-highlight {
+      background: linear-gradient(135deg, #00e5ff 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: underline;
+      text-decoration-color: rgba(0, 229, 255, 0.4);
+      text-underline-offset: 6px;
+    }
+
+    .manifesto-deep-context {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 920px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+    .manifesto-deep-context strong {
+      color: #fff;
+    }
+
     /* Responsive */
     @media (max-width: 1180px) {
       .hero-triptych { flex-direction: column; gap: 24px; }
@@ -1614,13 +1691,31 @@
           </div>
         </div>
 
-        <!-- ВДЯСНО ОТ ЛОГОТО: DYNKV Studio Stage Concert Flagship (EfiryoN Engine & SPW Wings) -->
-        <div class="hero-side-card hero-side-right" onclick="openLightbox('assets/hero_stage_flagship.jpg', 'DYNKV Studio · Live Stage Flagship (EfiryoN Engine, SPWings & TeKi-Futorist)')">
-          <img src="assets/hero_stage_flagship.jpg" alt="DYNKV Studio Stage Flagship" class="hero-side-img">
-          <div class="hero-side-caption notranslate" id="cap-right" translate="no">✦ EfiryoN Engine · Live Stage Flagship ✦</div>
+        <!-- ВДЯСНО ОТ ЛОГОТО: EfiryoN™ Engine · DSP Engine & Efiry'oS by Zephyr RTOS™ -->
+        <div class="hero-side-card hero-side-right" onclick="openLightbox('assets/efiryon_dsp_engine_master_emblem.jpg', 'EfiryoN™ DSP Engine & Efiry\'oS by Zephyr RTOS™ · WCSSTP Guard')">
+          <img src="assets/efiryon_dsp_engine_master_emblem.jpg" alt="EfiryoN DSP Engine Master Emblem" class="hero-side-img">
+          <div class="hero-side-caption notranslate" id="cap-right" translate="no">✦ EfiryoN™ Engine · Zephyr RTOS ✦</div>
         </div>
 
       </div>
+
+      <!-- =========================================================
+           NEW TYPE MINIMALISM MANIFESTO BOX (BEEA & DIDOL CONVERGENCE)
+           ========================================================= -->
+      <section class="manifesto-hero-box" id="manifesto-box">
+        <div class="manifesto-credo-formula" id="formula-text">
+          ✦ ПРИРОДА + ТЕХНОЛОГИИ + ЧОВЕЧНОСТ = ХАРМОНИЯ ✦
+        </div>
+
+        <h2 class="manifesto-monumental-quote" id="quote-text">
+          „Човекът не е създаден да прекарва съществуването си прегърбен над <span class="quote-highlight">светещ стъклен правоъгълник</span>.“
+        </h2>
+
+        <p class="manifesto-deep-context" id="context-text">
+          Когато си живял десетилетия в пряк досег с първичните стихии — огъня, суровите планински висини, морските дълбини и строгата вътрешна дисциплина — разбираш, че технологията не бива да затваря човека в илюзия. В <strong>DYNKV Studio</strong> създаваме суверенни хардуерни платформи и биомеханика, които освобождават тялото и превръщат техниката в <strong>продължение на живата човешка воля</strong>.
+        </p>
+      </section>
+
     </div>
 
     <!-- Seasonal Haiku Banner (Single Line · Autumn Yellow) -->
@@ -2466,7 +2561,10 @@
         heroDesc: "Създаване на софтуер за аудио DSP с ултра-ниска латентност, бионични периферни платформи и суверенни интелигентни системи.",
         badgeStatus: "System Live · Zero-Cloud Architecture",
         capLeft: "✦ DYNKV Studio · Lifestyle Duet ✦",
-        capRight: "✦ EfiryoN Engine · Live Stage Flagship ✦",
+        capRight: "✦ EfiryoN™ Engine · Zephyr RTOS ✦",
+        formulaText: "✦ ПРИРОДА + ТЕХНОЛОГИИ + ЧОВЕЧНОСТ = ХАРМОНИЯ ✦",
+        quoteText: "„Човекът не е създаден да прекарва съществуването си прегърбен над <span class=\"quote-highlight\">светещ стъклен правоъгълник</span>.“",
+        contextText: "Когато си живял десетилетия в пряк досег с първичните стихии — огъня, суровите планински висини, морските дълбини и строгата вътрешна дисциплина — разбираш, че технологията не бива да затваря човека в илюзия. В <strong>DYNKV Studio</strong> създаваме суверенни хардуерни платформи и биомеханика, които освобождават тялото и превръщат техниката в <strong>продължение на живата човешка воля</strong>.",
 
         haikuText: "„Шумолят листа, Земята чака · Коприна вятъра пренася · Златисто одеяло й поднася.“",
         haikuAuthor: "— Хайко за сезона · DYNKV Studio",
@@ -2695,7 +2793,10 @@
         heroDesc: "Engineering ultra-low-latency audio DSP, bionic wearable platforms, and sovereign intelligent systems.",
         badgeStatus: "System Live · Zero-Cloud Architecture",
         capLeft: "✦ DYNKV Studio · Lifestyle Duet ✦",
-        capRight: "✦ EfiryoN Engine · Live Stage Flagship ✦",
+        capRight: "✦ EfiryoN™ Engine · Zephyr RTOS ✦",
+        formulaText: "✦ NATURE + TECHNOLOGY + HUMANITY = HARMONY ✦",
+        quoteText: "“Human beings were not created to spend their existence hunched over a <span class=\"quote-highlight\">glowing glass rectangle</span>.”",
+        contextText: "When you have lived for decades in direct communion with primal elements — raw flame, rugged mountain heights, oceanic depths, and unyielding discipline — you realize that technology must never cage human life in passive consumption. At <strong>DYNKV Studio</strong>, we architect sovereign wearable hardware and bionics that liberate the human body, turning engineering into a <strong>direct extension of living will</strong>.",
 
         haikuText: "“Leaves rustle low, the Earth awaits · Silk carried on the autumn wind · A golden blanket gently lays.”",
         haikuAuthor: "— Seasonal Haiku · DYNKV Studio",
