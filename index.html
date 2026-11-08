@@ -1810,6 +1810,159 @@
       -webkit-text-stroke: 0.4px currentColor;
       text-shadow: 0 0 18px rgba(0, 229, 255, 0.22);
     }
+    /* === DEDICATED FIXED LANGUAGE DOCK OUTSIDE NAVBAR === */
+    .nav-inner { padding: 10px 26px !important; }
+    .lang-fixed-dock {
+      position: fixed;
+      top: 80px;
+      right: 28px;
+      z-index: 950;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    @media (max-width: 768px) {
+      .lang-fixed-dock {
+        top: 74px;
+        right: 16px;
+      }
+    }
+    .lang-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(6, 10, 18, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 229, 255, 0.45);
+      color: #ffffff;
+      font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.22s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 14px rgba(0, 229, 255, 0.16);
+    }
+    .lang-lbl-prefix {
+      color: #94a3b8;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    #current-lang-label {
+      color: #fbbf24;
+      min-width: 18px;
+      text-align: center;
+    }
+    .lang-dropdown-toggle:hover,
+    .lang-fixed-dock.open .lang-dropdown-toggle {
+      border-color: #fbbf24;
+      background: rgba(14, 22, 38, 0.96);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.8), 0 0 18px rgba(251, 191, 36, 0.28);
+    }
+    .lang-globe-icon {
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+    .lang-chevron-icon {
+      color: var(--cyan);
+      opacity: 0.9;
+      transition: transform 0.22s ease;
+      flex-shrink: 0;
+    }
+    .lang-fixed-dock.open .lang-chevron-icon {
+      transform: rotate(180deg);
+      color: #fbbf24;
+      opacity: 1;
+    }
+    .lang-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 168px;
+      background: rgba(6, 10, 22, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 229, 255, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px) scale(0.97);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+    .lang-fixed-dock.open .lang-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: #cbd5e1;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.16s ease;
+    }
+    .lang-option:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+    .lang-option.active {
+      background: rgba(0, 229, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(0, 229, 255, 0.35);
+    }
+    .lang-flag-svg {
+      border-radius: 2px;
+      flex-shrink: 0;
+      box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+    .lang-opt-name {
+      flex: 1;
+    }
+    .lang-opt-code {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-size: 10px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.05em;
+    }
+    .lang-option.active .lang-opt-code {
+      color: var(--cyan);
+    }
+    .lang-opt-check {
+      font-size: 11px;
+      font-weight: 900;
+      color: #fbbf24;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.16s ease;
+    }
+    .lang-option.active .lang-opt-check {
+      opacity: 1;
+      transform: scale(1);
+    }
   </style>
 </head>
 <body>
@@ -1834,19 +1987,39 @@
           <a href="#collaboration" id="link-collab">Collaboration</a>
           <a href="#contact" id="link-contact">Contact</a>
         </div>
-        <div class="lang-switch-group" role="group" aria-label="Language selection">
-          <button type="button" class="lang-btn" id="btn-lang-bg" onclick="setLanguage('bg')">🇧🇬 BG</button>
-          <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">🇬🇧 EN</button>
-        </div>
       </div>
     </div>
   </nav>
+
+  <!-- Dedicated Fixed Language Selector Pod (Outside Navigation Bar) -->
+  <div class="lang-fixed-dock notranslate" id="lang-dropdown" translate="no">
+    <button type="button" class="lang-dropdown-toggle" id="lang-dropdown-btn" onclick="toggleLangMenu(event)" aria-haspopup="listbox" aria-expanded="false" title="Select Language / Избор на език">
+      <svg class="lang-globe-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-lbl-prefix">LANG:</span>
+      <span id="current-lang-label">EN</span>
+      <svg class="lang-chevron-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox">
+      <button type="button" class="lang-option active" id="opt-lang-en" onclick="selectLanguage('en', event)" role="option" aria-selected="true">
+        <svg class="lang-flag-svg" width="16" height="11" viewBox="0 0 60 30"><clipPath id="uk-clip"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        <span class="lang-opt-name">English</span>
+        <span class="lang-opt-code">EN</span>
+        <span class="lang-opt-check">✓</span>
+      </button>
+      <button type="button" class="lang-option" id="opt-lang-bg" onclick="selectLanguage('bg', event)" role="option" aria-selected="false">
+        <svg class="lang-flag-svg" width="16" height="11" viewBox="0 0 5 3"><rect width="5" height="1" y="0" fill="#ffffff"/><rect width="5" height="1" y="1" fill="#00966E"/><rect width="5" height="1" y="2" fill="#D62612"/></svg>
+        <span class="lang-opt-name">Български</span>
+        <span class="lang-opt-code">BG</span>
+        <span class="lang-opt-check">✓</span>
+      </button>
+    </div>
+  </div>
 
   <main class="container">
     
     <!-- Hero Section -->
     <div class="hero">
-      <h1 class="hero-title notranslate" id="hero-brand" translate="no">DYNKV STUDIO</h1>
+      <h1 class="hero-title notranslate" id="hero-brand" translate="no">D.Y.N.K.V. Studio</h1>
       
       <!-- HERO TRIPTYCH: LEFT IMAGE | CENTER 3D LOGO | RIGHT IMAGE -->
       <div class="hero-triptych">
@@ -1863,10 +2036,10 @@
             <img src="assets/dynkv_official_master_logo.jpg" alt="DYNKV Studio Master Logo" class="hero-emblem-img">
           </div>
 
-          <div class="hero-tagline" id="hero-tagline">Технология с душа · dynkv.com</div>
+          <div class="hero-tagline" id="hero-tagline">Technology With Soul · dynkv.com</div>
           <p class="credo">
-            <strong id="credo-formula">Природа + Технологии + Човечност = Хармония</strong><br>
-            <span id="hero-desc">Създаване на софтуер за аудио DSP, бионични периферни платформи и суверенни интелигентни системи.</span>
+            <strong id="credo-formula">Nature + Technology + Humanity = Harmony</strong><br>
+            <span id="hero-desc">Engineering ultra-low-latency audio DSP, bionic wearable platforms, and sovereign intelligent systems.</span>
           </p>
 
           <div class="status-badge">
@@ -2995,13 +3168,13 @@
         linkLeadership: "Leadership",
         linkPatent: "Patent Registry",
         linkLeadership: "Leadership",
-        titleLeadership: "<span>🏛️</span> Founder & Executive Leadership · DYNKV Studio",
+        titleLeadership: "<span>🏛️</span> Founder & Executive Leadership · D.Y.N.K.V. Studio",
         badgeGovStatus: "VERIFIED FINNISH ENTERPRISE",
         descLeadership: "DYNKV Studio is an independent European deep-tech studio founded in Helsinki, Finland, with a dedicated engineering R&D division in Sofia, Bulgaria. The studio operates with full institutional transparency under the commercial laws of the Republic of Finland and the European Union.",
         lblFounderTitle: "Founder, Inventor & Chief Architect",
         bioFounder: "Visionary and systems architect of sovereign intelligent systems, bionic wearable platforms (TeKiFutorist Boot, SPW), and cognitive authenticity protocols (WCSSTP™ Protocol). Author and proprietor of the studio's national and international patent applications.",
         lblGovRegistry: "Finnish Business Information System (YTJ / PRH)",
-        descGovRegistry: "Officially registered enterprise: <strong>DYNKV Studio</strong><br>Domicile: Helsinki, Republic of Finland",
+        descGovRegistry: "Officially registered enterprise: <strong>D.Y.N.K.V. Studio (DYNKV Studio)</strong><br>Domicile: Helsinki, Republic of Finland",
         lblIpRegistry: "Intellectual Property & Locations",
         descIpRegistry: "<strong>Headquarters & Legal:</strong> Helsinki, Finland<br><strong>Engineering R&D Hub:</strong> Sofia, Bulgaria<br><strong>Patent Authority:</strong> Patent Office of the Republic of Bulgaria (BPO)",
         lblWpTag: "OFFICIAL TECHNICAL SUMMARY · WHITE PAPER ABSTRACT",
@@ -3205,37 +3378,81 @@
       }
     };
 
+        function toggleLangMenu(e) {
+      if (e) e.stopPropagation();
+      const dd = document.getElementById('lang-dropdown');
+      const btn = document.getElementById('lang-dropdown-btn');
+      if (!dd) return;
+      const isOpen = dd.classList.toggle('open');
+      if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function selectLanguage(lang, e) {
+      if (e) e.stopPropagation();
+      setLanguage(lang);
+      const dd = document.getElementById('lang-dropdown');
+      const btn = document.getElementById('lang-dropdown-btn');
+      if (dd) dd.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('click', (e) => {
+      const dd = document.getElementById('lang-dropdown');
+      if (dd && !dd.contains(e.target)) {
+        dd.classList.remove('open');
+        const btn = document.getElementById('lang-dropdown-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const dd = document.getElementById('lang-dropdown');
+        if (dd) dd.classList.remove('open');
+      }
+    });
+
     function setLanguage(lang) {
-      lang = (lang === 'en') ? 'en' : 'bg';
+      lang = (lang === 'bg') ? 'bg' : 'en';
       const data = i18n[lang];
       for (const key in data) {
         const id = key.replace(/([A-Z])/g, "-$1").toLowerCase();
         const el = document.getElementById(id);
         if (el) el.innerHTML = data[key];
       }
-      localStorage.setItem('dynkv_lang_v2', lang);
+      try { sessionStorage.setItem('dynkv_lang_en_default', lang); } catch(err) {}
+      try { localStorage.setItem('dynkv_lang_v3_en', lang); } catch(err) {}
       document.documentElement.lang = lang;
       if (typeof currentOpenDocId !== "undefined" && currentOpenDocId) openDocModal(currentOpenDocId);
 
-      // Update switcher buttons state
-      const btnBg = document.getElementById('btn-lang-bg');
-      const btnEn = document.getElementById('btn-lang-en');
-      if (btnBg && btnEn) {
+      // Update dropdown UI state
+      const lbl = document.getElementById('current-lang-label');
+      if (lbl) lbl.textContent = lang.toUpperCase();
+      const optEn = document.getElementById('opt-lang-en');
+      const optBg = document.getElementById('opt-lang-bg');
+      if (optEn && optBg) {
         if (lang === 'bg') {
-          btnBg.classList.add('active');
-          btnEn.classList.remove('active');
+          optBg.classList.add('active');
+          optBg.setAttribute('aria-selected', 'true');
+          optEn.classList.remove('active');
+          optEn.setAttribute('aria-selected', 'false');
         } else {
-          btnEn.classList.add('active');
-          btnBg.classList.remove('active');
+          optEn.classList.add('active');
+          optEn.setAttribute('aria-selected', 'true');
+          optBg.classList.remove('active');
+          optBg.setAttribute('aria-selected', 'false');
         }
       }
     }
 
-    // Initial language & poll load
+    // Initial language & poll load (Default: English 'en')
     window.addEventListener('DOMContentLoaded', () => {
-      initPoll();
-      const savedLang = localStorage.getItem('dynkv_lang_v2') || 'en';
-      setLanguage(savedLang);
+      try { initPoll(); } catch(err) {}
+      let initialLang = 'en';
+      try {
+        initialLang = sessionStorage.getItem('dynkv_lang_en_default') || 'en';
+      } catch(err) {}
+      setLanguage(initialLang);
     });
   
     // =========================================================
