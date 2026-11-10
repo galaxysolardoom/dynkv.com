@@ -1767,7 +1767,7 @@
 
     /* 2. Navigation Links & Primary Action Buttons */
     .nav-links { gap: 14px !important; flex-wrap: nowrap !important; }
-    .nav-links a, #nav-link-demo {
+    .nav-links a {
       font-family: 'NeueGlagolitic', var(--font-main) !important;
       font-weight: normal !important;
       letter-spacing: 0.6px !important;
@@ -1775,7 +1775,7 @@
       white-space: nowrap !important;
       -webkit-text-stroke: 0.25px currentColor;
     }
-    #btn-gatanka-demo1, #btn-efirion-demo, #fcard1-btn, #fcard2-btn, #fcard3-btn, #btn-collab-modal {
+    #fcard1-btn, #fcard2-btn, #fcard3-btn, #btn-collab-modal {
       font-family: 'NeueGlagolitic', var(--font-main) !important;
       font-weight: normal !important;
       letter-spacing: 1px !important;
@@ -1978,7 +1978,6 @@
         <div class="nav-links">
           <a href="#haiku" id="link-haiku">🍂 Seasonal Haiku</a>
           <a href="#gatanka" id="link-gatanka" class="notranslate" translate="no">GATANKA</a>
-          <a href="demos/wcsstp_live_demo.html" id="nav-link-demo" style="color: var(--cyan); font-weight: 800; border: 1px solid rgba(0,229,255,0.35); padding: 4px 10px; border-radius: 999px; background: rgba(0,229,255,0.08);">⚡ WCSSTP DEMO</a>
           
           <a href="#periferis" id="link-periferis" class="notranslate" translate="no">PERIFERIS</a>
           <a href="#shumo" id="link-shumo" class="notranslate" translate="no">SHUMo'Lily</a>
@@ -2165,13 +2164,6 @@
 
               <div style="font-size: 12.5px; color: var(--text-muted); background: rgba(0,0,0,0.5); padding: 14px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;" id="notice-gatanka">
                 Пълната методология, архитектура и верификационни сценарии на GATANKA представляват защитена интелектуална собственост. Достъп до пълния изследователски протокол се предоставя единствено след двустранно подписване на NDA споразумение.
-              </div>
-
-              
-              
-
-              <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;">
-                <a href="demos/wcsstp_live_demo.html" id="btn-gatanka-demo1" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 12px; background: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(16, 185, 129, 0.18)); border: 1px solid var(--cyan); color: #fff; font-weight: 800; font-size: 13.5px; text-decoration: none; box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); transition: all 0.2s;">⚡ Launch Live Demo: WCSSTP™ Cognitive Lab (Real-Time Telemetry &amp; SHA-256) &rarr;</a>
               </div>
 
               <div class="card-footer-badges">
@@ -2524,10 +2516,6 @@
                 <li><strong>Препоръчан хардуер:</strong> Перфектно оптимизиран за стандартни кабелни слушалки (3.5 mm / USB-C) за постигане на нулев лаг.</li>
                 <li><strong>Статус на приложението:</strong> В активен процес на разработка. Затворена алфа фаза. Очаквайте официалния рилийз скоро в Google Play!</li>
               </ul>
-
-              <div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 18px 0;">
-                <a href="demos/efirion_dsp_live_demo.html" id="btn-efirion-demo" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 12px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 229, 255, 0.16)); border: 1px solid #10b981; color: #fff; font-weight: 800; font-size: 13.5px; text-decoration: none; box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); transition: all 0.2s;">🎧 Launch Live Demo: EfirioN™ 48 kHz Audio DSP &amp; SHUMo'Lily Lab &rarr;</a>
-              </div>
 
               <div class="card-footer-badges">
                 <span class="pill-badge pill-gold notranslate" translate="no">Google Play Coming Soon</span>
@@ -3044,9 +3032,6 @@
 
         titleContact: "Свържете се с D.Y.N.K.V. Studio",
         subContact: "Официална комуникационна мрежа за технологичен трансфер, инвестиции и партньорства.",
-        navLinkDemo: "⚡ ДЕМО WCSSTP",
-        btnGatankaDemo1: "⚡ Стартирай Живо Демо: WCSSTP™ Cognitive Lab (Real-Time Telemetry &amp; SHA-256) &rarr;",
-        btnEfirionDemo: "🎧 Стартирай Живо Демо: EfirioN™ 48 kHz Audio DSP &amp; SHUMo'Lily Lab &rarr;",
         btnGatankaDemo2: "<span>🧪 Демо WCSSTP Guard</span> (8-Слоен Консенсус)",
         bmTbody: `<tr>
                     <td><strong>Устойчивост срещу AI Ботове</strong></td>
@@ -3281,9 +3266,6 @@
 
         titleContact: "Contact D.Y.N.K.V. Studio",
         subContact: "Official communications network for partnerships, tech inquiries, and investments.",
-        navLinkDemo: "⚡ WCSSTP DEMO",
-        btnGatankaDemo1: "⚡ Launch Live Demo: WCSSTP™ Cognitive Lab (Real-Time Telemetry &amp; SHA-256) &rarr;",
-        btnEfirionDemo: "🎧 Launch Live Demo: EfirioN™ 48 kHz Audio DSP &amp; SHUMo'Lily Lab &rarr;",
         btnGatankaDemo2: "<span>🧪 WCSSTP Guard Demo</span> (8-Layer Consensus)",
         bmTbody: `<tr>
                     <td><strong>AI Botnet Resistance</strong></td>
