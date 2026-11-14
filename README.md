@@ -1,5 +1,5 @@
 # WCSSTP™ Protocol · Zero-PII AI Defense Gateway
-### SeaSick Cognitive Turing Protocol · Open-Core Enterprise Benchmark Suite
+### Will-to-Consciousness SeaSickTest Protocol · Open-Core Enterprise Benchmark Suite
 **Official Security Technology of DYNKV Studio (Helsinki, Finland)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -11,7 +11,7 @@
 
 ## Executive Overview
 
-**WCSSTP™ (SeaSick Cognitive Turing Protocol)** is an ultra-low latency, deterministic cognitive defense gateway designed to detect and intercept autonomous multimodal synthetic bots, scrapers, and AI agents **without collecting, storing, or processing biometrics or personally identifiable information (Zero-PII)**.
+**WCSSTP™ (Will-to-Consciousness SeaSickTest Protocol)** is an ultra-low latency, deterministic cognitive defense gateway designed to detect and intercept autonomous multimodal synthetic bots, scrapers, and AI agents **without collecting, storing, or processing biometrics or personally identifiable information (Zero-PII)**.
 
 Traditional CAPTCHA mechanisms are routinely bypassed by multimodal AI in under 1.5 seconds. Centralized biometric scanning (such as corneal iris orbs) presents severe identity-theft risks and GDPR violations.
 

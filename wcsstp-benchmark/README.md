@@ -1,5 +1,5 @@
 # 🛡️ WCSSTP™: Sovereign Human Volition Verification Protocol
-### The World's First Zero-PII Cognitive Turing & SeaSick Test Architecture
+### The World's First Zero-PII Will-to-Consciousness SeaSickTest Protocol Architecture
 **Compliant with EU AI Act (Articles 14 & 50) · 100% Zero-Friction for Biological Humans**
 
 [![License: Dual GPL-3.0 / Commercial](https://img.shields.io/badge/License-Dual%20GPL--3.0%20%2F%20Commercial-blue.svg)](#licensing)
