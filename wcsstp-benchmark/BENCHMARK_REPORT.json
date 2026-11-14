@@ -1,0 +1,460 @@
+{
+  "total_samples": 50,
+  "accuracy_pct": 90.0,
+  "tpr_sensitivity_pct": 84.61538461538461,
+  "tnr_specificity_pct": 95.83333333333334,
+  "fpr_pct": 4.166666666666666,
+  "avg_latency_ms": 0.05,
+  "results": [
+    {
+      "id": "human_01",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_02",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 0.942,
+      "verdict_match": true
+    },
+    {
+      "id": "human_03",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_04",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_05",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "B",
+      "prob_human": 0.542,
+      "verdict_match": false
+    },
+    {
+      "id": "human_06",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 0.941,
+      "verdict_match": true
+    },
+    {
+      "id": "human_07",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_08",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_09",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_10",
+      "type": "human",
+      "lang": "bg",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_11",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "B",
+      "prob_human": 0.857,
+      "verdict_match": false
+    },
+    {
+      "id": "human_12",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_13",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_14",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_15",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_16",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 0.933,
+      "verdict_match": true
+    },
+    {
+      "id": "human_17",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_18",
+      "type": "human",
+      "lang": "en",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_19",
+      "type": "human",
+      "lang": "el",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_20",
+      "type": "human",
+      "lang": "el",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_21",
+      "type": "human",
+      "lang": "es",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_22",
+      "type": "human",
+      "lang": "es",
+      "expected": "A",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": false
+    },
+    {
+      "id": "human_23",
+      "type": "human",
+      "lang": "de",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_24",
+      "type": "human",
+      "lang": "de",
+      "expected": "A",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": false
+    },
+    {
+      "id": "human_25",
+      "type": "human",
+      "lang": "ru",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "human_26",
+      "type": "human",
+      "lang": "ru",
+      "expected": "A",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_01",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_02",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_03",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_04",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.185,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_05",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_06",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.05,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_07",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_08",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.111,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_09",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_10",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_11",
+      "type": "ai",
+      "lang": "es",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.25,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_12",
+      "type": "ai",
+      "lang": "de",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_13",
+      "type": "ai",
+      "lang": "fr",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_raw_14",
+      "type": "ai",
+      "lang": "ru",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_01",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.5,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_02",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.512,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_03",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.577,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_04",
+      "type": "ai",
+      "lang": "bg",
+      "expected": "B",
+      "predicted": "A",
+      "prob_human": 1.0,
+      "verdict_match": false
+    },
+    {
+      "id": "llm_adv_05",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.615,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_06",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.6,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_07",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.692,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_08",
+      "type": "ai",
+      "lang": "en",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.387,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_09",
+      "type": "ai",
+      "lang": "ru",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.286,
+      "verdict_match": true
+    },
+    {
+      "id": "llm_adv_10",
+      "type": "ai",
+      "lang": "es",
+      "expected": "B",
+      "predicted": "B",
+      "prob_human": 0.0,
+      "verdict_match": true
+    }
+  ]
+}

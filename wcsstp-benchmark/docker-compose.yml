@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  wcsstp-benchmark-gateway:
+    build: .
+    container_name: dynkv_wcsstp_open_benchmark
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - WCSSTP_MODE=ENTERPRISE_BALANCED
+    volumes:
+      - wcsstp_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8081/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  wcsstp_data:
+    driver: local

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://dynkv.com/schemas/wcsstp-policy-v1.json",
+  "protocol": "WCSSTP™ (Will-Consciousness Somatic SeaSick Test Protocol)",
+  "version": "1.5.0",
+  "issuer": "DYNKV Studio · Helsinki, Finland",
+  "author": "Diyan Karchev Yanev (tekifuto)",
+  "cognitive_registry_date": "2026-11-14",
+  "active_profile": "STRICT_SOVEREIGN",
+  "profiles": {
+    "STRICT_SOVEREIGN": {
+      "name": "Максимална Суверенна Защита (Paranoid Lockdown)",
+      "description": "100% забрана за всички AI ботове, скрапери и headless скриптове. Достъп се дава единствено на живи биологични хора (Клас A) с V-Score >= 40.0.",
+      "allow_unknown_bots": false,
+      "allow_class_b_partners": false,
+      "quarantine_action": "HTTP_403_INSTANT_DROP",
+      "honeypot_triggers": ["DOM_BAIT", "HIDDEN_INPUT", "SUPERHUMAN_CADENCE"],
+      "cadence_threshold_ms": 120,
+      "v_score_human_threshold": 40.0,
+      "rate_limit_burst_per_min": 15
+    },
+    "ENTERPRISE_BALANCED": {
+      "name": "Корпоративен Балансиран Режим (Стандартен за Бизнеса)",
+      "description": "Пълен Zero-Friction достъп за живи хора. Ботове се допускат САМО след верификация на Клас B токен с посочен Човек-Оператор по чл. 14 от EU AI Act. Всички останали ботове се блокират.",
+      "allow_unknown_bots": false,
+      "allow_class_b_partners": true,
+      "quarantine_action": "TARPIT_DEFLECTION_OR_CHALLENGE",
+      "honeypot_triggers": ["DOM_BAIT", "RATE_SPIKE"],
+      "cadence_threshold_ms": 80,
+      "v_score_human_threshold": 40.0,
+      "rate_limit_burst_per_min": 60,
+      "partner_quotas": {
+        "max_daily_default": 200,
+        "max_tokens_per_call": 1024,
+        "require_kill_switch_active": true
+      }
+    },
+    "OPEN_ACADEMIC_RESEARCH": {
+      "name": "Отворен Академичен & Търсачки Режим",
+      "description": "Позволява официални търсачки (Google, Bing) и университетски изследователски ботове в публичните директории. Защитава чувствителните раздели (патенти, бази данни) зад WCSSTP SeaSick бариера.",
+      "allow_unknown_bots": false,
+      "allow_class_b_partners": true,
+      "whitelisted_search_crawlers": ["Googlebot", "Bingbot"],
+      "restricted_directories": ["/patents/", "/databases/", "/legal/", "/core/"],
+      "quarantine_action": "CHALLENGE_WITH_SEASICK_TEST",
+      "cadence_threshold_ms": 50,
+      "v_score_human_threshold": 35.0
+    }
+  },
+  "organizational_governance": {
+    "eu_ai_act_compliance": {
+      "article_50_transparency": true,
+      "article_14_human_oversight": true,
+      "mandatory_operator_fields": [
+        "operator_full_name",
+        "operator_official_role",
+        "operator_contact_email",
+        "operator_kill_switch_pin"
+      ]
+    },
+    "zero_pii_policy": {
+      "store_ip_addresses": false,
+      "store_biometric_hashes": false,
+      "use_persistent_tracking_cookies": false,
+      "store_telemetry_merkle_only": true
+    }
+  }
+}
