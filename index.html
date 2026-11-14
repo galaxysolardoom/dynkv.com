@@ -962,24 +962,202 @@
       color: #fff;
     }
 
-    /* Responsive */
+    /* =========================================================
+       COMPREHENSIVE RESPONSIVE ARCHITECTURE (MOBILE / TABLET / DESKTOP)
+       ========================================================= */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(8, 14, 26, 0.85);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s ease;
+      z-index: 101;
+    }
+    .mobile-menu-toggle:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 14px rgba(0, 229, 255, 0.3);
+    }
+    .mobile-menu-toggle .bar {
+      width: 20px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+      transition: all 0.28s ease;
+    }
+    .mobile-menu-toggle.active .bar-1 {
+      transform: translateY(7px) rotate(45deg);
+      background: var(--cyan);
+    }
+    .mobile-menu-toggle.active .bar-2 {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.active .bar-3 {
+      transform: translateY(-7px) rotate(-45deg);
+      background: var(--cyan);
+    }
+
+    @keyframes navSlideDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .table-scroll-hint {
+      display: none;
+      font-size: 11.5px;
+      color: var(--cyan);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      text-align: right;
+      font-family: monospace;
+    }
+
+    /* Large Desktops & Laptops (1180px and down) */
     @media (max-width: 1180px) {
       .hero-triptych { flex-direction: column; gap: 24px; }
       .hero-center-box { order: -1; margin-bottom: 10px; }
       .hero-side-card { max-width: 580px; width: 100%; }
-      .hero-side-img { height: 420px; }
+      .hero-side-img { height: 400px; }
       .pillar-split-grid { grid-template-columns: 1fr; }
-      .subprojects-container { grid-template-columns: 1fr; }
     }
+
+    /* Tablets & iPad (769px to 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .subprojects-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .subproject-card {
+        padding: 22px;
+      }
+      .hero-side-img {
+        height: 350px;
+      }
+      .nav-links {
+        gap: 14px;
+      }
+      .nav-links a {
+        font-size: 13px;
+      }
+    }
+
+    /* Tablets Portrait & Large Phones (860px and down) */
+    @media (max-width: 860px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 76px;
+        left: 14px;
+        right: 14px;
+        background: rgba(6, 10, 20, 0.98);
+        border: 1px solid rgba(0, 229, 255, 0.45);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.9), 0 0 28px rgba(0, 229, 255, 0.2);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 18px;
+        padding: 18px;
+        gap: 8px;
+        z-index: 1000;
+        animation: navSlideDown 0.22s ease-out;
+      }
+      .nav-links.active a {
+        padding: 10px 14px;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: #e2e8f0;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: block;
+        transition: all 0.2s ease;
+      }
+      .nav-links.active a:hover {
+        background: rgba(0, 229, 255, 0.12);
+        color: var(--cyan);
+        transform: translateX(4px);
+      }
+      .subprojects-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* Standard Mobile Phones (768px and down) */
     @media (max-width: 768px) {
       .hero-title { font-size: 32px; letter-spacing: 3px; }
       .hero-emblem-box { width: 220px; height: 220px; }
-      .hero-side-img { height: 340px; }
-      .nav-links { display: none; }
-      .haiku-banner { padding: 12px 16px; font-size: 13px; }
+      .hero-side-img { height: 320px; }
+      .haiku-banner { padding: 14px 18px; font-size: 13px; margin: 24px auto 40px auto; }
       .haiku-text-line { white-space: normal; }
-      .pillar-full-card { padding: 26px 20px; }
-      .pillar-heading { font-size: 26px; }
+      .pillar-full-card { padding: 22px 16px; border-radius: 18px; }
+      .pillar-heading { font-size: 24px; }
+      .manifesto-monumental-quote { font-size: 22px; line-height: 1.4; }
+      .manifesto-heading { font-size: 22px; }
+      .benchmark-container { padding: 20px 16px; border-radius: 16px; }
+      .table-scroll-hint { display: block; }
+      .table-responsive {
+        -webkit-overflow-scrolling: touch;
+      }
+      .benchmark-table {
+        min-width: 660px;
+      }
+      .benchmark-table th, .benchmark-table td {
+        padding: 11px 12px;
+        font-size: 12.5px;
+      }
+      .whitepaper-abstract-box { padding: 18px 16px; border-radius: 14px; }
+      .open-benchmark-box { padding: 18px 16px; border-radius: 14px; }
+      .wcsstp-hud-badge {
+        bottom: 14px;
+        right: 14px;
+        padding: 6px 14px;
+        font-size: 11.5px;
+      }
+      .wcsstp-telemetry-panel {
+        bottom: 56px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+        padding: 16px;
+      }
+    }
+
+    /* Small Mobile Phones (480px and down - iPhone SE / compact Android) */
+    @media (max-width: 480px) {
+      .container { padding: 0 12px; }
+      nav { padding: 0 8px; top: 10px; }
+      .nav-inner { padding: 0 12px; height: 50px; }
+      .nav-logo { width: 30px; height: 30px; }
+      .nav-brand span { font-size: 14.5px; }
+      .hero-title { font-size: 25px; letter-spacing: 2px; }
+      .hero-tagline { font-size: 13px; line-height: 1.5; }
+      .hero-emblem-box { width: 180px; height: 180px; }
+      .hero-side-img { height: 260px; }
+      .pillar-full-card { padding: 18px 12px; border-radius: 14px; }
+      .pillar-heading { font-size: 21px; }
+      .pillar-tagline-sub { font-size: 13px; }
+      .manifesto-monumental-quote { font-size: 18.5px; }
+      .manifesto-deep-context { font-size: 14px; line-height: 1.65; }
+      .subproject-card { padding: 16px 12px; border-radius: 16px; }
+      .nda-action-btn { width: 100%; justify-content: center; font-size: 13px; padding: 12px 16px; }
+      .lang-fixed-dock { top: 66px; right: 12px; }
+      .wcsstp-hud-badge { bottom: 12px; right: 12px; padding: 5px 12px; font-size: 10.5px; }
+      .wcsstp-telemetry-panel { bottom: 52px; right: 8px; left: 8px; padding: 14px; }
     }
   
     /* =========================================================
@@ -1989,17 +2167,21 @@
         <span>D.Y.N.K.V. Studio</span>
       </a>
       <div class="nav-right">
-        <div class="nav-links">
-          <a href="#haiku" id="link-haiku">🍂 Seasonal Haiku</a>
-          <a href="#gatanka" id="link-gatanka" class="notranslate" translate="no">GATANKA</a>
-          
-          <a href="#periferis" id="link-periferis" class="notranslate" translate="no">PERIFERIS</a>
-          <a href="#shumo" id="link-shumo" class="notranslate" translate="no">SHUMo'Lily</a>
-          <a href="#leadership" id="link-leadership">Leadership</a>
-          <a href="#manifesto" id="link-manifesto">Manifesto</a>
-          <a href="#collaboration" id="link-collab">Collaboration</a>
-          <a href="#contact" id="link-contact">Contact</a>
+        <div class="nav-links" id="main-nav-links">
+          <a href="#haiku" id="link-haiku" onclick="closeMobileNav()">🍂 Seasonal Haiku</a>
+          <a href="#gatanka" id="link-gatanka" class="notranslate" translate="no" onclick="closeMobileNav()">GATANKA</a>
+          <a href="#periferis" id="link-periferis" class="notranslate" translate="no" onclick="closeMobileNav()">PERIFERIS</a>
+          <a href="#shumo" id="link-shumo" class="notranslate" translate="no" onclick="closeMobileNav()">SHUMo'Lily</a>
+          <a href="#leadership" id="link-leadership" onclick="closeMobileNav()">Leadership</a>
+          <a href="#manifesto" id="link-manifesto" onclick="closeMobileNav()">Manifesto</a>
+          <a href="#collaboration" id="link-collab" onclick="closeMobileNav()">Collaboration</a>
+          <a href="#contact" id="link-contact" onclick="closeMobileNav()">Contact</a>
         </div>
+        <button type="button" class="mobile-menu-toggle" id="mobile-nav-btn" onclick="toggleMobileNav(event)" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -2220,6 +2402,7 @@
               </p>
             </div>
 
+            <div class="table-scroll-hint notranslate" translate="no" id="hint-table-scroll">⟵ Swipe horizontally to view full matrix ⟶</div>
             <div class="table-responsive">
               <table class="benchmark-table">
                 <thead>
@@ -3155,6 +3338,7 @@
         roleC1: "Официален контакт",
         locContact: "Хелзинки, Финландия · Официален домейн: <strong>dynkv.com</strong> · Защитена пощенска мрежа Proton",
         footerFormula: "Природа + Технологии + Човечност = Хармония",
+        hintTableScroll: "⟵ Плъзнете хоризонтално за пълната таблица ⟶",
         titleOpenBm: "WCSSTP™ Open-Core Benchmark &amp; Live Verification Gateway",
         descOpenBm: "Не вярвайте на празни думи — изпробвайте технологията сами. Всеки изследовател, инженер и организация може да изтегли отворения тестов пакет, да пусне локален тестов контейнер и да тества протокола със <strong>собствени произволни атаки, промптове, скриптове и AI агенти</strong>.",
         btnOpenBm: "Отвори Open-Core Benchmark в GitHub ↗",
@@ -3392,6 +3576,7 @@
         roleC1: "Official Contact",
         locContact: "Helsinki, Finland · Official domain: <strong>dynkv.com</strong> · Proton Encrypted Network",
         footerFormula: "Nature + Technology + Humanity = Harmony",
+        hintTableScroll: "⟵ Swipe horizontally to view full matrix ⟶",
         titleOpenBm: "WCSSTP™ Open-Core Benchmark &amp; Live Verification Gateway",
         descOpenBm: "Do not rely on unsubstantiated claims — verify the technology yourself. Any researcher, enterprise, or engineer can clone the open-core suite, run a local Docker gateway, and execute <strong>custom adversarial probes, scripts, and synthetic AI agents</strong> against the protocol.",
         btnOpenBm: "Open GitHub Benchmark Suite ↗",
@@ -3406,6 +3591,26 @@
       if (!dd) return;
       const isOpen = dd.classList.toggle('open');
       if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function toggleMobileNav(e) {
+      if (e) e.stopPropagation();
+      const links = document.getElementById('main-nav-links');
+      const btn = document.getElementById('mobile-nav-btn');
+      if (!links || !btn) return;
+      const isOpen = links.classList.toggle('active');
+      btn.classList.toggle('active', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function closeMobileNav() {
+      const links = document.getElementById('main-nav-links');
+      const btn = document.getElementById('mobile-nav-btn');
+      if (links) links.classList.remove('active');
+      if (btn) {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
     }
 
     function selectLanguage(lang, e) {
@@ -3423,6 +3628,13 @@
         dd.classList.remove('open');
         const btn = document.getElementById('lang-dropdown-btn');
         if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+      const navLinks = document.getElementById('main-nav-links');
+      const navBtn = document.getElementById('mobile-nav-btn');
+      if (navLinks && navLinks.classList.contains('active')) {
+        if (!navLinks.contains(e.target) && !navBtn.contains(e.target)) {
+          closeMobileNav();
+        }
       }
     });
 
