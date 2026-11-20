@@ -8,8 +8,8 @@
   "active_profile": "STRICT_SOVEREIGN",
   "profiles": {
     "STRICT_SOVEREIGN": {
-      "name": "Максимална Суверенна Защита (Paranoid Lockdown)",
-      "description": "100% забрана за всички AI ботове, скрапери и headless скриптове. Достъп се дава единствено на живи биологични хора (Клас A) с V-Score >= 40.0.",
+      "name": "Strict Sovereign Protection (Paranoid Lockdown)",
+      "description": "100% hard quarantine against all autonomous AI bots, scrapers, and headless runners. Access exclusive to verified biological humans (Class A) with V-Score >= 40.0.",
       "allow_unknown_bots": false,
       "allow_class_b_partners": false,
       "quarantine_action": "HTTP_403_INSTANT_DROP",
@@ -19,8 +19,8 @@
       "rate_limit_burst_per_min": 15
     },
     "ENTERPRISE_BALANCED": {
-      "name": "Корпоративен Балансиран Режим (Стандартен за Бизнеса)",
-      "description": "Пълен Zero-Friction достъп за живи хора. Ботове се допускат САМО след верификация на Клас B токен с посочен Човек-Оператор по чл. 14 от EU AI Act. Всички останали ботове се блокират.",
+      "name": "Enterprise Balanced Mode (Commercial Standard)",
+      "description": "Zero-friction access for biological humans. Autonomous AI agents admitted strictly with cryptographic Class B token paired with verified Human Operator under EU AI Act Article 14. All uncertified bots quarantined.",
       "allow_unknown_bots": false,
       "allow_class_b_partners": true,
       "quarantine_action": "TARPIT_DEFLECTION_OR_CHALLENGE",
@@ -35,8 +35,8 @@
       }
     },
     "OPEN_ACADEMIC_RESEARCH": {
-      "name": "Отворен Академичен & Търсачки Режим",
-      "description": "Позволява официални търсачки (Google, Bing) и университетски изследователски ботове в публичните директории. Защитава чувствителните раздели (патенти, бази данни) зад WCSSTP SeaSick бариера.",
+      "name": "Open Academic & Search Crawler Mode",
+      "description": "Permits accredited search engines (Google, Bing) and academic research agents on public routes. Confidentially shields sensitive patent, legal, and core directories behind somatic SeaSick barriers.",
       "allow_unknown_bots": false,
       "allow_class_b_partners": true,
       "whitelisted_search_crawlers": ["Googlebot", "Bingbot"],
