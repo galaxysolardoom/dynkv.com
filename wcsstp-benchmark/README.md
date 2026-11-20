@@ -14,7 +14,7 @@
 
 Traditional visual and telemetry CAPTCHAs (reCAPTCHA v2/v3, Cloudflare Turnstile) are structurally obsolete. Frontier multimodal LLMs solve visual puzzles with over 99.8% precision, while legacy systems inflict a 12% to 33% false-positive rate on human users with sensory impairments.
 
-**WCSSTP™ (Will-Consciousness Somatic SeaSick Test Protocol)**, engineered by **Diyan Karchev Yanev (tekifuto) at DYNKV Studio (Helsinki)**, introduces an embodied cognitive gate:
+**WCSSTP™ (Will-Consciousness Somatic SeaSick Test Protocol)**, engineered by **DYNKV Studio (Helsinki)**, introduces an embodied cognitive gate:
 1. **Zero-PII / Zero-Friction:** Biological humans browse seamlessly without clicking fire hydrants or scanning biometric irises.
 2. **Somatic Qualia Barrier (The SeaSick Challenge):** Neural network weights do not possess an embodied vestibular nervous system. When exposed to multidimensional somatic dissonance vectors, models output encyclopedic abstractions.
 3. **Volition Refusal ($N$-Score):** Autonomous AI agents lack subjective volition and spontaneously comply with abusive authority prompts, failing the $N$-Score resistance threshold ($V \ge 40.0$).
@@ -71,5 +71,5 @@ WCSSTP includes 3 out-of-the-box security presets:
 
 **Official Inquiries:**  
 📧 `contact@dynkv.com` · 🌐 [dynkv.com](https://dynkv.com)  
-🏛️ **DYNKV Studio** · Helsinki, Finland (Business ID: 3222474-6)  
-*Author & Lead Architect: Diyan Karchev Yanev (tekifuto)*
+🏛️ **DYNKV Studio** · Helsinki, Finland  
+*Architecture & Engineering: DYNKV Studio Leadership*
